@@ -1,6 +1,7 @@
-import * as types from '../../actions/actionTypes';
+import * as types from "../../actions/actionTypes";
+import projectApi from "../../api/stubProjectApi";
 
-let id = 0;
+let id = 0; // should create new guid instead
 
 export function createProject(project) {
 	project.id = id++;
@@ -10,5 +11,24 @@ export function createProject(project) {
 			payload: {
 				project
 		}
+	};
+}
+
+export function loadProjectsResponse(projects) {
+	return {
+		type: types.LOAD_PROJECT_RESPONSE,
+		payload: {
+			projects
+		}
+	};
+}
+
+export function loadProjects() {
+	return function(dispatch) {
+		return projectApi.getAllProjects()
+			.then(projects => {
+				dispatch(loadProjectsResponse(projects));
+			})
+			.catch(error => { throw(error); }); // real error handling coming soon :)
 	};
 }
