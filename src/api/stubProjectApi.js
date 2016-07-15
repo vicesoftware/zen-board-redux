@@ -9,7 +9,6 @@ const projects = [
 		id: "8736fa7d-9563-41f9-982e-603e7fedd94b",
 		name: "Bottle Opener"
 	},
-	,
 	{
 		id: "a6f7edaa-e0ba-4457-b5ca-a50f5dfc881a",
 		name: "Beach Chair"
