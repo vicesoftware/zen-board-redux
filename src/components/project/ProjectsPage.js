@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as projectActions from "./projectActions";
+import ProjectList from './ProjectList';
 
 class ProjectsPage extends React.Component {
 	constructor(props, context) {
@@ -10,15 +11,13 @@ class ProjectsPage extends React.Component {
 		props.actions.loadProjects();
 	}
 
-	toProjectRow(project) {
-		return <div key={project.id}>{project.name}</div>;
-	}
-
 	render() {
-		return (<div>
+		const {projects, isBusy} = this.props;
+
+		return (
+			<div>
 				<h1>Projects</h1>
-				{this.props.projects.length > 1 && this.props.projects.map(this.toProjectRow)}
-				{!this.props.projects.length && <h4>Loading...</h4>}
+				<ProjectList projects={projects} isBusy={isBusy}/>
 			</div>
 		);
 	}
@@ -31,7 +30,8 @@ ProjectsPage.propTypes = {
 
 function mapStateToProps(state) {
 	return {
-		projects: state.projects
+		projects: state.projects,
+		isBusy: state.numberOfAjaxCallsInProgress > 0
 	};
 }
 

@@ -1,6 +1,7 @@
 import * as types from "../../actions/actionTypes";
+import initialState from "../../reducers/initialState";
 
-export default function projectReducer(state = [], action) {
+export default function projectReducer(state = initialState.projects, action) {
 	switch(action.type) {
 		case types.CREATE_PROJECT:
 			return [...state,

@@ -1,5 +1,6 @@
 import * as types from "../../actions/actionTypes";
 import projectApi from "../../api/stubProjectApi";
+import {beginAjaxCall} from "../app/ajaxStatusActions";
 
 let id = 0; // should create new guid instead
 
@@ -25,6 +26,7 @@ export function loadProjectsResponse(projects) {
 
 export function loadProjects() {
 	return function(dispatch) {
+		dispatch(beginAjaxCall());
 		return projectApi.getAllProjects()
 			.then(projects => {
 				dispatch(loadProjectsResponse(projects));

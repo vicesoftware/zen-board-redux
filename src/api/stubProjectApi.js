@@ -3,15 +3,42 @@ import delay from './delay';
 const projects = [
 	{
 		id: "04d1a05f-d511-45a6-8fe1-544224ea5657",
-		name: "Bar Stool"
+		name: "Bar Stool",
+		members: [
+			{
+				username: "ashishs"
+			},
+			{
+				username: "prashantht"
+			}
+		]
 	},
 	{
 		id: "8736fa7d-9563-41f9-982e-603e7fedd94b",
-		name: "Bottle Opener"
+		name: "Bottle Opener",
+		members: [
+			{
+				username: "henryg"
+			},
+			{
+				username: "hvice"
+			}
+		]
 	},
 	{
 		id: "a6f7edaa-e0ba-4457-b5ca-a50f5dfc881a",
-		name: "Beach Chair"
+		name: "Beach Chair",
+		members: [
+			{
+				username: "henryg"
+			},
+			{
+				username: "benr"
+			},
+			{
+				username: "ashishb"
+			}
+		]
 	}
 ];
 
