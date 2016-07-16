@@ -1,10 +1,10 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes} from "react";
+import FormElement from "./FormElement";
+import inputPropTypes from "./inputPropTypes";
 
-const TextInput = (name, label, placeholder, value, onChange, error) => {
-	const formGroupClass = "form-group" + (error & "  has-error");
+const TextInput = ({name, label, placeholder, value, onChange, errors}) => {
 	return (
-		<div className={formGroupClass}>
-			<label htmlFor={name}>{label}</label>
+    <FormElement label={label} errors={errors} name={name}>
 			<input
 				type="Text"
 				name={name}
@@ -12,18 +12,10 @@ const TextInput = (name, label, placeholder, value, onChange, error) => {
 				placeholder={placeholder}
 				value={value}
 				onChange={onChange}/>
-			
-		</div>
+		</FormElement>
 	);
-}
-
-TextInput.propTypes = {
-	name: PropTypes.string.isRequired,
-	label: PropTypes.string.isRequired,
-	placeholder: PropTypes.string,
-	value: PropTypes.string.isRequired,
-	onChange: PropTypes.function.isRequired,
-	error: PropTypes.string
 };
+
+TextInput.propTypes = inputPropTypes;
 
 export default TextInput;

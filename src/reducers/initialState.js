@@ -1,4 +1,5 @@
 export default {
 	projects: [],
-	numberOfAjaxCallsInProgress: 0
+	numberOfAjaxCallsInProgress: 0,
+  users: []
 };

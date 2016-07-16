@@ -1,5 +1,6 @@
 import React, {PropTypes} from "react";
 import ProjectListRow from "./ProjectListRow";
+import BusyIndicator from "../common/BusyIndicator";
 
 const ProjectList = ({projects, isBusy, deleteProject}) => {
 	console.log("isBusy: ", isBusy);
@@ -14,14 +15,14 @@ const ProjectList = ({projects, isBusy, deleteProject}) => {
 				</tr>
 				</thead>
 				<tbody>
-				{projects.length > 1
+				{!isBusy &&projects.length > 1
 					&& projects.map(project =>
 							<ProjectListRow key={project.id} project={project}/>
 						)
 				}
 				</tbody>
 			</table>
-			{isBusy && <h4>Loading...</h4>}
+			{isBusy && <h4><BusyIndicator/></h4>}
 		</div>
 	);
 };

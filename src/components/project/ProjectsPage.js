@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as projectActions from "./projectActions";
 import ProjectList from './ProjectList';
+import Page from "../common/Page";
 
 class ProjectsPage extends React.Component {
 	constructor(props, context) {
@@ -15,10 +16,9 @@ class ProjectsPage extends React.Component {
 		const {projects, isBusy} = this.props;
 
 		return (
-			<div>
-				<h1>Projects</h1>
-				<ProjectList projects={projects} isBusy={isBusy}/>
-			</div>
+			<Page title="Projects" isBusy={isBusy}>
+				<ProjectList projects={projects} />
+			</Page>
 		);
 	}
 }
