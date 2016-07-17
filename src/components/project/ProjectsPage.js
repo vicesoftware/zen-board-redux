@@ -8,9 +8,11 @@ import Page from "../common/Page";
 class ProjectsPage extends React.Component {
 	constructor(props, context) {
 		super(props, context);
-
-		props.actions.loadProjects();
 	}
+
+  componentWillMount() {
+    this.props.actions.loadProjects();
+  }
 
 	render() {
 		const {projects, isBusy} = this.props;

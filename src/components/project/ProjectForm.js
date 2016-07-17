@@ -22,7 +22,6 @@ const ProjectForm = ({project, onSave, onChange, loading, errors, users}) => {
 };
 
 ProjectForm.propTypes = {
-  // project, onSave, onChange, loading, errors
   project: PropTypes.object.isRequired,
   // onSave: PropTypes.func.isRequired,
   // onChange: PropTypes.func.isRequired,

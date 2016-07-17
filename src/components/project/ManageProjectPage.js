@@ -14,8 +14,10 @@ class ManageProjectPage extends React.Component {
       project: Object.assign({}, props.project),
       errors: undefined
     };
+  }
 
-    props.actions.loadUsers();
+  componentWillMount() {
+    this.props.actions.loadUsers();
   }
 
   render() {
