@@ -3,8 +3,6 @@ import ProjectListRow from "./ProjectListRow";
 import BusyIndicator from "../common/BusyIndicator";
 
 const ProjectList = ({projects, isBusy, deleteProject}) => {
-	console.log("isBusy: ", isBusy);
-
 	return (
 		<div>
 			<table className="table">
