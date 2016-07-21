@@ -6,7 +6,7 @@ class App extends React.Component {
 		return (
 			<div className="container-fluid">
 				<Header/>
-				<div className="client-area">
+				<div className="client-area container">
 					{this.props.children}
 				</div>
 			</div>

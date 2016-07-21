@@ -20,7 +20,7 @@ const ProjectList = ({projects, isBusy, deleteProject}) => {
 				}
 				</tbody>
 			</table>
-			{isBusy && <h4><BusyIndicator/></h4>}
+			{isBusy && <BusyIndicator/>}
 		</div>
 	);
 };

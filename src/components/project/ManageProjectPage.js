@@ -14,10 +14,25 @@ class ManageProjectPage extends React.Component {
       project: Object.assign({}, props.project),
       errors: undefined
     };
+
+    this.updateProjectState = this.updateProjectState.bind(this);
+    this.saveProject = this.saveProject.bind(this);
+
   }
 
   componentWillMount() {
     this.props.actions.loadUsers();
+  }
+
+  updateProjectState(event) {
+    const field = event.target.name;
+    let project = this.state.project;
+    project[field] = event.target.value;
+    return this.setState({project: project});
+  }
+
+  saveProject() {
+    this.props.actions.saveProject(this.state.project);
   }
 
   render() {
@@ -29,7 +44,10 @@ class ManageProjectPage extends React.Component {
         <ProjectForm
           project={project}
           errors={errors}
-          users={users}/>
+          users={users}
+          onChange={this.updateProjectState}
+          onSave={this.saveProject}
+        />
       </Page>
     );
   }
@@ -38,7 +56,8 @@ class ManageProjectPage extends React.Component {
 ManageProjectPage.propTypes = {
   project: PropTypes.object.isRequired,
   users: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  isBusy: PropTypes.bool
 };
 
 function mapStateToProps(state, ownProps) {

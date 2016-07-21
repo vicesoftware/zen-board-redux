@@ -7,12 +7,14 @@ let id = 0; // should create new guid instead
 export function createProject(project) {
 	project.id = id++;
 
-	return {
-		type: types.CREATE_PROJECT,
-			payload: {
-				project
-		}
-	};
+  return function(dispatch) {
+    dispatch(beginAjaxCall());
+    return projectApi.getAllProjects()
+      .then(projects => {
+        dispatch(loadProjectsResponse(projects));
+      })
+      .catch(error => { throw(error); }); // real error handling coming soon :)
+  };
 }
 
 export function loadProjectsResponse(projects) {
@@ -33,4 +35,24 @@ export function loadProjects() {
 			})
 			.catch(error => { throw(error); }); // real error handling coming soon :)
 	};
+}
+
+export function saveProjectsResponse(project) {
+  return {
+    type: types.SAVE_PROJECT_RESPONSE,
+    payload: {
+      project
+    }
+  };
+}
+
+export function saveProject(project) {
+  return function(dispatch) {
+    dispatch(beginAjaxCall());
+    return projectApi.saveProject(project)
+      .then(projects => {
+        dispatch(saveProjectsResponse(project));
+      })
+      .catch(error => { throw(error); }); // real error handling coming soon :)
+  };
 }

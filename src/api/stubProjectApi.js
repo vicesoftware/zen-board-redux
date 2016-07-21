@@ -1,4 +1,5 @@
 import delay from './delay';
+import UUID from 'uuid-js';
 
 const projects = [
 	{
@@ -42,13 +43,9 @@ const projects = [
 	}
 ];
 
-function replaceAll(str, find, replace) {
-	return str.replace(new RegExp(find, 'g'), replace);
-}
-
 //This would be performed on the server in a real app. Just stubbing in.
-const generateId = (project) => {
-	return replaceAll(project.title, ' ', '-');
+const generateId = () => {
+	return UUID.create(1);
 };
 
 class CourseApi {
@@ -60,14 +57,14 @@ class CourseApi {
 		});
 	}
 
-	static saveCourse(project) {
+	static saveProject(project) {
 		project = Object.assign({}, project); // to avoid manipulating object passed in.
 		return new Promise((resolve, reject) => {
 			setTimeout(() => {
 				// Simulate server-side validation
-				const minCourseTitleLength = 1;
-				if (project.title.length < minCourseTitleLength) {
-					reject(`Title must be at least ${minCourseTitleLength} characters.`);
+				const minProjectTitleLength = 1;
+				if (project.title.length < minProjectTitleLength) {
+					reject(`Title must be at least ${minProjectTitleLength} characters.`);
 				}
 
 				if (project.id) {

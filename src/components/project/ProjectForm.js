@@ -2,13 +2,13 @@ import React, {PropTypes} from "react";
 import TextInput from "../common/TextInput";
 import SelectInput from "../common/SelectInput";
 
-const ProjectForm = ({project, onSave, onChange, loading, errors, users}) => {
+const ProjectForm = ({project, onSave, onChange, errors, users}) => {
   return (
     <form>
       <TextInput
         name="name"
         label="Name"
-        value={project.title}
+        value={project.name}
         onChange={onChange}
         error={errors}/>
       <SelectInput
@@ -17,15 +17,16 @@ const ProjectForm = ({project, onSave, onChange, loading, errors, users}) => {
         onChange={onChange}
         error={errors}
         options={users}/>
+      <br/>
+      <button className="btn btn-primary" onClick={onSave}>Save</button>
     </form>
   );
 };
 
 ProjectForm.propTypes = {
   project: PropTypes.object.isRequired,
-  // onSave: PropTypes.func.isRequired,
-  // onChange: PropTypes.func.isRequired,
-  // loading: PropTypes.bool.isRequired,
+  onSave: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   errors: PropTypes.object
 };
 

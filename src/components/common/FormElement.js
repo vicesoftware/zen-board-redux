@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 
-const FormElement = ({name, label, errors, children}) => {
-  const formGroupClass = "form-group" + (errors & "has-error");
+const FormElement = ({name, label, error, children}) => {
+  const formGroupClass = "form-group" + (error & "has-error");
 
 	return (
     <div className={formGroupClass}>
@@ -14,10 +14,9 @@ const FormElement = ({name, label, errors, children}) => {
 FormElement.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  error: PropTypes.string
+  formGroupClass: PropTypes.string,
+  error: PropTypes.string,
+  children: PropTypes.node.isRequired
 };
 
 export default FormElement;
