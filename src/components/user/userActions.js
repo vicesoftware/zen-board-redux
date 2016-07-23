@@ -3,21 +3,21 @@ import userApi from "../../api/stubUserApi";
 import {beginAjaxCall} from "../app/ajaxStatusActions";
 
 
-export function loadUsersResponse(users) {
+export function getUsersResponse(users) {
   return {
-    type: types.LOAD_USER_RESPONSE,
+    type: types.GET_USERS_RESPONSE,
     payload: {
       users
     }
   };
 }
 
-export function loadUsers() {
+export function getUsers() {
   return function(dispatch) {
     dispatch(beginAjaxCall());
     return userApi.getAllUsers()
       .then(user => {
-        dispatch(loadUsersResponse(user));
+        dispatch(getUsersResponse(user));
       })
       .catch(error => { throw(error); }); // real error handling coming soon :)
   };

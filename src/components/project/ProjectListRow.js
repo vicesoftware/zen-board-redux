@@ -5,7 +5,7 @@ import MemberList from "./MemberList";
 const ProjectListRow = ({project}) => {
 	return (
 		<tr>
-			<td><Link to={'/project/' + project.id}>{project.name}</Link></td>
+			<td><Link to={'/projects/' + project.id}>{project.name}</Link></td>
 			<td><MemberList members={project.members}/></td>
 		</tr>
 	);

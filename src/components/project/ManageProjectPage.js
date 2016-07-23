@@ -17,22 +17,32 @@ class ManageProjectPage extends React.Component {
 
     this.updateProjectState = this.updateProjectState.bind(this);
     this.saveProject = this.saveProject.bind(this);
-
   }
 
   componentWillMount() {
-    this.props.actions.loadUsers();
+    this.props.actions.getUsers();
+
+    if (this.props.params.id) {
+      this.props.actions.getProjects({id: this.props.params.id});
+    }
   }
 
   updateProjectState(event) {
     const field = event.target.name;
     let project = this.state.project;
-    project[field] = event.target.value;
+
+    if(field === "members") {
+      project[field] = [{username: event.target.value}];
+    } else {
+      project[field] = event.target.value;
+    }
     return this.setState({project: project});
   }
 
-  saveProject() {
-    this.props.actions.saveProject(this.state.project);
+  saveProject(e) {
+    e.preventDefault();
+    this.props.actions.saveProject(this.state.project)
+      .then(() => this.context.router.push("projects"));
   }
 
   render() {
@@ -61,7 +71,6 @@ ManageProjectPage.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
-  let project = {title: ""};
   const users = state.users.map(
     user => ({
       text: user.firstName + " " + user.lastName,
@@ -69,7 +78,7 @@ function mapStateToProps(state, ownProps) {
     }));
 
   return {
-    project: project,
+    project: state.projects[0] || { name: ""},
     users: users,
     isBusy: state.numberOfAjaxCallsInProgress > 0
   };
@@ -81,5 +90,9 @@ function mapDispatchToProps(dispatch) {
     actions: bindActionCreators(actions, dispatch)
   };
 }
+
+ManageProjectPage.contextTypes = {
+  router: React.PropTypes.func.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManageProjectPage);

@@ -2,36 +2,21 @@ import * as types from "../../actions/actionTypes";
 import projectApi from "../../api/stubProjectApi";
 import {beginAjaxCall} from "../app/ajaxStatusActions";
 
-let id = 0; // should create new guid instead
-
-export function createProject(project) {
-	project.id = id++;
-
-  return function(dispatch) {
-    dispatch(beginAjaxCall());
-    return projectApi.getAllProjects()
-      .then(projects => {
-        dispatch(loadProjectsResponse(projects));
-      })
-      .catch(error => { throw(error); }); // real error handling coming soon :)
-  };
-}
-
-export function loadProjectsResponse(projects) {
+export function getProjectsResponse(projects) {
 	return {
-		type: types.LOAD_PROJECT_RESPONSE,
+		type: types.GET_PROJECT_RESPONSE,
 		payload: {
 			projects
 		}
 	};
 }
 
-export function loadProjects() {
+export function getProjects(by) {
 	return function(dispatch) {
 		dispatch(beginAjaxCall());
-		return projectApi.getAllProjects()
+		return projectApi.getProjects(by)
 			.then(projects => {
-				dispatch(loadProjectsResponse(projects));
+				dispatch(getProjectsResponse(projects));
 			})
 			.catch(error => { throw(error); }); // real error handling coming soon :)
 	};
@@ -53,6 +38,8 @@ export function saveProject(project) {
       .then(projects => {
         dispatch(saveProjectsResponse(project));
       })
-      .catch(error => { throw(error); }); // real error handling coming soon :)
+      .catch(error => {
+		  throw(error);
+      }); // real error handling coming soon :)
   };
 }

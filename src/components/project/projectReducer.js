@@ -11,6 +11,9 @@ export default function projectReducer(state = initialState.projects, action) {
 		case types.LOAD_PROJECT_RESPONSE:
 			return action.payload.projects;
 
+		case types.GET_PROJECT_RESPONSE:
+			return action.payload.projects;
+
 		default:
 			return state;
 	}

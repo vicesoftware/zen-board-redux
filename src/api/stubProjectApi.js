@@ -49,10 +49,18 @@ const generateId = () => {
 };
 
 class CourseApi {
-	static getAllProjects() {
+	static getProjects(by) {
 		return new Promise((resolve, reject) => {
 			setTimeout(() => {
-				resolve(Object.assign([], projects));
+			  var filteredResult = null;
+
+        if (!by) {
+          filteredResult = projects;
+        } else {
+          filteredResult = projects.filter(project => project.id === by.id)
+        }
+
+				resolve(Object.assign([], filteredResult));
 			}, delay);
 		});
 	}
@@ -62,9 +70,9 @@ class CourseApi {
 		return new Promise((resolve, reject) => {
 			setTimeout(() => {
 				// Simulate server-side validation
-				const minProjectTitleLength = 1;
-				if (project.title.length < minProjectTitleLength) {
-					reject(`Title must be at least ${minProjectTitleLength} characters.`);
+				const minProjectNameLength = 1;
+				if (project.name.length < minProjectNameLength) {
+					reject(`Name must be at least ${minProjectNameLength} characters.`);
 				}
 
 				if (project.id) {
@@ -75,7 +83,6 @@ class CourseApi {
 					//The server would generate ids and watchHref's for new projects in a real app.
 					//Cloning so copy returned is passed by value rather than by reference.
 					project.id = generateId(project);
-					project.watchHref = `http://www.pluralsight.com/projects/${project.id}`;
 					projects.push(project);
 				}
 
