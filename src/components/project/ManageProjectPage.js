@@ -74,11 +74,17 @@ function mapStateToProps(state, ownProps) {
   const users = state.users.map(
     user => ({
       text: user.firstName + " " + user.lastName,
-      value: user.id
+      value: user.username
     }));
 
+  let project = { name: ""};
+
+  if (ownProps.params.id) {
+    project = state.projects.filter(p => p.id === ownProps.params.id)[0];
+  }
+
   return {
-    project: state.projects[0] || { name: ""},
+    project: project,
     users: users,
     isBusy: state.numberOfAjaxCallsInProgress > 0
   };

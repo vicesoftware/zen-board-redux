@@ -16,7 +16,8 @@ const ProjectForm = ({project, onSave, onChange, errors, users}) => {
         label="Members"
         onChange={onChange}
         error={errors}
-        options={users}/>
+        options={users}
+        value={project.members && project.members[0].username}/>
       <br/>
       <button className="btn btn-primary" onClick={onSave}>Save</button>
     </form>

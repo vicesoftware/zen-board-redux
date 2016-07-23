@@ -7,7 +7,7 @@ const projects = [
 		name: "Bar Stool",
 		members: [
 			{
-				username: "ashishs"
+				username: "abandi"
 			},
 			{
 				username: "prashantht"
@@ -19,10 +19,10 @@ const projects = [
 		name: "Bottle Opener",
 		members: [
 			{
-				username: "henryg"
+				username: "rvice"
 			},
 			{
-				username: "hvice"
+				username: "prashantht"
 			}
 		]
 	},
@@ -31,13 +31,13 @@ const projects = [
 		name: "Beach Chair",
 		members: [
 			{
-				username: "henryg"
+				username: "abandi"
 			},
 			{
-				username: "benr"
+				username: "rvice"
 			},
 			{
-				username: "ashishb"
+				username: "prashantht"
 			}
 		]
 	}
