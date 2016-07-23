@@ -12,7 +12,7 @@ This will run the automated build process, start up a webserver, and open the ap
 6. **Install [React developer tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) and [Redux Dev Tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)** in Chrome.
 
 ## Patterns Used
-| **Pattern** | **Why** | **Why** |
+| **Pattern** | **Why** | **Where** |
 |----------|-------|-------|
 |ducks| Standardize and simplify pattern for creating actions, reducers and action creators | https://github.com/erikras/ducks-modular-redux |
 |Flux Standard Actions| Standardize action schema | https://github.com/acdlite/flux-standard-action |
