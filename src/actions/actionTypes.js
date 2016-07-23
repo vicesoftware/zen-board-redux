@@ -1,2 +1,0 @@
-export const BEGIN_AJAX_CALL = "BEGIN_AJAX_CALL";
-export const GET_USERS_RESPONSE = "GET_USERS_RESPONSE";

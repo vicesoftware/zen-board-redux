@@ -11,7 +11,14 @@ Note: This architecture is based on [Building Applications in React and Redux in
 This will run the automated build process, start up a webserver, and open the application in your default browser. When doing development with this kit, this command will continue watching files all your files. Every time you hit save the code is rebuilt, linting runs, and tests run automatically. Note: The -s flag is optional. It enables silent mode which suppresses unnecessary messages during the build.
 6. **Install [React developer tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) and [Redux Dev Tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)** in Chrome.
 
-###Production Dependencies
+## Patterns Used
+| **Pattern** | **Why** | **Why** |
+|----------|-------|-------|
+|ducks| Standardize and simplify pattern for creating actions, reducers and action creators | https://github.com/erikras/ducks-modular-redux |
+|Flux Standard Actions| Standardize action schema | https://github.com/acdlite/flux-standard-action |
+
+
+##Production Dependencies
 | **Dependency** | **Use** |
 |----------|-------|
 |babel-polyfill | Polyfill for Babel features that cannot be transpiled |
@@ -26,7 +33,7 @@ This will run the automated build process, start up a webserver, and open the ap
 |redux-thunk|Async redux library|
 |toastr|Display messages to the user|
 
-###Development Dependencies
+##Development Dependencies
 | **Dependency** | **Use** |
 |----------|-------|
 |babel-cli|Babel Command line interface |
@@ -66,12 +73,6 @@ This will run the automated build process, start up a webserver, and open the ap
 |webpack| Bundler with plugin system and integrated development server |
 |webpack-dev-middleware| Adds middleware support to webpack |
 |webpack-hot-middleware| Adds hot reloading to webpack |
-
-## Patterns Used
-| **Pattern** | **Why** | **Why** |
-|----------|-------|-------|
-|ducks| Standardize and simplify pattern for creating actions, reducers and action creators | https://github.com/erikras/ducks-modular-redux |
-|Flux Standard Actions| Standardize action schema | https://github.com/acdlite/flux-standard-action |
 
 ## Having Issues? Try these things first:
 1. Run `npm install` - If you forget to do this, you'll see this: babel-node: command not found.

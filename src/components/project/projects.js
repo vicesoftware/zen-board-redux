@@ -1,23 +1,22 @@
 // This is a duck: https://github.com/erikras/ducks-modular-redux
-import * as types from "../../actions/actionTypes";
 import projectApi from "../../api/stubProjectApi";
-import {beginAjaxCall} from "../app/ajaxStatusActions";
+import {beginAjaxCall} from "../app/ajaxStatus";
 import initialState from "../../reducers/initialState";
 
 // actions
-const GET_PROJECT_RESPONSE = "GET_PROJECT_RESPONSE";
-const CREATE_PROJECT = "CREATE_PROJECT";
-const SAVE_PROJECT_RESPONSE = "SAVE_PROJECT_RESPONSE";
+const GET_RESPONSE = "zen/projects/GET_RESPONSE";
+const CREATE_RESPONSE = "zen/projects/CREATE_RESPONSE";
+const SAVE_RESPONSE = "zen/projects/SAVE_RESPONSE";
 
 // reducer
 export default function reducer(state = initialState.projects, action) {
   switch(action.type) {
-    case CREATE_PROJECT:
+    case CREATE_RESPONSE:
       return [...state,
         Object.assign({}, action.payload.project)
       ];
 
-    case GET_PROJECT_RESPONSE:
+    case GET_RESPONSE:
       return action.payload.projects;
 
     default:
@@ -26,9 +25,9 @@ export default function reducer(state = initialState.projects, action) {
 }
 
 // action creators
-export function getProjectsResponse(projects) {
+function getProjectsResponse(projects) {
   return {
-    type: GET_PROJECT_RESPONSE,
+    type: GET_RESPONSE,
     payload: {
       projects
     }
@@ -46,9 +45,9 @@ export function getProjects(by) {
   };
 }
 
-export function saveProjectsResponse(project) {
+function saveProjectsResponse(project) {
   return {
-    type: SAVE_PROJECT_RESPONSE,
+    type: SAVE_RESPONSE,
     payload: {
       project
     }
