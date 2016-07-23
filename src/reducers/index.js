@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import projects from '../components/project/projectReducer';
+import projects from '../components/project/projects';
 import users from '../components/user/userReducer';
 import numberOfAjaxCallsInProgress from '../components/app/ajaxStatusReducer';
 import { routerReducer } from 'react-router-redux';

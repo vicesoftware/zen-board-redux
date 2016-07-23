@@ -67,6 +67,12 @@ This will run the automated build process, start up a webserver, and open the ap
 |webpack-dev-middleware| Adds middleware support to webpack |
 |webpack-hot-middleware| Adds hot reloading to webpack |
 
+## Patterns Used
+| **Pattern** | **Why** | **Why** |
+|----------|-------|-------|
+|ducks| Standardize and simplify pattern for creating actions, reducers and action creators | https://github.com/erikras/ducks-modular-redux |
+|Flux Standard Actions| Standardize action schema | https://github.com/acdlite/flux-standard-action |
+
 ## Having Issues? Try these things first:
 1. Run `npm install` - If you forget to do this, you'll see this: babel-node: command not found.
 2. Make sure the path doesn't include any spaces. Spaces in path will cause issues on Windows.

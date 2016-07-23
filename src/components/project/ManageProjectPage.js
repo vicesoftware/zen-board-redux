@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import * as projectActions from "./projectActions";
+import * as projectActions from "./projects";
 import * as userActions from "../user/userActions";
 import ProjectForm from "./ProjectForm";
 import Page from "../common/Page";
