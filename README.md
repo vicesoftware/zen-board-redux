@@ -67,6 +67,7 @@ This will run the automated build process, start up a webserver, and open the ap
 |----------|-------|
 |babel-polyfill | Polyfill for Babel features that cannot be transpiled |
 |bootstrap|CSS Framework|
+|bootstrap 4 applicaiton theme|http://themes.getbootstrap.com/apps/downloads/orders/ryan%2540vicesoftware.com/2735013|
 |jquery|Only used to support toastr|
 |react|React library |
 |react-dom|React library for DOM rendering |
