@@ -26,6 +26,7 @@ This project has three purposes:
             - [ ] Auto complete
           - [ ] Checkbox list
           - [ ] Radio Buttons
+        - [ ] Dynamic
     - [ ] Grid
         - [ ] Slick grid based grid with virtual scrolling
     - [ ] Integrate non react\redux third party component
