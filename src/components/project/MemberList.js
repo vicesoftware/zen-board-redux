@@ -1,19 +1,20 @@
 import React, {PropTypes} from "react";
 
 const MemberList = ({members}) => {
-	let result = "";
-
-	for(let i=0;i<members.length;i++) {
-		result += members[i].username;
-		if (i<members.length-1) {
-			result += ", ";
-		}
-	}
-	return <span>{result}</span>;
+  return (
+    <ul className="avatar-list">
+      {members.map(member => (
+          <li key={member.username} className="avatar-list-item">
+            <img className="img-circle" src={member.avatar}/>
+          </li>
+        )
+      )}
+    </ul>
+  );
 };
 
 MemberList.propTypes = {
-	members: PropTypes.array.isRequired
+  members: PropTypes.array.isRequired
 };
 
 export default MemberList;

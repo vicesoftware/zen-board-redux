@@ -21,14 +21,30 @@ class ProjectsPage extends React.Component {
     this.context.router.push("projects/add");
   }
 
+  getProjectRows(projects) {
+    return chunkArray(projects, 3);
+
+    function chunkArray(array, chunk) {
+      let i,j;
+      const tempArray = [];
+
+      for (i=0,j=array.length; i<j; i+=chunk) {
+        tempArray.push(array.slice(i,i+chunk));
+      }
+
+      return tempArray;
+    }
+  }
+
   render() {
-    const {projects, isBusy} = this.props;
+    const {isBusy} = this.props;
+    const projectRows = this.getProjectRows(this.props.projects);
 
     return (
-      <Page title="Projects" isBusy={isBusy}>
+      <Page isBusy={isBusy}>
         <div className="row">
           <div className="col-lg-10">
-            <ProjectList projects={projects}/>
+            <ProjectList projectRows={projectRows}/>
           </div>
           <div className="col-lg-2">
             <button className="btn btn-primary" onClick={this.addProject}>Add</button>

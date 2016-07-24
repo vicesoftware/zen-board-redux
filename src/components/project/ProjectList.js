@@ -2,12 +2,12 @@ import React, {PropTypes} from "react";
 import ProjectListRow from "./ProjectListRow";
 import BusyIndicator from "../common/BusyIndicator";
 
-const ProjectList = ({projects, isBusy, deleteProject}) => {
+const ProjectList = ({projectRows, isBusy, deleteProject}) => {
   return (
     <div>
-      {!isBusy && projects.length > 1
-      && projects.map(project =>
-        <ProjectListRow key={project.id} project={project}/>
+      {!isBusy && projectRows.length > 0
+      && projectRows.map((projectRow, index) =>
+        <ProjectListRow key={index} projectRows={projectRow}/>
         )
       }
       {isBusy && <BusyIndicator/>}

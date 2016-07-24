@@ -11,34 +11,6 @@ class Header extends React.Component {
 
   render() {
     return (
-      // <nav className="navbar navbar-inverse navbar-fixed-top app-navbar">
-      //   <div className="container">
-      //     <div className="navbar-header">
-      //       <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-      //               aria-expanded="false" aria-controls="navbar">
-      //         <span className="sr-only">Toggle navigation</span>
-      //         <span className="icon-bar"></span>
-      //         <span className="icon-bar"></span>
-      //         <span className="icon-bar"></span>
-      //       </button>
-      //       <a className="navbar-brand" href="#"><span className="glyphicon glyphicon-file icon" aria-hidden="true"/>
-      //         Zen Board</a>
-      //     </div>
-      //     <div id="navbar" className="navbar-collapse collapse">
-      //       <ul className="nav navbar-nav">
-      //         <MenuItem
-      //           text="Home"
-      //           linkTo="/"/>
-      //         <MenuItem
-      //           text="Projects"
-      //           linkTo="/projects"/>
-      //         <MenuItem
-      //           text="About"
-      //           linkTo="/about"/>
-      //       </ul>
-      //     </div>
-      //   </div>
-      // </nav>
       <nav className="navbar navbar-inverse navbar-fixed-top app-navbar">
         <div className="container">
           <div className="navbar-header">
@@ -50,7 +22,7 @@ class Header extends React.Component {
               <span className="icon-bar"></span>
             </button>
               <Link className="navbar-brand" to="/">
-                <i class="fa fa-comments-o" aria-hidden="true"></i>Zen Board
+                <i className="fa fa-comments-o" aria-hidden="true"></i>Zen Board
               </Link>
           </div>
           <div className="navbar-collapse collapse" id="navbar-collapse-main">
@@ -73,7 +45,7 @@ class Header extends React.Component {
               <li>
                 <button className="btn btn-default navbar-btn navbar-btn-avitar"
                         data-toggle="popover" data-original-title="" title="">
-                  <img className="img-circle" src="../assets/img/avatar-dhg.png"/>
+                  <img className="img-circle" src="http://adnug.org/Home/wp-content/uploads/2013/04/image002.png"/>
                 </button>
               </li>
             </ul>
