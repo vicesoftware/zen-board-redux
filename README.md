@@ -1,4 +1,47 @@
 # Zen Board
+This project has three purposes:
+
+1. Allow me a significant project to explore React\Redux Stack
+2. Allow me to create an example driven bootstrap project that establishes best practices with a focus on developer ergonomics and proves out the following common UX Application needs
+
+    - [x] Routing with a stateful bootstrap menu
+    - [ ] Async data access patterns
+         - [ ] Promise based
+            - [ ] Pass data between dependent calls
+            - [ ] Parallel calls with busy wait
+            - [ ] Good error handling experience
+            - [ ] Explore reducing boiler plate using https://github.com/agraboso/redux-api-middleware
+         - [x] RxJs based, is this worth it?
+         - [x] Generator based, not worth it. Not ready for prime time due to performance of transpiled generators and learning curve
+    - [ ] Forms
+        - [ ] Establish good pattern for forms with bootstrap
+        - [ ] Establish good pattern for validations with bootstrap
+          - [ ] Field level
+          - [ ] Form level
+        - [ ] Explore all inputs
+          - [ ] Text
+            - [ ] Masked input with placeholder
+          - [ ] Combo box
+            - [ ] Explore this lib https://jedwatson.github.io/react-select/
+            - [ ] Auto complete
+          - [ ] Checkbox list
+          - [ ] Radio Buttons
+    - [ ] Grid
+        - [ ] Slick grid based grid with virtual scrolling
+    - [ ] Integrate non react\redux third party component
+    - [ ] Establish a debugging flow with good ergonomics
+        - [x] Hot Module Replacement, not worth it IMHO. It's unreliable and has you constantly refreshing just in case. I don't trust it so it's of little value to me and I recommend against it
+        - [x] Webpack config allowing for chrome workspaces support so you can edit source in chrome
+        - [x] Redux dev tools support
+        - [ ] Validate flow works with CSS
+    - [ ] Establish Inline CSS best practices
+    - [ ] Should we eliminate all HTML files? i.e. no index.html
+    - [ ] Error handling
+        - [ ] Global error page
+        - [ ] 404 Page
+        - [ ] Inline errors for non-validation errors (or pop up style like toaster)
+    
+3. Maximize time investment and value of project by building a real product as part of the effort. This will give us real requirements to work and potentially create a product that has value in the market.
 
 ## Get Started
 Note: This architecture is based on [Building Applications in React and Redux in ES6](http://www.pluralsight.com/author/cory-house) on Pluralsight
