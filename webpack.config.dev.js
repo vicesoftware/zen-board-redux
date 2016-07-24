@@ -6,7 +6,10 @@ export default {
   devtool: 'inline-source-map',
   noInfo: false,
   entry: [
-    './src/index'
+    './src/index',
+    './lib/bootstrap-admin-theme/doc/assets/js/chart.js',
+    './lib/bootstrap-admin-theme/doc/assets/js/toolkit.js',
+    './lib/bootstrap-admin-theme/doc/assets/js/application.js'
   ],
   target: 'web',
   output: {
