@@ -12,7 +12,8 @@ class ManageProjectPage extends React.Component {
 
     this.state = {
       project: Object.assign({}, props.project),
-      errors: undefined
+      errors: undefined,
+      members: undefined
     };
 
     this.updateProjectState = this.updateProjectState.bind(this);
@@ -28,14 +29,15 @@ class ManageProjectPage extends React.Component {
   }
 
   updateProjectState(event) {
+    if (!event.target) {
+      return this.setState({project: Object.assign({}, this.state.project, {members: event})});
+    }
+
     const field = event.target.name;
     let project = this.state.project;
 
-    if(field === "members") {
-      project[field] = [{username: event.target.value}];
-    } else {
-      project[field] = event.target.value;
-    }
+    project[field] = event.target.value;
+
     return this.setState({project: project});
   }
 
@@ -47,17 +49,20 @@ class ManageProjectPage extends React.Component {
 
   render() {
     const {project, errors} = this.state;
-    const {users, isBusy    } = this.props;
+    const {users, isBusy} = this.props;
 
     return (
-      <Page title="Manage Project" isBusy={isBusy}>
-        <ProjectForm
-          project={project}
-          errors={errors}
-          users={users}
-          onChange={this.updateProjectState}
-          onSave={this.saveProject}
-        />
+      <Page isBusy={isBusy}>
+        <h4 className="text-muted">Add Project</h4>
+        <div className="card card-block">
+          <ProjectForm
+            project={project}
+            errors={errors}
+            users={users}
+            onChange={this.updateProjectState}
+            onSave={this.saveProject}
+          />
+        </div>
       </Page>
     );
   }
@@ -77,7 +82,7 @@ function mapStateToProps(state, ownProps) {
       value: user.username
     }));
 
-  let project = { name: ""};
+  let project = {name: ""};
 
   if (ownProps.params.id) {
     project = state.projects.filter(p => p.id === ownProps.params.id)[0];

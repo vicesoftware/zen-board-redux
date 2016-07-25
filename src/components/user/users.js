@@ -31,7 +31,7 @@ export function getUsersResponse(users) {
 export function getUsers() {
   return function(dispatch) {
     dispatch(beginAjaxCall());
-    return userApi.getAllUsers()
+    return userApi.getUsers()
       .then(user => {
         dispatch(getUsersResponse(user));
       })

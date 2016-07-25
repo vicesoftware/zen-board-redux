@@ -3,15 +3,15 @@ import BusyIndicator from "./BusyIndicator";
 
 const Page = ({title, isBusy, children}) => {
 	return (
-    <div>
-      <h1>{title}</h1>
+    <div className="container">
+      <h3>{title}</h3>
       {isBusy ? <BusyIndicator/> : children }
     </div>
 	);
 };
 
 Page.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   isBusy: PropTypes.bool
 };
 

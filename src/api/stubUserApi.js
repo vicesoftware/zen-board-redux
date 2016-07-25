@@ -33,7 +33,7 @@ const generateId = (user) => {
 };
 
 class UserApi {
-  static getAllUsers() {
+  static getUsers(by) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(Object.assign([], users));

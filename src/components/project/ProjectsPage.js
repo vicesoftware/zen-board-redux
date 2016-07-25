@@ -25,11 +25,11 @@ class ProjectsPage extends React.Component {
     return chunkArray(projects, 3);
 
     function chunkArray(array, chunk) {
-      let i,j;
+      let i, j;
       const tempArray = [];
 
-      for (i=0,j=array.length; i<j; i+=chunk) {
-        tempArray.push(array.slice(i,i+chunk));
+      for (i = 0, j = array.length; i < j; i += chunk) {
+        tempArray.push(array.slice(i, i + chunk));
       }
 
       return tempArray;
@@ -47,7 +47,7 @@ class ProjectsPage extends React.Component {
             <ProjectList projectRows={projectRows}/>
           </div>
           <div className="col-lg-2">
-            <button className="btn btn-primary" onClick={this.addProject}>Add</button>
+            <button className="btn btn-success" onClick={this.addProject}>Add</button>
           </div>
         </div>
       </Page>

@@ -10,6 +10,7 @@ import '../lib/bootstrap-admin-theme/docs/assets/css/application.css';
 import '../lib/bootstrap-admin-theme/dist/toolkit.min.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 import './styles/styles.css';
+import 'react-select/dist/react-select.css';
 
 const store = configureStore();
 

@@ -1,8 +1,10 @@
 import React, {PropTypes} from "react";
 import TextInput from "../common/TextInput";
-import SelectInput from "../common/SelectInput";
+import FormElement from "../common/FormElement";
+import Select from "react-select";
 
 const ProjectForm = ({project, onSave, onChange, errors, users}) => {
+  let usersOptions = users.map(user => ({label: user.text, value: user.value}));
   return (
     <form>
       <TextInput
@@ -11,13 +13,17 @@ const ProjectForm = ({project, onSave, onChange, errors, users}) => {
         value={project.name}
         onChange={onChange}
         error={errors}/>
-      <SelectInput
-        name="members"
-        label="Members"
-        onChange={onChange}
-        error={errors}
-        options={users}
-        value={project.members && project.members[0].username}/>
+      <FormElement name="members" label="Members">
+        <Select
+          name="members"
+          options={usersOptions}
+          multi={true}
+          simpleValue
+          disabled={false}
+          onChange={onChange}
+          value={project.members}/>
+      </FormElement>
+      <br/>
       <br/>
       <button className="btn btn-primary" onClick={onSave}>Save</button>
     </form>
