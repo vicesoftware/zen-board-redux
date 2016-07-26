@@ -1,6 +1,6 @@
 import delay from './delay';
 import UUID from 'uuid-js';
-import userApi from "stubUserApi";
+import userApi from "./stubUserApi";
 
 const projects = [
   {
@@ -8,18 +8,10 @@ const projects = [
     name: "Bar Stool",
     members: [
       {
-        id: "01548079-205a-4367-848c-3a4155ad31a6",
-        firstName: "Ashish",
-        lastName: "Bandi",
-        username: "abandi",
-        avatar: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/2/000/1a8/311/251d8f1.jpg"
+        id: "01548079-205a-4367-848c-3a4155ad31a6"
       },
       {
-        id: "42503252-3979-4df1-afef-c5365a3d542e",
-        firstName: "Prashanth",
-        lastName: "Tondapu",
-        username: "prashantht",
-        avatar: "https://s31.postimg.org/80jro0m6j/prashanth.png"
+        id: "42503252-3979-4df1-afef-c5365a3d542e"
       }
     ]
   },
@@ -28,18 +20,10 @@ const projects = [
     name: "Bottle Opener",
     members: [
       {
-        id: "10c6b17d-583f-459e-bf2f-b8da7ff2b1b9",
-        firstName: "Ryan",
-        lastName: "Vice",
-        username: "rvice",
-        avatar: "http://adnug.org/Home/wp-content/uploads/2012/03/ryan-vice.jpg"
+        id: "10c6b17d-583f-459e-bf2f-b8da7ff2b1b9"
       },
       {
-        id: "42503252-3979-4df1-afef-c5365a3d542e",
-        firstName: "Prashanth",
-        lastName: "Tondapu",
-        username: "prashantht",
-        avatar: "https://s31.postimg.org/80jro0m6j/prashanth.png"
+        id: "42503252-3979-4df1-afef-c5365a3d542e"
       }
     ]
   },
@@ -48,25 +32,13 @@ const projects = [
     name: "Beach Chair",
     members: [
       {
-        id: "01548079-205a-4367-848c-3a4155ad31a6",
-        firstName: "Ashish",
-        lastName: "Bandi",
-        username: "abandi",
-        avatar: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/2/000/1a8/311/251d8f1.jpg"
+        id: "01548079-205a-4367-848c-3a4155ad31a6"
       },
       {
-        id: "10c6b17d-583f-459e-bf2f-b8da7ff2b1b9",
-        firstName: "Ryan",
-        lastName: "Vice",
-        username: "rvice",
-        avatar: "http://adnug.org/Home/wp-content/uploads/2012/03/ryan-vice.jpg"
+        id: "10c6b17d-583f-459e-bf2f-b8da7ff2b1b9"
       },
       {
-        id: "42503252-3979-4df1-afef-c5365a3d542e",
-        firstName: "Prashanth",
-        lastName: "Tondapu",
-        username: "prashantht",
-        avatar: "https://s31.postimg.org/80jro0m6j/prashanth.png"
+        id: "42503252-3979-4df1-afef-c5365a3d542e"
       }
     ]
   }
@@ -81,7 +53,7 @@ class CourseApi {
   static getProjects(by) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        var filteredResult = null;
+        let filteredResult = null;
 
         if (!by) {
           filteredResult = projects;
@@ -89,7 +61,25 @@ class CourseApi {
           filteredResult = projects.filter(project => project.id === by.id)
         }
 
-        resolve(Object.assign([], filteredResult));
+        userApi.getUsers()
+          .then(users => {
+            filteredResult = filteredResult.map(addUsers);
+
+            resolve(Object.assign([], filteredResult));
+
+            function addUsers(result) {
+              return Object.assign({}, result,
+                  { members: result.members.map(mapUsers)}
+                  )
+            };
+
+            function mapUsers(member) {
+              return users.find(user => user.id === member.id)
+            }
+          });
+
+
+
       }, delay);
     });
   }

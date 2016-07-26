@@ -29,12 +29,20 @@ class ManageProjectPage extends React.Component {
   }
 
   updateProjectState(event) {
+    let project = this.state.project;
+
+    // Handle member list changed event
     if (!event.target) {
-      return this.setState({project: Object.assign({}, this.state.project, {members: event})});
+      const members = this.props.users
+            .filter(user => event.includes(user.id));
+      if (members) {
+        return this.setState({
+            project: Object.assign(
+              {}, project, {members: members})});
+      }
     }
 
     const field = event.target.name;
-    let project = this.state.project;
 
     project[field] = event.target.value;
 
@@ -72,16 +80,11 @@ ManageProjectPage.propTypes = {
   project: PropTypes.object.isRequired,
   users: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
-  isBusy: PropTypes.bool
+  isBusy: PropTypes.bool,
+  params: PropTypes.object
 };
 
 function mapStateToProps(state, ownProps) {
-  const users = state.users.map(
-    user => ({
-      text: user.firstName + " " + user.lastName,
-      value: user.username
-    }));
-
   let project = {name: ""};
 
   if (ownProps.params.id) {
@@ -90,7 +93,7 @@ function mapStateToProps(state, ownProps) {
 
   return {
     project: project,
-    users: users,
+    users: state.users,
     isBusy: state.numberOfAjaxCallsInProgress > 0
   };
 }
