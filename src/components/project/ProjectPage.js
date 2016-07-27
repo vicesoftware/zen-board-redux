@@ -2,6 +2,7 @@ import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import * as currentProjectActions from "../currentProject/currentProject";
+import Page from "../common/Page";
 
 class ProjectPage extends React.Component {
   constructor(props, context) {
@@ -17,8 +18,10 @@ class ProjectPage extends React.Component {
   }
 
   render() {
+    const {isBusy} = this.props;
+
     return (
-      <div>
+      <Page isBusy={isBusy}>
         <div className="panel panel-default panel-link-list">
           <div className="panel-body btn-toolbar">
             <button type="button" className="btn btn-xs btn-primary-outline">Tasks</button>
@@ -85,7 +88,7 @@ class ProjectPage extends React.Component {
               </ul>
           </div>
         </div>
-      </div>
+      </Page>
     );
   }
 }
@@ -100,7 +103,8 @@ ProjectPage.contextTypes = {
 
 function mapStateToProps(state) {
   return {
-    project: state.currentProject
+    project: state.currentProject,
+    isBusy: state.numberOfAjaxCallsInProgress > 0
   };
 }
 

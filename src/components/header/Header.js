@@ -61,17 +61,10 @@ class Header extends React.Component {
             </form>
 
             <ul className="nav navbar-nav hidden-sm hidden-md hidden-lg">
-              <li><a href="../index.html">Home</a></li>
-              <li><a href="../profile/index.html">Profile</a></li>
-              <li><a href="../notifications/index.html">Notifications</a></li>
-              <li><a data-toggle="modal" href="#msgModal">Messages</a></li>
-              <li><a href="../docs/index.html">Docs</a></li>
-              <li><a href="#" data-action="growl">Growl</a></li>
               <li><a href="../login/index.html">Logout</a></li>
             </ul>
 
             <ul className="nav navbar-nav hidden">
-              <li><a href="#" data-action="growl">Growl</a></li>
               <li><a href="../login/index.html">Logout</a></li>
             </ul>
           </div>

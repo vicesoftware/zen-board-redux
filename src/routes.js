@@ -1,8 +1,6 @@
 import React from 'react';
 import {Route, IndexRoute} from 'react-router';
 import App from './components/app/App';
-import HomePage from './components/home/HomePage';
-import AboutPage from './components/about/AboutPage';
 import ProjectsPage from './components/project/ProjectsPage';
 import ManageProjectsPage from './components/project/ManageProjectPage';
 import ProjectPage from './components/project/ProjectPage';
@@ -13,6 +11,5 @@ export default (
 		<Route path="projects/add" component={ManageProjectsPage}/>
 		<Route path="projects/edit/:id" component={ManageProjectsPage}/>
 		<Route path="projects/:id" component={ProjectPage}/>
-		<Route path="about" component={AboutPage}/>
 	</Route>
 );
