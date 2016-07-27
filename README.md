@@ -26,6 +26,7 @@ This project has three purposes:
             - [ ] Auto complete
           - [ ] Checkbox list
           - [ ] Radio Buttons
+        - [ ] Dynamic
     - [ ] Grid
         - [ ] Slick grid based grid with virtual scrolling
     - [ ] Integrate non react\redux third party component
@@ -66,6 +67,7 @@ This will run the automated build process, start up a webserver, and open the ap
 |----------|-------|
 |babel-polyfill | Polyfill for Babel features that cannot be transpiled |
 |bootstrap|CSS Framework|
+|bootstrap 4 applicaiton theme|http://themes.getbootstrap.com/apps/downloads/orders/ryan%2540vicesoftware.com/2735013|
 |jquery|Only used to support toastr|
 |react|React library |
 |react-dom|React library for DOM rendering |
@@ -122,3 +124,43 @@ This will run the automated build process, start up a webserver, and open the ap
 2. Make sure the path doesn't include any spaces. Spaces in path will cause issues on Windows.
 3. Use Node 5.11.1 if on Windows. Node 6 has issues on some Windows machines.
 4. Don't run the project from a symbolic link. It will cause issues with file watches.
+
+## Requirements
+It's a task\process managment tool optomized for users who's workflows revolve around
+
+### Features
+
+1. Conversations with important elements similar to stackoverflow 
+  a. example: Get approval from CEO and CFO for a design
+2. Actionable conversations
+  a. example: After discussing viability of a client need the conversation becomes actionable and can be assinged to resources and tracked through task managment process.
+3. Custom task management process similar to Trello
+4. Support tasks with due dates 
+  a. that are relative to process milestones
+  b. that are absolute
+5. Support notifications
+6. Support versioned file uploads that can be organized around tasks and conversations and support easy sharing with others
+  a. example: Allow user to discuss requirements with client, turn those requirements into a task and then attach the files that are delievrerables to that task and then allow the user to easily share those files with 3rd party vendors (example send photos to be printed, send engineering diagrams to manufactures for bids, etc...)
+7. Have a calendar
+8. Have a file list
+
+### Mockups
+Below are the mock ups for this product.
+
+#### Projects
+![Projects](https://vicesoftware.mybalsamiq.com/mockups/3762032.png?key=da0d42b133210226af3be39ba3b44f68b4efd055)
+
+#### Tasks
+![Tasks](https://vicesoftware.mybalsamiq.com/mockups/3762053.png?key=3c9813338ae229dfaf5caad7d3f2c6b0d69d8029)
+
+#### Task
+![Task](https://vicesoftware.mybalsamiq.com/mockups/3762070.png?key=04b76104443847abcf375162dbb47465411f8116)
+
+#### Discussions
+![Discussions](https://vicesoftware.mybalsamiq.com/mockups/3764954.png?key=8771f3b9f91e2139efead8a196a23fa3352ca58e)
+
+#### Files
+![Files](https://vicesoftware.mybalsamiq.com/mockups/3813935.png?key=02001b769c03afcd28f8ac2af4389ef064236d2c)
+
+#### Calendar
+![Calendar](https://vicesoftware.mybalsamiq.com/mockups/3820494.png?key=af5fef1381aa8ffe7cbc28abfc260205ed64fc96)
