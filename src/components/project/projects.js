@@ -7,6 +7,7 @@ import initialState from "../../reducers/initialState";
 const GET_RESPONSE = "zen/projects/GET_RESPONSE";
 const CREATE_RESPONSE = "zen/projects/CREATE_RESPONSE";
 const SAVE_RESPONSE = "zen/projects/SAVE_RESPONSE";
+const DELETE_RESPONSE = "zen/projects/DELETE_RESPONSE";
 
 // reducer
 export default function reducer(state = initialState.projects, action) {
@@ -60,6 +61,28 @@ export function saveProject(project) {
     return projectApi.saveProject(project)
       .then(projects => {
         dispatch(saveProjectsResponse(project));
+      })
+      .catch(error => {
+        throw(error);
+      }); // real error handling coming soon :)
+  };
+}
+
+function deleteProjectsResponse(project) {
+  return {
+    type: DELETE_RESPONSE,
+    payload: {
+      project
+    }
+  };
+}
+
+export function deleteProject(projectId) {
+  return function(dispatch) {
+    dispatch(beginAjaxCall());
+    return projectApi.deleteProject(projectId)
+      .then(projects => {
+        dispatch(deleteProjectsResponse());
       })
       .catch(error => {
         throw(error);

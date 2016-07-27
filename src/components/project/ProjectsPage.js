@@ -10,6 +10,7 @@ class ProjectsPage extends React.Component {
     super(props, context);
 
     this.addProject = this.addProject.bind(this);
+    this.deleteProject = this.deleteProject.bind(this);
   }
 
   componentWillMount() {
@@ -19,6 +20,11 @@ class ProjectsPage extends React.Component {
   addProject(e) {
     e.preventDefault();
     this.context.router.push("projects/add");
+  }
+
+  deleteProject(projectId) {
+    this.props.actions.deleteProject(projectId)
+      .then(() => this.props.actions.getProjects())
   }
 
   getProjectRows(projects) {
@@ -37,17 +43,24 @@ class ProjectsPage extends React.Component {
   }
 
   render() {
-    const {isBusy} = this.props;
+    const {isBusy, actions} = this.props;
     const projectRows = this.getProjectRows(this.props.projects);
 
     return (
       <Page isBusy={isBusy}>
         <div className="row">
           <div className="col-lg-10">
-            <ProjectList projectRows={projectRows}/>
+            <ProjectList
+              projectRows={projectRows}
+              onDeleteProject={this.deleteProject}/>
           </div>
-          <div className="col-lg-2">
-            <button className="btn btn-success" onClick={this.addProject}>Add</button>
+          <div className="col-lg-2 ">
+            <button
+              className="btn btn-success btn-sm"
+              onClick={this.addProject}
+              title="Add project">
+              <span className="icon icon-plus"/>
+            </button>
           </div>
         </div>
       </Page>

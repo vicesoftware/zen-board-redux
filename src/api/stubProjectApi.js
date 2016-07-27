@@ -58,7 +58,7 @@ class CourseApi {
         if (!by) {
           filteredResult = projects;
         } else {
-          filteredResult = projects.filter(project => project.id === by.id)
+          filteredResult = projects.filter(project => project.id === by.id);
         }
 
         userApi.getUsers()
@@ -70,11 +70,11 @@ class CourseApi {
             function addUsers(result) {
               return Object.assign({}, result,
                   { members: result.members.map(mapUsers)}
-                  )
-            };
+                  );
+            }
 
             function mapUsers(member) {
-              return users.find(user => user.id === member.id)
+              return users.find(user => user.id === member.id);
             }
           });
 
@@ -110,13 +110,13 @@ class CourseApi {
     });
   }
 
-  static deleteCourse(projectId) {
+  static deleteProject(projectId) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const indexOfCourseToDelete = projects.findIndex(project => {
+        const indexOfProjectToDelete = projects.findIndex(project => {
           project.projectId == projectId;
         });
-        projects.splice(indexOfCourseToDelete, 1);
+        projects.splice(indexOfProjectToDelete, 1);
         resolve();
       }, delay);
     });

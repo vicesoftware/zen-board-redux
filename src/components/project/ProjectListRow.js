@@ -1,10 +1,11 @@
 import React, {PropTypes} from "react";
 import ProjectCard from "./ProjectCard";
 
-const ProjectListRow = ({projectRows}) => {
+const ProjectListRow = ({projectRows, onDeleteProject}) => {
   return (
     <div className="row">
-      {projectRows.map(project => <ProjectCard project={project}/>)}
+      {projectRows.map(
+        project => <ProjectCard project={project} onDeleteProject={onDeleteProject}/>)}
     </div>
   );
 };

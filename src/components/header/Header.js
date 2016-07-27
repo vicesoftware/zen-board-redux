@@ -10,9 +10,11 @@ class Header extends React.Component {
   }
 
   render() {
+    // const {currentProject} = this.props.currentProject;
+
     return (
       <nav className="navbar navbar-inverse navbar-fixed-top app-navbar">
-        <div className="container">
+        <div className="container-fluid">
           <div className="navbar-header">
             <button type="button" className="navbar-toggle collapsed"
                     data-toggle="collapse" data-target="#navbar-collapse-main">
@@ -28,12 +30,13 @@ class Header extends React.Component {
           <div className="navbar-collapse collapse" id="navbar-collapse-main">
 
             <ul className="nav navbar-nav hidden-xs">
-                <MenuItem
-                  text="Projects"
-                  linkTo="/projects"/>
-                <MenuItem
-                  text="About"
-                  linkTo="/about"/>
+              {this.props.currentProject &&
+                <li className="navbar-item">
+                  <p className="navbar-text font-weight-bold">
+                    {this.props.currentProject.name}
+                  </p>
+                </li>
+              }
             </ul>
 
             <ul className="nav navbar-nav navbar-right m-r-0 hidden-xs">
@@ -78,4 +81,10 @@ class Header extends React.Component {
   }
 }
 
-export default connect()(Header);
+function mapStateToProps(state) {
+  return {
+    currentProject: state.currentProject
+  };
+}
+
+export default connect(mapStateToProps)(Header);
