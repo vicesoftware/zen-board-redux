@@ -59,7 +59,7 @@ class ProjectsPage extends React.Component {
               className="btn btn-success btn-sm"
               onClick={this.addProject}
               title="Add project">
-              <span className="icon icon-plus"/>
+              <i className="fa fa-plus" aria-hidden="true"></i>
             </button>
           </div>
         </div>

@@ -1,7 +1,6 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
-import MenuItem from "./MenuItem";
-import { Link } from 'react-router';
+import {Link} from 'react-router';
 
 class Header extends React.Component {
   constructor(props, context) {
@@ -11,6 +10,9 @@ class Header extends React.Component {
 
   render() {
     // const {currentProject} = this.props.currentProject;
+    const pageTitle = (this.props.currentProject.name) ?
+      this.props.currentProject.name :
+      "Your Projects";
 
     return (
       <nav className="navbar navbar-inverse navbar-fixed-top app-navbar">
@@ -23,20 +25,18 @@ class Header extends React.Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-              <Link className="navbar-brand" to="/">
-                <i className="fa fa-comments-o" aria-hidden="true"></i>Zen Board
-              </Link>
+            <Link className="navbar-brand" to="/">
+              <i className="fa fa-comments-o" aria-hidden="true"></i>Zen Board
+            </Link>
           </div>
           <div className="navbar-collapse collapse" id="navbar-collapse-main">
 
             <ul className="nav navbar-nav hidden-xs">
-              {this.props.currentProject &&
-                <li className="navbar-item">
-                  <p className="navbar-text font-weight-bold">
-                    {this.props.currentProject.name}
-                  </p>
-                </li>
-              }
+              <li className="navbar-item">
+                <p className="navbar-text font-weight-bold">
+                  {pageTitle}
+                </p>
+              </li>
             </ul>
 
             <ul className="nav navbar-nav navbar-right m-r-0 hidden-xs">
@@ -79,5 +79,10 @@ function mapStateToProps(state) {
     currentProject: state.currentProject
   };
 }
+
+Header.propTypes = {
+  currentProject: PropTypes.object
+};
+
 
 export default connect(mapStateToProps)(Header);
