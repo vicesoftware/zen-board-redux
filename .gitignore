@@ -28,6 +28,7 @@ node_modules
 
 #dist folder
 dist
+!lib/bootstrap-admin-theme/dist
 
 #Webstorm metadata
 .idea
