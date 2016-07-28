@@ -1,12 +1,11 @@
 // This is a duck: https://github.com/erikras/ducks-modular-redux
-import projectApi from "../../api/stubProjectApi";
-import {incrementBusyCount, decrementBusyCount} from "../app/busyStatus";
-import initialState from "../../reducers/initialState";
+import projectApi from "../api/stubProjectApi";
+import {incrementBusyCount, decrementBusyCount} from "./busyStatusReducer";
+import initialState from "./initialState";
 
 // actions
 const GET = "zen/projects/GET";
 const CREATE = "zen/projects/CREATE";
-const SAVE = "zen/projects/SAVE";
 const DELETE = "zen/projects/DELETE";
 
 // reducer
@@ -23,19 +22,6 @@ export default function reducer(state = initialState.projects, action) {
     case DELETE:
       return [...state.filter(project => project.id != action.payload.projectId)];
 
-    case SAVE: {
-      const index = state.findIndex(project => project.id === action.payload.id);
-      const notFound = -1;
-
-      if (index === notFound) {
-        return [...state, action.payload.project];
-      } else {
-        return [...state.slice(0, index - 1),
-          action.payload.project,
-          ...state.slice(index + 1)];
-      }
-    }
-
     default:
       return state;
   }
@@ -51,10 +37,10 @@ function getProjectsResponse(projects) {
   };
 }
 
-export function getProjects(by) {
+export function getProjects() {
   return function (dispatch) {
     dispatch(incrementBusyCount());
-    return projectApi.getProjects(by)
+    return projectApi.getProjects()
       .then(projects => {
         dispatch(decrementBusyCount());
         dispatch(getProjectsResponse(projects));
@@ -65,28 +51,6 @@ export function getProjects(by) {
   };
 }
 
-function saveProjectsResponse(project) {
-  return {
-    type: SAVE,
-    payload: {
-      project
-    }
-  };
-}
-
-export function saveProject(project) {
-  return function (dispatch) {
-    dispatch(incrementBusyCount());
-    return projectApi.saveProject(project)
-      .then(projects => {
-        dispatch(decrementBusyCount());
-        dispatch(saveProjectsResponse(project));
-      })
-      .catch(error => {
-        throw(error);
-      }); // real error handling coming soon :)
-  };
-}
 
 function deleteProjectsResponse(projectId) {
   return {

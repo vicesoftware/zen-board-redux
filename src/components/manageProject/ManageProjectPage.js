@@ -1,8 +1,8 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import * as projectActions from "./projects";
-import * as userActions from "../user/users";
+import * as projectActions from "../../reducers/projectReducer";
+import * as userActions from "../../reducers/usersReducer";
 import ProjectForm from "./ProjectForm";
 import Page from "../common/Page";
 
@@ -24,7 +24,7 @@ class ManageProjectPage extends React.Component {
     this.props.actions.getUsers();
 
     if (this.props.params.id) {
-      this.props.actions.getProjects({id: this.props.params.id});
+      this.props.actions.getProject(this.props.params.id);
     }
   }
 
@@ -106,7 +106,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 ManageProjectPage.contextTypes = {
-  router: React.PropTypes.func.isRequired
+  router: React.PropTypes.object.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManageProjectPage);

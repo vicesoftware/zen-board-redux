@@ -1,7 +1,7 @@
 import "babel-polyfill"; // can be optomized by only pulling in what you need
 import React from "react";
 import {render} from "react-dom";
-import configureStore from "./store/configureStore";
+import configureStore from "./configureStore";
 import {Provider} from "react-redux";
 import {Router, browserHistory} from "react-router";
 import {syncHistoryWithStore} from "react-router-redux";

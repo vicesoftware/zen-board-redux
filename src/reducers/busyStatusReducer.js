@@ -1,4 +1,4 @@
-import initialState from "../../reducers/initialState";
+import initialState from "./initialState";
 
 // actions
 const INCREMENT_BUSY_COUNT = "zen/ajaxStatus/INCREMENT_BUSY_COUNT";

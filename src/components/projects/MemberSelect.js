@@ -34,7 +34,7 @@ const MemberSelect = ({users, onChange, members}) => {
 MemberSelect.propTypes = {
 	users: PropTypes.array.isRequired,
 	onChange: PropTypes.func.isRequired,
-	members: PropTypes.string.isRequired
+	members: PropTypes.array
 };
 
 export default MemberSelect;

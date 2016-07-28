@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as projectActions from "./projects";
+import * as projectActions from "../../reducers/projectsReducer";
 import ProjectList from './ProjectList';
 import Page from "../common/Page";
 
@@ -70,7 +70,7 @@ class ProjectsPage extends React.Component {
 }
 
 ProjectsPage.contextTypes = {
-  router: React.PropTypes.func.isRequired
+  router: React.PropTypes.object.isRequired
 };
 
 ProjectsPage.propTypes = {

@@ -9,9 +9,9 @@ class Header extends React.Component {
   }
 
   render() {
-    // const {currentProject} = this.props.currentProject;
-    const pageTitle = (this.props.currentProject.name) ?
-      this.props.currentProject.name :
+    // const {project} = this.props.project;
+    const pageTitle = (this.props.project.name) ?
+      this.props.project.name :
       "Your Projects";
 
     return (
@@ -76,12 +76,12 @@ class Header extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    currentProject: state.currentProject
+    project: state.project
   };
 }
 
 Header.propTypes = {
-  currentProject: PropTypes.object
+  project: PropTypes.object
 };
 
 

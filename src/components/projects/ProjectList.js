@@ -19,7 +19,9 @@ const ProjectList = ({projectRows, isBusy, onDeleteProject}) => {
 };
 
 ProjectList.propTypes = {
-  projects: PropTypes.array.isRequired
+  projectRows: PropTypes.array.isRequired,  
+  isBusy: PropTypes.bool,
+  onDeleteProject: PropTypes.func.isRequired
 };
 
 export default ProjectList;

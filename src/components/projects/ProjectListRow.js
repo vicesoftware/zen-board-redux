@@ -5,13 +5,14 @@ const ProjectListRow = ({projectRows, onDeleteProject}) => {
   return (
     <div className="row">
       {projectRows.map(
-        project => <ProjectCard project={project} onDeleteProject={onDeleteProject}/>)}
+        project => <ProjectCard key={project.id} project={project} onDeleteProject={onDeleteProject}/>)}
     </div>
   );
 };
 
 ProjectListRow.propTypes = {
-  project: PropTypes.object.isRequired
+  projectRows: PropTypes.array.isRequired,
+  onDeleteProject: PropTypes.func.isRequired
 };
 
 export default ProjectListRow;
