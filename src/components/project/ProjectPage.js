@@ -104,7 +104,7 @@ ProjectPage.contextTypes = {
 function mapStateToProps(state) {
   return {
     project: state.currentProject,
-    isBusy: state.numberOfAjaxCallsInProgress > 0
+    isBusy: state.busyCount > 0
   };
 }
 

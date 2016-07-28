@@ -14,7 +14,9 @@ class ProjectsPage extends React.Component {
   }
 
   componentWillMount() {
-    this.props.actions.getProjects();
+    if (this.props.projects.length === 0) {
+      this.props.actions.getProjects();
+    }
   }
 
   addProject(e) {
@@ -23,8 +25,7 @@ class ProjectsPage extends React.Component {
   }
 
   deleteProject(projectId) {
-    this.props.actions.deleteProject(projectId)
-      .then(() => this.props.actions.getProjects())
+    this.props.actions.deleteProject(projectId);
   }
 
   getProjectRows(projects) {
@@ -80,7 +81,7 @@ ProjectsPage.propTypes = {
 function mapStateToProps(state) {
   return {
     projects: state.projects,
-    isBusy: state.numberOfAjaxCallsInProgress > 0
+    isBusy: state.busyCount > 0
   };
 }
 

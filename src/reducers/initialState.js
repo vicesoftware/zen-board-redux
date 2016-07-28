@@ -1,6 +1,6 @@
 export default {
 	projects: [],
-	numberOfAjaxCallsInProgress: 0,
+	busyCount: 0,
   users: [],
   currentProject: {}
 };

@@ -1,15 +1,15 @@
 import initialState from "../../reducers/initialState";
 import userApi from "../../api/stubUserApi";
-import {beginAjaxCall} from "../app/ajaxStatus";
+import {incrementBusyCount, decrementBusyCount} from "../app/busyStatus";
 
 // actions
-export const GET_RESPONSE = "zen/users/GET_RESPONSE";
+export const GET = "zen/users/GET";
 
 
 // reducer
 export default function reducer(state = initialState.users, action) {
   switch (action.type) {
-    case GET_RESPONSE: {
+    case GET: {
       return action.payload.users;
     }
 
@@ -21,7 +21,7 @@ export default function reducer(state = initialState.users, action) {
 // action creators
 export function getUsersResponse(users) {
   return {
-    type: GET_RESPONSE,
+    type: GET,
     payload: {
       users
     }
@@ -30,9 +30,10 @@ export function getUsersResponse(users) {
 
 export function getUsers() {
   return function(dispatch) {
-    dispatch(beginAjaxCall());
+    dispatch(incrementBusyCount());
     return userApi.getUsers()
       .then(user => {
+        dispatch(decrementBusyCount())
         dispatch(getUsersResponse(user));
       })
       .catch(error => { throw(error); }); // real error handling coming soon :)

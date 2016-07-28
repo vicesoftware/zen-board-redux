@@ -1,16 +1,16 @@
 // This is a duck: https://github.com/erikras/ducks-modular-redux
 import projectApi from "../../api/stubProjectApi";
-import {beginAjaxCall} from "../app/ajaxStatus";
+import {incrementBusyCount, decrementBusyCount} from "../app/busyStatus";
 import initialState from "../../reducers/initialState";
 
 // actions
-const SET_RESPONSE = "zen/currentProject/SET_RESPONSE";
+const SET = "zen/currentProject/SET";
 
 // reducer
 export default function reducer(state = initialState.currentProject, action) {
   switch (action.type) {
 
-    case SET_RESPONSE:
+    case SET:
       return action.payload.currentProject;
 
     default:
@@ -21,7 +21,7 @@ export default function reducer(state = initialState.currentProject, action) {
 // action creators
 function setCurrentProjectResponse(currentProject) {
   return {
-    type: SET_RESPONSE,
+    type: SET,
     payload: {
       currentProject
     }
@@ -30,11 +30,12 @@ function setCurrentProjectResponse(currentProject) {
 
 export function setCurrentProject(projectId) {
   return function (dispatch) {
-    dispatch(beginAjaxCall());
+    dispatch(incrementBusyCount());
 
     if (projectId) {
       return projectApi.getProjects({id: projectId})
         .then(projects => {
+          dispatch(decrementBusyCount());
           dispatch(setCurrentProjectResponse(projects[0]));
         })
         .catch(error => {
@@ -43,6 +44,7 @@ export function setCurrentProject(projectId) {
     }
 
     return new Promise((resolve, reject) => {
+      dispatch(decrementBusyCount());
       dispatch(setCurrentProjectResponse({}));
       resolve();
     }); // we must return a promise even if we are doing nothing

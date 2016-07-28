@@ -1,13 +1,13 @@
 import {combineReducers} from "redux";
 import projects from "../components/project/projects";
 import users from "../components/user/users";
-import numberOfAjaxCallsInProgress from "../components/app/ajaxStatus";
+import busyCount from "../components/app/busyStatus";
 import currentProject from "../components/currentProject/currentProject";
 import { routerReducer } from "react-router-redux";
 
 const rootReducer = combineReducers({
 	projects,
-	numberOfAjaxCallsInProgress,
+	busyCount,
 	users,
   currentProject,
   routing: routerReducer

@@ -52,7 +52,7 @@ class ManageProjectPage extends React.Component {
   saveProject(e) {
     e.preventDefault();
     this.props.actions.saveProject(this.state.project)
-      .then(() => this.context.router.push("projects"));
+      .then(() => this.context.router.push("/"));
   }
 
   render() {
@@ -94,7 +94,7 @@ function mapStateToProps(state, ownProps) {
   return {
     project: project,
     users: state.users,
-    isBusy: state.numberOfAjaxCallsInProgress > 0
+    isBusy: state.busyCount > 0
   };
 }
 
