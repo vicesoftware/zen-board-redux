@@ -60,7 +60,130 @@ This will run the automated build process, start up a webserver, and open the ap
 |----------|-------|-------|
 |Jack Hsu| Standardize and simplify pattern for creating actions, reducers and action creators | http://jaysoo.ca/2016/02/28/organizing-redux-application/ |
 |Flux Standard Actions| Standardize action schema | https://github.com/acdlite/flux-standard-action |
+|Corey House Pluralsight Course| This is a must watch for anyone working in this code base as it was used as the foundation that this was created from | https://app.pluralsight.com/library/courses/react-redux-react-router-es6/table-of-contents |
 
+## Debugging
+A key focus of this project is improving developer ergonomics and this section outlines some tools that this develoment approach are optomized for.
+
+### Web Storm
+I've tried a few editors and I'm finding that Web Storm has a great React\Redux experience. I find that it requires less configuration than Atom or Sublime as it will auto-detect things for you and ask if you'd like to enable different plugins. For example, it will detect that your Javascript files contain JSX and ask you if you'd like to enable JSX harmony which will give you syntax highlighting and beautification.
+
+#### Live Templates
+This feature allows easily creating templates for code patterns that you repeat often. Below are useful ones for this architecture. To add a template go to ```Preferences => Editor => File and Code Templates``  as shown below and then click the green plus to add a new one.
+
+![image](https://cloud.githubusercontent.com/assets/10080111/17255148/953e3dca-557d-11e6-816d-2145cdefc7be.png)
+
+It's highly recomended that you add the templates that follow and when adding a new file you will see the templates you added as options as shown below. See the Corey House course in patterns section for more details and examples.
+
+![image](https://cloud.githubusercontent.com/assets/10080111/17255352/7bc8d61a-557e-11e6-80bf-626cc9b4afc0.png)
+
+##### React Redux Component
+```
+import React, {PropTypes} from "react";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+
+class $NAME extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+  }
+
+  render() {
+    return (
+    );
+  }
+}
+
+$NAME .propTypes = {
+  // actions: PropTypes.string.isRequired
+};
+
+function mapStateToProps(state) {
+  return {
+
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    // actions: bindActionCreators($NAME Actions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)($NAME);
+```
+
+##### React Redux Reducer
+```
+// This is a duck: https://github.com/erikras/ducks-modular-redux
+import {beginAjaxCall} from "../app/ajaxStatus";
+import initialState from "../../reducers/initialState";
+
+// actions
+const GET_RESPONSE = "zen/$NAME/GET_RESPONSE";
+
+// reducer
+export default function reducer(state = initialState.$NAME, action) {
+  switch(action.type) {
+  
+    case GET_RESPONSE:
+      return action.payload.$NAME;
+  
+    default:
+      return state;
+  }
+}
+
+// action creators
+function get${NAME}Response(projects) {
+  return {
+    type: GET_RESPONSE,
+    payload: {
+      projects
+    }
+  };
+}
+
+export function get${NAME}(by) {
+  return function(dispatch) {
+    dispatch(beginAjaxCall());
+    return projectApi.$NAME(by)
+      .then(projects => {
+        dispatch(get${NAME}Response(projects));
+      })
+      .catch(error => { throw(error); }); // real error handling coming soon :)
+  };
+}
+
+```
+
+##### React Stateless Component
+```
+import React, {PropTypes} from "react";
+
+const $NAME = ({prop1, prop2}) => {
+	return (
+
+	);
+};
+
+${NAME}.propTypes = {
+	// name: PropTypes.string.isRequired
+};
+
+export default $NAME;
+```
+
+##### Component Index File
+```
+import * as actions from "./actions";
+import * as components from "./components";
+import * as constants from "./constants";
+import reducer from "./reducer";
+import * as selectors from "./selectors";
+
+export default { actions, components, constants, reducer, selectors };
+```
 
 ##Production Dependencies
 | **Dependency** | **Use** |
