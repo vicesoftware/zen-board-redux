@@ -1,6 +1,8 @@
 import initialState from "../../reducers/initialState";
 import userApi from "../../api/stubUserApi";
-import {incrementBusyCount, decrementBusyCount} from "../app/busyStatusReducer";
+import app from "../app";
+
+const {incrementBusyCount, decrementBusyCount} = app.actions;
 
 // actions
 export const GET = "users/GET";

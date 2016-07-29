@@ -1,7 +1,7 @@
 import {combineReducers} from "redux";
 import projects from "../components/projects/";
 import users from "../components/users/usersReducer";
-import busyCount from "../components/app/busyStatusReducer";
+import busyCount from "../components/app/reducer";
 import project from "../components/project";
 import {routerReducer} from "react-router-redux";
 

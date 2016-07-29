@@ -1,6 +1,8 @@
 import projectApi from "../../api/stubProjectApi";
-import {incrementBusyCount, decrementBusyCount} from "../app/busyStatusReducer";
+import app from "../app";
 import * as types from "./actionTypes";
+
+const {incrementBusyCount, decrementBusyCount} = app.actions;
 
 function setProjectResponse(project) {
   return {
