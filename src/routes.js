@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, IndexRoute} from 'react-router';
 import App from './components/app/App';
-import ProjectsPage from './components/projects/ProjectsPage';
+import ProjectsPage from './components/projects/components/ProjectsPage';
 import ManageProjectsPage from './components/manageProject/ManageProjectPage';
 import ProjectPage from './components/project/ProjectPage';
 

@@ -58,7 +58,7 @@ This will run the automated build process, start up a webserver, and open the ap
 ## Patterns Used
 | **Pattern** | **Why** | **Where** |
 |----------|-------|-------|
-|ducks| Standardize and simplify pattern for creating actions, reducers and action creators | https://github.com/erikras/ducks-modular-redux |
+|Jack Hsu| Standardize and simplify pattern for creating actions, reducers and action creators | http://jaysoo.ca/2016/02/28/organizing-redux-application/ |
 |Flux Standard Actions| Standardize action schema | https://github.com/acdlite/flux-standard-action |
 
 

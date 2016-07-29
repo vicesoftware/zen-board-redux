@@ -1,8 +1,8 @@
-import initialState from "./initialState";
+import initialState from "../../reducers/initialState";
 
 // actions
-const INCREMENT_BUSY_COUNT = "zen/ajaxStatus/INCREMENT_BUSY_COUNT";
-const DECREMENT_BUSY_COUNT = "zen/ajaxStatus/DECREMENT_BUSY_COUNT";
+const INCREMENT_BUSY_COUNT = "busyStatus/INCREMENT_BUSY_COUNT";
+const DECREMENT_BUSY_COUNT = "busyStatus/DECREMENT_BUSY_COUNT";
 
 
 // reducer

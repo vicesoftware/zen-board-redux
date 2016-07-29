@@ -1,9 +1,9 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as projectActions from "./reducer";
+import * as actions from "../actions";
 import ProjectList from './ProjectList';
-import Page from "../common/Page";
+import Page from "../../common/Page";
 
 class ProjectsPage extends React.Component {
   constructor(props, context) {
@@ -87,7 +87,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(projectActions, dispatch)
+    actions: bindActionCreators(actions, dispatch)
   };
 }
 

@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import * as projectActions from "../../reducers/projectReducer";
+import * as actions from "./actions";
 import Page from "../common/Page";
 
 class ProjectPage extends React.Component {
@@ -10,11 +10,11 @@ class ProjectPage extends React.Component {
   }
 
   componentWillMount() {
-    this.props.actions.setproject(this.props.params.id);
+    this.props.actions.getProject(this.props.params.id);
   }
 
   componentWillUnmount() {
-    this.props.actions.setproject();
+    // this.props.actions.setproject();
   }
 
   render() {
@@ -110,7 +110,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(projectActions, dispatch)
+    actions: bindActionCreators(actions, dispatch)
   };
 }
 

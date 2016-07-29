@@ -1,6 +1,6 @@
 import React, {PropTypes} from "react";
 import ProjectListRow from "./ProjectListRow";
-import BusyIndicator from "../common/BusyIndicator";
+import BusyIndicator from "../../common/BusyIndicator";
 
 const ProjectList = ({projectRows, isBusy, onDeleteProject}) => {
   return (
@@ -19,7 +19,7 @@ const ProjectList = ({projectRows, isBusy, onDeleteProject}) => {
 };
 
 ProjectList.propTypes = {
-  projectRows: PropTypes.array.isRequired,  
+  projectRows: PropTypes.array.isRequired,
   isBusy: PropTypes.bool,
   onDeleteProject: PropTypes.func.isRequired
 };

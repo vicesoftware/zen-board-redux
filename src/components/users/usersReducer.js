@@ -1,9 +1,9 @@
-import initialState from "./initialState";
-import userApi from "../api/stubUserApi";
-import {incrementBusyCount, decrementBusyCount} from "./busyStatusReducer";
+import initialState from "../../reducers/initialState";
+import userApi from "../../api/stubUserApi";
+import {incrementBusyCount, decrementBusyCount} from "../app/busyStatusReducer";
 
 // actions
-export const GET = "zen/users/GET";
+export const GET = "users/GET";
 
 
 // reducer
