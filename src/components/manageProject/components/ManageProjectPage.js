@@ -1,10 +1,10 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import * as projectActions from "../project/reducer";
-import * as userActions from "../users/usersReducer";
+import * as projectActions from "../../project/reducer";
+import * as userActions from "../../users/usersReducer";
 import ProjectForm from "./ProjectForm";
-import Page from "../common/Page";
+import Page from "../../common/Page";
 
 class ManageProjectPage extends React.Component {
   constructor(props, context) {

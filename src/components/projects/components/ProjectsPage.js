@@ -2,8 +2,8 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actions from "../actions";
-import ProjectList from './ProjectList';
-import Page from "../../common/Page";
+import ProjectPageLayout from "./ProjectPageLayout";
+
 
 class ProjectsPage extends React.Component {
   constructor(props, context) {
@@ -48,23 +48,12 @@ class ProjectsPage extends React.Component {
     const projectRows = this.getProjectRows(this.props.projects);
 
     return (
-      <Page isBusy={isBusy}>
-        <div className="row">
-          <div className="col-lg-10">
-            <ProjectList
-              projectRows={projectRows}
-              onDeleteProject={this.deleteProject}/>
-          </div>
-          <div className="col-lg-2 ">
-            <button
-              className="btn btn-success btn-sm"
-              onClick={this.addProject}
-              title="Add project">
-              <i className="fa fa-plus" aria-hidden="true"></i>
-            </button>
-          </div>
-        </div>
-      </Page>
+      <ProjectPageLayout
+        isBusy={isBusy}
+        projectRows={projectRows}
+        onDeleteProject={this.deleteProject}
+        onClick={this.addProject}
+        />
     );
   }
 }
@@ -74,6 +63,7 @@ ProjectsPage.contextTypes = {
 };
 
 ProjectsPage.propTypes = {
+  isBusy: PropTypes.bool,
   actions: PropTypes.object.isRequired,
   projects: PropTypes.array.isRequired
 };
