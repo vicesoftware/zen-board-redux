@@ -1,7 +1,7 @@
 // This is a duck: https://github.com/erikras/ducks-modular-redux
-import projectApi from "../api/stubProjectApi";
-import {incrementBusyCount, decrementBusyCount} from "./busyStatusReducer";
-import initialState from "./initialState";
+import projectApi from "../../api/stubProjectApi";
+import {incrementBusyCount, decrementBusyCount} from "../app/busyStatusReducer";
+import initialState from "../../reducers/initialState";
 
 // actions
 const GET = "zen/projects/GET";
