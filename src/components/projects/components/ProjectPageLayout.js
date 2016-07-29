@@ -28,7 +28,7 @@ ProjectPageLayout.propTypes = {
   isBusy: PropTypes.bool,
   projectRows: PropTypes.array.isRequired,
   deleteProject: PropTypes.func.isRequired,
-  addProject: PropTypes.func.isRequired,
+  addProject: PropTypes.func.isRequired
 };
 
 export default ProjectPageLayout;
