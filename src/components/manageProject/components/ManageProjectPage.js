@@ -1,8 +1,8 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import * as projectActions from "../../project/reducer";
-import * as userActions from "../../users/usersReducer";
+import project from "../../project";
+import users from "../../users";
 import ProjectForm from "./ProjectForm";
 import Page from "../../common/Page";
 
@@ -99,7 +99,9 @@ function mapStateToProps(state, ownProps) {
 }
 
 function mapDispatchToProps(dispatch) {
-  const actions = Object.assign({}, projectActions, userActions);
+  const actions = Object.assign(
+    {}, project.actions, users.actions);
+  
   return {
     actions: bindActionCreators(actions, dispatch)
   };

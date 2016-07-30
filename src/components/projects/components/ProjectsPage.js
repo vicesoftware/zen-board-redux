@@ -52,7 +52,7 @@ class ProjectsPage extends React.Component {
         isBusy={isBusy}
         projectRows={projectRows}
         onDeleteProject={this.deleteProject}
-        onClick={this.addProject}
+        onAddProject={this.addProject}
         />
     );
   }

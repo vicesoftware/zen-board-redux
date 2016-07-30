@@ -1,3 +1,3 @@
 import ManageProjectsPage from "./ManageProjectPage";
 
-export default { ManageProjectsPage };
+export { ManageProjectsPage };

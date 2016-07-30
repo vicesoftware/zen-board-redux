@@ -2,19 +2,19 @@ import React, {PropTypes} from "react";
 import ProjectList from './ProjectList';
 import Page from "../../common/Page";
 
-const ProjectPageLayout = ({isBusy, projectRows, deleteProject, addProject}) => {
+const ProjectPageLayout = ({isBusy, projectRows, onDeleteProject, onAddProject}) => {
   return (
     <Page isBusy={isBusy}>
       <div className="row">
         <div className="col-lg-10">
           <ProjectList
             projectRows={projectRows}
-            onDeleteProject={deleteProject}/>
+            onDeleteProject={onDeleteProject}/>
         </div>
         <div className="col-lg-2 ">
           <button
             className="btn btn-success btn-sm"
-            onClick={addProject}
+            onClick={onAddProject}
             title="Add project">
             <i className="fa fa-plus" aria-hidden="true"></i>
           </button>
@@ -27,8 +27,8 @@ const ProjectPageLayout = ({isBusy, projectRows, deleteProject, addProject}) => 
 ProjectPageLayout.propTypes = {
   isBusy: PropTypes.bool,
   projectRows: PropTypes.array.isRequired,
-  deleteProject: PropTypes.func.isRequired,
-  addProject: PropTypes.func.isRequired
+  onDeleteProject: PropTypes.func.isRequired,
+  onAddProject: PropTypes.func.isRequired
 };
 
 export default ProjectPageLayout;
