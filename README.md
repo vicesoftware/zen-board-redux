@@ -115,46 +115,18 @@ export default connect(mapStateToProps, mapDispatchToProps)($NAME);
 
 ##### React Redux Reducer
 ```
-// This is a duck: https://github.com/erikras/ducks-modular-redux
-import {beginAjaxCall} from "../app/ajaxStatus";
 import initialState from "../../reducers/initialState";
+import * as types from "./actionTypes";
 
-// actions
-const GET_RESPONSE = "zen/$NAME/GET_RESPONSE";
+export default function reducer(state = initialState.myState, action) {
+  switch (action.type) {
+    case types.MY_ACTION:
+      return state;
 
-// reducer
-export default function reducer(state = initialState.$NAME, action) {
-  switch(action.type) {
-  
-    case GET_RESPONSE:
-      return action.payload.$NAME;
-  
     default:
       return state;
   }
 }
-
-// action creators
-function get${NAME}Response(projects) {
-  return {
-    type: GET_RESPONSE,
-    payload: {
-      projects
-    }
-  };
-}
-
-export function get${NAME}(by) {
-  return function(dispatch) {
-    dispatch(beginAjaxCall());
-    return projectApi.$NAME(by)
-      .then(projects => {
-        dispatch(get${NAME}Response(projects));
-      })
-      .catch(error => { throw(error); }); // real error handling coming soon :)
-  };
-}
-
 ```
 
 ##### React Stateless Component
@@ -182,7 +154,13 @@ import * as constants from "./constants";
 import reducer from "./reducer";
 import * as selectors from "./selectors";
 
-export default { actions, components, constants, reducer, selectors };
+export default {
+  actions, 
+  components, 
+  constants, 
+  reducer, 
+  selectors
+};
 ```
 
 ##Production Dependencies
