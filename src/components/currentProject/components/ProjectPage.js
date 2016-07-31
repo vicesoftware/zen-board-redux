@@ -94,7 +94,9 @@ class ProjectPage extends React.Component {
 }
 
 ProjectPage.propTypes = {
-  // actions: PropTypes.string.isRequired
+  actions: PropTypes.object.isRequired,
+  params: PropTypes.object.isRequired,
+  isBusy: PropTypes.bool
 };
 
 ProjectPage.contextTypes = {

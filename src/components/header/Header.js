@@ -9,7 +9,7 @@ class Header extends React.Component {
   }
 
   render() {
-    // const {project} = this.props.project;
+    // const {currentProject} = this.props.currentProject;
     const pageTitle = (this.props.project.name) ?
       this.props.project.name :
       "Your Projects";

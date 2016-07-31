@@ -5,7 +5,13 @@ const ProjectListRow = ({projectRows, onDeleteProject}) => {
   return (
     <div className="row">
       {projectRows.map(
-        project => <ProjectCard key={project.id} project={project} onDeleteProject={onDeleteProject}/>)}
+        project => (
+          <ProjectCard 
+            key={project.id} 
+            project={project} 
+            onDeleteProject={onDeleteProject.bind(null, project.id)}/>
+            )
+        )}
     </div>
   );
 };

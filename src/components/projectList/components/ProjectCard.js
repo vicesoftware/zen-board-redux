@@ -18,7 +18,7 @@ const ProjectCard = ({project, onDeleteProject}) => {
             <Link to={'/projects/edit/' + project.id}>
               <span className="icon icon-pencil" title="Edit"></span>
             </Link>
-            <a href="#" onClick={() => onDeleteProject(project.id)}>
+            <a href="#" onClick={onDeleteProject}>
               <span className="icon icon-trash" title="Delete"></span>
             </a>
           </div>
@@ -29,7 +29,8 @@ const ProjectCard = ({project, onDeleteProject}) => {
 };
 
 ProjectCard.propTypes = {
-  project: PropTypes.object.isRequired
+  project: PropTypes.object.isRequired,
+  onDeleteProject: PropTypes.func.isRequired
 };
 
 export default ProjectCard;
