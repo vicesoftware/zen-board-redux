@@ -3,19 +3,21 @@ import TextInput from "../../common/TextInput";
 import MemberSelect from "../../projectList/components/MemberSelect";
 
 const ProjectForm = ({project, onSave, onChange, errors, users}) => {
+  const name = (project) ? project.name : "";
+  const members = (project) ? project.members : [];
 
   return (
     <form>
       <TextInput
         name="name"
         label="Name"
-        value={project.name}
+        value={name}
         onChange={onChange}
         error={errors}/>
       <MemberSelect
         users={users}
         onChange={onChange}
-        members={project.members}/>
+        members={members}/>
       <br/>
       <br/>
       <button className="btn btn-primary" onClick={onSave}>Save</button>

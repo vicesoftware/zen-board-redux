@@ -1,6 +1,7 @@
 import projectApi from "../../api/stubProjectApi";
 import app from "../app";
 import * as types from "./actionTypes";
+import projectList from "../projectList";
 
 const {incrementBusyCount, decrementBusyCount} = app.actions;
 
@@ -18,6 +19,8 @@ export function openCurrentProject(projectId) {
     dispatch(incrementBusyCount());
 
     if (projectId) {
+
+      // Get project from server
       return projectApi.getProjects({id: projectId})
         .then(projects => {
           dispatch(decrementBusyCount());
@@ -28,33 +31,17 @@ export function openCurrentProject(projectId) {
         }); // real error handling coming soon :)
     }
 
-    return new Promise((resolve, reject) => {
+    // Return an empty project
+    return new Promise((resolve) => {
       dispatch(decrementBusyCount());
-      dispatch(openCurrentProject({}));
+      dispatch(openCurrentProjectResponse({}));
       resolve();
     }); // we must return a promise even if we are doing nothing
   };
 }
 
-function saveProjectsResponse(project) {
+export function closeProject() {
   return {
-    type: types.SAVE,
-    payload: {
-      project
-    }
-  };
-}
-
-export function saveProject(project) {
-  return function (dispatch) {
-    dispatch(incrementBusyCount());
-    return projectApi.saveProject(project)
-      .then(projects => {
-        dispatch(decrementBusyCount());
-        dispatch(saveProjectsResponse(project));
-      })
-      .catch(error => {
-        throw(error);
-      }); // real error handling coming soon :)
+    type: types.CLOSE_PROJECT
   };
 }

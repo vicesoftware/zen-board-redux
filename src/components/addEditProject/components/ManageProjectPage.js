@@ -1,7 +1,9 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
+import _ from "lodash";
 import currentProject from "../../currentProject";
+import projectList from "../../projectList";
 import users from "../../users";
 import ProjectForm from "./ProjectForm";
 import Page from "../../common/Page";
@@ -11,7 +13,7 @@ class ManageProjectPage extends React.Component {
     super(props, context);
 
     this.state = {
-      project: Object.assign({}, props.project),
+      project: {},
       errors: undefined,
       members: undefined
     };
@@ -25,6 +27,14 @@ class ManageProjectPage extends React.Component {
 
     if (this.props.params.id) {
       this.props.actions.openCurrentProject(this.props.params.id);
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (_.isEmpty(this.state.project)
+        && nextProps.project
+        && !_.isEmpty(nextProps.project)) {
+      this.setState({project: Object.assign({}, nextProps.project)});
     }
   }
 
@@ -52,6 +62,7 @@ class ManageProjectPage extends React.Component {
   saveProject(e) {
     e.preventDefault();
     this.props.actions.saveProject(this.state.project)
+      .then(() => this.props.actions.closeProject())
       .then(() => this.context.router.push("/"));
   }
 
@@ -85,14 +96,11 @@ ManageProjectPage.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
-  let project = {name: ""};
-
-  if (ownProps.params.id) {
-    project = state.projectList.filter(p => p.id === ownProps.params.id)[0];
-  }
+  const currentProject = state.currentProject
+    || projectList.selectors.getById(state, ownProps.params.id);
 
   return {
-    project: project,
+    project: currentProject,
     users: state.users,
     isBusy: state.busyCount > 0
   };
@@ -100,7 +108,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   const actions = Object.assign(
-    {}, currentProject.actions, users.actions);
+    {}, currentProject.actions, projectList.actions, users.actions);
 
   return {
     actions: bindActionCreators(actions, dispatch)

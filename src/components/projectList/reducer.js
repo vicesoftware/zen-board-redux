@@ -1,5 +1,7 @@
 import initialState from "../../reducers/initialState";
+import _ from "lodash";
 import * as types from "./actionTypes";
+import addEditProject from "../addEditProject";
 
 export default function reducer(state = initialState.projectList, action) {
   switch (action.type) {
@@ -13,6 +15,24 @@ export default function reducer(state = initialState.projectList, action) {
 
     case types.DELETE:
       return [...state.filter(project => project.id != action.payload.projectId)];
+
+    case types.SAVE: {
+      const notFound = -1;
+      const index
+        = _.findIndex(
+          state,
+          project => project.id === action.payload.savedProject.id
+        );
+
+      if (index === notFound) {
+        return [...state, action.payload.savedProject];
+      }
+
+      return [
+        ...state.slice(0, index), 
+        action.payload.savedProject, 
+        ...state.slice(index + 1)];
+    }
 
     default:
       return state;

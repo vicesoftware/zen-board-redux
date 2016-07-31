@@ -1,31 +1,22 @@
-// This is a duck: https://github.com/erikras/ducks-modular-redux
 import initialState from "../../reducers/initialState";
 import * as types from "./actionTypes";
 
-// reducer
-export default function reducer(state = initialState.project, action) {
+export default function reducer(state = initialState.currentProject, action) {
   switch (action.type) {
 
     case types.OPEN_CURRENT:
       return action.payload.currentProject;
 
     case types.SAVE: {
-      const index = state.findIndex(project => project.id === action.payload.id);
-      const notFound = -1;
+      return action.payload.savedProject;
+    }
 
-      if (index === notFound) {
-        return [...state, action.payload.project];
-      } else {
-        return [...state.slice(0, index - 1),
-          action.payload.project,
-          ...state.slice(index + 1)];
-      }
+    case types.CLOSE_PROJECT: {
+      return initialState.currentProject;
     }
 
     default:
       return state;
   }
 }
-
-// action creators
 

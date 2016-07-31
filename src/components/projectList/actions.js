@@ -50,3 +50,26 @@ export function deleteProject(projectId) {
       }); // real error handling coming soon :)
   };
 }
+
+function saveProjectsResponse(project) {
+  return {
+    type: types.SAVE,
+    payload: {
+      savedProject: project
+    }
+  };
+}
+
+export function saveProject(project) {
+  return function (dispatch) {
+    dispatch(incrementBusyCount());
+    return projectApi.saveProject(project)
+      .then(project => {
+        dispatch(decrementBusyCount());
+        dispatch(saveProjectsResponse(project));
+      })
+      .catch(error => {
+        throw(error);
+      }); // real error handling coming soon :)
+  };
+}
