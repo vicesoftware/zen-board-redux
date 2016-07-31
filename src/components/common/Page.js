@@ -5,14 +5,15 @@ const Page = ({title, isBusy, children}) => {
 	return (
     <div className="container-fluid">
       <h3>{title}</h3>
-      {isBusy ? <BusyIndicator/> : children }
+      {isBusy ? <BusyIndicator/> : children}
     </div>
 	);
 };
 
 Page.propTypes = {
   title: PropTypes.string,
-  isBusy: PropTypes.bool
+  isBusy: PropTypes.bool,
+  children: PropTypes.node.isRequired
 };
 
 export default Page;

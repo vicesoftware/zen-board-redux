@@ -18,7 +18,9 @@ const MenuItem = ({className = "", text, linkTo, path}) => {
 
 MenuItem.propTypes = {
 	text: PropTypes.string.isRequired,
-	linkTo: PropTypes.string.isRequired
+	linkTo: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  path: PropTypes.string.isRequired
 };
 
 function mapStateToProps(state, ownProps) {

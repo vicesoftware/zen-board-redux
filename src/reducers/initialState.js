@@ -1,5 +1,5 @@
 export default {
-	projects: [],
+	projectList: [],
 	busyCount: 0,
   users: [],
   project: {}

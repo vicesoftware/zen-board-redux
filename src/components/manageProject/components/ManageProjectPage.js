@@ -88,7 +88,7 @@ function mapStateToProps(state, ownProps) {
   let project = {name: ""};
 
   if (ownProps.params.id) {
-    project = state.projects.filter(p => p.id === ownProps.params.id)[0];
+    project = state.projectList.filter(p => p.id === ownProps.params.id)[0];
   }
 
   return {
@@ -101,7 +101,7 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
   const actions = Object.assign(
     {}, project.actions, users.actions);
-  
+
   return {
     actions: bindActionCreators(actions, dispatch)
   };

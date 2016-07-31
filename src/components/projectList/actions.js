@@ -4,11 +4,11 @@ import * as types from './actionTypes';
 
 const {incrementBusyCount, decrementBusyCount} = app.actions;
 
-function getProjectsResponse(projects) {
+function getProjectsResponse(projectList) {
   return {
     type: types.GET,
     payload: {
-      projects
+      projectList
     }
   };
 }

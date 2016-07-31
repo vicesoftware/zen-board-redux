@@ -8,6 +8,6 @@ export default {
   actions,
   // components,
   constants,
-  reducer,
+  reducer
   // selectors
 };

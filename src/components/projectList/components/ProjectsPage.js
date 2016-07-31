@@ -14,7 +14,7 @@ class ProjectsPage extends React.Component {
   }
 
   componentWillMount() {
-    if (this.props.projects.length === 0) {
+    if (this.props.projectList.length === 0) {
       this.props.actions.getProjects();
     }
   }
@@ -28,8 +28,8 @@ class ProjectsPage extends React.Component {
     this.props.actions.deleteProject(projectId);
   }
 
-  getProjectRows(projects) {
-    return chunkArray(projects, 3);
+  getProjectRows(projectList) {
+    return chunkArray(projectList, 3);
 
     function chunkArray(array, chunk) {
       let i, j;
@@ -45,7 +45,7 @@ class ProjectsPage extends React.Component {
 
   render() {
     const {isBusy, actions} = this.props;
-    const projectRows = this.getProjectRows(this.props.projects);
+    const projectRows = this.getProjectRows(this.props.projectList);
 
     return (
       <ProjectPageLayout
@@ -65,12 +65,12 @@ ProjectsPage.contextTypes = {
 ProjectsPage.propTypes = {
   isBusy: PropTypes.bool,
   actions: PropTypes.object.isRequired,
-  projects: PropTypes.array.isRequired
+  projectList: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    projects: state.projects,
+    projectList: state.projectList,
     isBusy: state.busyCount > 0
   };
 }

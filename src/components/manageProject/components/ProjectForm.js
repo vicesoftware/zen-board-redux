@@ -1,6 +1,6 @@
 import React, {PropTypes} from "react";
 import TextInput from "../../common/TextInput";
-import MemberSelect from "../../projects/components/MemberSelect";
+import MemberSelect from "../../projectList/components/MemberSelect";
 
 const ProjectForm = ({project, onSave, onChange, errors, users}) => {
 

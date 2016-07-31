@@ -99,7 +99,7 @@ class CourseApi {
           projects.splice(existingCourseIndex, 1, project);
         } else {
           //Just simulating creation here.
-          //The server would generate ids and watchHref's for new projects in a real app.
+          //The server would generate ids and watchHref's for new projectList in a real app.
           //Cloning so copy returned is passed by value rather than by reference.
           project.id = generateId(project);
           projects.push(project);
