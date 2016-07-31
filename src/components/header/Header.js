@@ -10,7 +10,7 @@ class Header extends React.Component {
 
   render() {
     // const {currentProject} = this.props.currentProject;
-    const pageTitle = (this.props.currentProject && this.props.currentProject.name) ?
+    const pageTitle = (this.props.project && this.props.project.name) ?
       this.props.project.name :
       "Your Projects";
 
@@ -76,7 +76,7 @@ class Header extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    project: state.project
+    project: state.currentProject
   };
 }
 

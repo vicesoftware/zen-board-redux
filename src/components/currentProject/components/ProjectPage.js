@@ -10,15 +10,15 @@ class ProjectPage extends React.Component {
   }
 
   componentWillMount() {
-    this.props.actions.getProject(this.props.params.id);
+    this.props.actions.openCurrentProject(this.props.params.id);
   }
 
   componentWillUnmount() {
-    // this.props.actions.setproject();
+    this.props.actions.closeProject();
   }
 
   render() {
-    const {isBusy} = this.props;
+    const {isBusy, project} = this.props;
 
     return (
       <Page isBusy={isBusy}>
@@ -32,7 +32,8 @@ class ProjectPage extends React.Component {
         </div>
         <div className="panel panel-default">
           <div className="panel-body">
-              <ul className="media-list media-list-conversation c-w-md">
+            <h3 className="text-muted">{project.name}</h3>
+            <ul className="media-list media-list-conversation c-w-md">
                 <li className="media media-current-user m-b-md">
                   <div className="media-body">
                     <div className="media-body-text">
@@ -105,7 +106,7 @@ ProjectPage.contextTypes = {
 
 function mapStateToProps(state) {
   return {
-    project: state.project,
+    project: state.currentProject,
     isBusy: state.busyCount > 0
   };
 }
