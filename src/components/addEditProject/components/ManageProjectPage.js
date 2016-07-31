@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import manageProject from "../../manageProject";
+import currentProject from "../../currentProject";
 import users from "../../users";
 import ProjectForm from "./ProjectForm";
 import Page from "../../common/Page";
@@ -24,7 +24,7 @@ class ManageProjectPage extends React.Component {
     this.props.actions.getUsers();
 
     if (this.props.params.id) {
-      this.props.actions.getProject(this.props.params.id);
+      this.props.actions.openCurrentProject(this.props.params.id);
     }
   }
 
@@ -100,7 +100,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   const actions = Object.assign(
-    {}, manageProject.actions, users.actions);
+    {}, currentProject.actions, users.actions);
 
   return {
     actions: bindActionCreators(actions, dispatch)

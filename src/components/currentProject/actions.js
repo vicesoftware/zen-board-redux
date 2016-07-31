@@ -4,16 +4,16 @@ import * as types from "./actionTypes";
 
 const {incrementBusyCount, decrementBusyCount} = app.actions;
 
-function setProjectResponse(project) {
+function openCurrentProjectResponse(currentProject) {
   return {
-    type: types.GET,
+    type: types.OPEN_CURRENT,
     payload: {
-      project
+      currentProject
     }
   };
 }
 
-export function getProject(projectId) {
+export function openCurrentProject(projectId) {
   return function (dispatch) {
     dispatch(incrementBusyCount());
 
@@ -21,7 +21,7 @@ export function getProject(projectId) {
       return projectApi.getProjects({id: projectId})
         .then(projects => {
           dispatch(decrementBusyCount());
-          dispatch(setProjectResponse(projects[0]));
+          dispatch(openCurrentProjectResponse(projects[0]));
         })
         .catch(error => {
           throw(error);
@@ -30,7 +30,7 @@ export function getProject(projectId) {
 
     return new Promise((resolve, reject) => {
       dispatch(decrementBusyCount());
-      dispatch(setProjectResponse({}));
+      dispatch(openCurrentProject({}));
       resolve();
     }); // we must return a promise even if we are doing nothing
   };

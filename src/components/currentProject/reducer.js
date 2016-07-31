@@ -6,8 +6,8 @@ import * as types from "./actionTypes";
 export default function reducer(state = initialState.project, action) {
   switch (action.type) {
 
-    case types.GET:
-      return action.payload.project;
+    case types.OPEN_CURRENT:
+      return action.payload.currentProject;
 
     case types.SAVE: {
       const index = state.findIndex(project => project.id === action.payload.id);

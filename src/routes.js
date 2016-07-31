@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, IndexRoute} from 'react-router';
 import App from './components/app/components/App';
 import projectList from './components/projectList';
-import manageProject from './components/manageProject';
+import addEditProject from './components/addEditProject';
 import currentProject from './components/currentProject';
 
 export default (
@@ -11,10 +11,10 @@ export default (
       component={projectList.components.ProjectsPage}/>
 		<Route
       path="projects/add"
-      component={manageProject.components.ManageProjectsPage}/>
+      component={addEditProject.components.ManageProjectsPage}/>
 		<Route
       path="projects/edit/:id"
-      component={manageProject.components.ManageProjectsPage}/>
+      component={addEditProject.components.ManageProjectsPage}/>
 		<Route
       path="projects/:id"
       component={currentProject.components.ProjectPage}/>
