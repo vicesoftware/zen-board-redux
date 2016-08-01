@@ -7,10 +7,6 @@ export default function reducer(state = initialState.currentProject, action) {
     case types.OPEN_CURRENT:
       return action.payload.currentProject;
 
-    case types.SAVE: {
-      return action.payload.savedProject;
-    }
-
     case types.CLOSE_PROJECT: {
       return initialState.currentProject;
     }

@@ -10,17 +10,6 @@ class TaskList extends React.Component {
     super(props, context);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.currentProject
-      && !_.isEmpty(nextProps.currentProject)
-      && (!this.props.currentProject
-        || nextProps.currentProject.id !== this.props.currentProject.id)) {
-      this.props.actions.getTasks({
-        projectId: nextProps.currentProject.id
-      });
-    }
-  }
-
   render() {
     const {tasks} = this.props;
     return (

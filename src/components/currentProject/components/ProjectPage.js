@@ -19,7 +19,7 @@ class ProjectPage extends React.Component {
   }
 
   render() {
-    const {isBusy, project} = this.props;
+    const {isBusy, children} = this.props;
     const TaskList = taskList.components.TaskList;
 
     return (
@@ -34,7 +34,7 @@ class ProjectPage extends React.Component {
         </div>
         <div className="panel panel-default">
           <div className="panel-body">
-            <TaskList/>
+            {children}
           </div>
         </div>
       </Page>

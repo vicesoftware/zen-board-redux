@@ -1,6 +1,7 @@
 import projectApi from "../../api/stubProjectApi";
 import app from "../app";
-import * as types from './actionTypes';
+import * as types from "./actionTypes";
+import {dispatch} from "../../store";
 
 const {incrementBusyCount, decrementBusyCount} = app.actions;
 
@@ -25,6 +26,10 @@ export function getProjects() {
         throw(error);
       }); // real error handling coming soon :)
   };
+}
+
+export function getProjectsForRoute() {
+  dispatch(getProjects());
 }
 
 

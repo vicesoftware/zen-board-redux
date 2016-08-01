@@ -1,6 +1,7 @@
 import taskApi from "../../api/stubTaskApi";
 import app from "../app";
-import * as types from './actionTypes';
+import * as types from "./actionTypes";
+import {dispatch} from "../../store";
 
 
 const {incrementBusyCount, decrementBusyCount} = app.actions;
@@ -26,4 +27,8 @@ export function getTasks(by) {
 				throw(error);
 			}); // real error handling coming soon :)
 	};
+}
+
+export function getTasksForRoute(nextState) {
+  dispatch(getTasks({projectId: nextState.params.id}));
 }
