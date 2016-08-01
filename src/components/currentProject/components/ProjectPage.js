@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import * as actions from "../actions";
 import Page from "../../common/Page";
+import taskList from "../../taskList";
 
 class ProjectPage extends React.Component {
   constructor(props, context) {
@@ -19,6 +20,7 @@ class ProjectPage extends React.Component {
 
   render() {
     const {isBusy, project} = this.props;
+    const TaskList = taskList.components.TaskList;
 
     return (
       <Page isBusy={isBusy}>
@@ -32,61 +34,7 @@ class ProjectPage extends React.Component {
         </div>
         <div className="panel panel-default">
           <div className="panel-body">
-            <h3 className="text-muted">{project.name}</h3>
-            <ul className="media-list media-list-conversation c-w-md">
-                <li className="media media-current-user m-b-md">
-                  <div className="media-body">
-                    <div className="media-body-text">
-                      Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit
-                      libero, a pharetra augue. Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi
-                      leo
-                      risus, porta ac consectetur ac, vestibulum at eros. Sed posuere consectetur est at lobortis.
-                    </div>
-                    <div className="media-footer">
-                      <small className="text-muted">
-                        <a href="#">Dave Gamache</a> at 4:20PM
-                      </small>
-                    </div>
-                  </div>
-                  <a className="media-right" href="#">
-                    <img className="img-circle media-object" src="../assets/img/avatar-dhg.png"/>
-                  </a>
-                </li>
-                <li className="media m-b-md">
-                  <a className="media-left" href="#">
-                    <img className="img-circle media-object" src="../assets/img/avatar-fat.jpg"/>
-                  </a>
-                  <div className="media-body">
-                    <div className="media-body-text">
-                      Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus,
-                      nisi
-                      erat porttitor ligula, eget lacinia odio sem nec elit. Praesent commodo cursus magna, vel
-                      scelerisque
-                      nisl consectetur et.
-                    </div>
-                    <div className="media-body-text">
-                      Vestibulum id ligula porta felis euismod semper. Aenean lacinia bibendum nulla sed consectetur.
-                      Cras
-                      justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac,
-                      vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam
-                      quis
-                      risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at
-                      eros.
-                    </div>
-                    <div className="media-body-text">
-                      Cras mattis consectetur purus sit amet fermentum. Donec sed odio dui. Integer posuere erat a ante
-                      venenatis dapibus posuere velit aliquet. Nulla vitae elit libero, a pharetra augue. Donec id elit
-                      non
-                      mi porta gravida at eget metus.
-                    </div>
-                    <div className="media-footer">
-                      <small className="text-muted">
-                        <a href="#">Fat</a> at 4:28PM
-                      </small>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+            <TaskList/>
           </div>
         </div>
       </Page>

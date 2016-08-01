@@ -2,5 +2,6 @@ export default {
 	projectList: [],
 	busyCount: 0,
   users: [],
-  currentProject: {}
+  currentProject: {},
+  taskList: []
 };
