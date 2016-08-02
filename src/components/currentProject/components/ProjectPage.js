@@ -30,11 +30,7 @@ class ProjectPage extends React.Component {
             <button type="button" className="btn btn-xs btn-primary-outline">Calendar</button>
           </div>
         </div>
-        <div className="panel panel-default">
-          <div className="panel-body">
-            {children}
-          </div>
-        </div>
+        {children}
       </Page>
     );
   }

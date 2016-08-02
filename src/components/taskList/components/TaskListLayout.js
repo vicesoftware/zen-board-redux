@@ -1,19 +1,18 @@
 import React, {PropTypes} from "react";
+import TaskColumn from "./TaskColumn";
 
 const TaskListLayout = ({tasks}) => {
   return (
-    <ul>
-      {tasks && tasks.map(task => (
-        <li key={task.id}>
-          <a href="#">{task.title}</a>
-        </li>
-      ))}
-    </ul>
+    <div className="row">
+      {tasks && <TaskColumn tasks={tasks["To do"]} state="To do"/>}
+      {tasks && <TaskColumn tasks={tasks["In progress"]} state="In progress"/>}
+      {tasks && <TaskColumn tasks={tasks["done"]} state="done"/>}
+    </div>
   );
 };
 
 TaskListLayout.propTypes = {
-  tasks: PropTypes.array.isRequired
+  // name: PropTypes.string.isRequired
 };
 
 export default TaskListLayout;
