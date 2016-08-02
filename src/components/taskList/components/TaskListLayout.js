@@ -13,7 +13,7 @@ const TaskListLayout = ({tasks}) => {
 };
 
 TaskListLayout.propTypes = {
-  // name: PropTypes.string.isRequired
+  tasks: PropTypes.array.isRequired
 };
 
 export default TaskListLayout;

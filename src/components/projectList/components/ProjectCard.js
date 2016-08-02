@@ -2,7 +2,10 @@ import React, {PropTypes} from "react";
 import {Link} from "react-router";
 import MemberList from "./MemberList";
 
-const ProjectCard = ({project, onDeleteProject}) => {
+const ProjectCard = (props) => {
+  const {project} = props;
+  const onDeleteProject = props.onDeleteProject.bind(null, project.id);
+
   return (
     <div className="col-sm-4">
       <div className="card card-block">

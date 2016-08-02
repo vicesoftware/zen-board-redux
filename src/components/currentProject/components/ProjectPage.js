@@ -3,7 +3,6 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import * as actions from "../actions";
 import Page from "../../common/Page";
-import taskList from "../../taskList";
 
 class ProjectPage extends React.Component {
   constructor(props, context) {
@@ -20,7 +19,6 @@ class ProjectPage extends React.Component {
 
   render() {
     const {isBusy, children} = this.props;
-    const TaskList = taskList.components.TaskList;
 
     return (
       <Page isBusy={isBusy}>
@@ -45,7 +43,8 @@ class ProjectPage extends React.Component {
 ProjectPage.propTypes = {
   actions: PropTypes.object.isRequired,
   params: PropTypes.object.isRequired,
-  isBusy: PropTypes.bool
+  isBusy: PropTypes.bool,
+  children: PropTypes.node.isRequired
 };
 
 ProjectPage.contextTypes = {

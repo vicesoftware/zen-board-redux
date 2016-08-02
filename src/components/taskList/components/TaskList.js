@@ -1,9 +1,9 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import _ from "lodash";
 import * as actions from "../actions";
 import TaskListLayout from "./TaskListLayout";
+import * as selectors from "../selector";
 
 class TaskList extends React.Component {
   constructor(props, context) {
@@ -19,12 +19,12 @@ class TaskList extends React.Component {
 }
 
 TaskList.propTypes = {
-  // actions: PropTypes.string.isRequired
+  tasks: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    tasks: state.taskList,
+    tasks: selectors.getGroupedByStatus(state),
     currentProject: state.currentProject
   };
 }

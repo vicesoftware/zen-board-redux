@@ -6,10 +6,10 @@ const ProjectListRow = ({projectRows, onDeleteProject}) => {
     <div className="row">
       {projectRows.map(
         project => (
-          <ProjectCard 
-            key={project.id} 
-            project={project} 
-            onDeleteProject={onDeleteProject.bind(null, project.id)}/>
+          <ProjectCard
+            key={project.id}
+            project={project}
+            onDeleteProject={onDeleteProject}/>
             )
         )}
     </div>
