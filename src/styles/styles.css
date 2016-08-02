@@ -1,3 +1,7 @@
 .client-area {
     margin-top: 75px;
 }
+
+a.nav-link.active {
+  background-color: #3097d1 !important;
+}

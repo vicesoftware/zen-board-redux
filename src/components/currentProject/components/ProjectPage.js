@@ -22,14 +22,20 @@ class ProjectPage extends React.Component {
 
     return (
       <Page isBusy={isBusy}>
-        <div className="panel panel-default panel-link-list">
-          <div className="panel-body btn-toolbar">
-            <button type="button" className="btn btn-xs btn-primary-outline">Tasks</button>
-            <button type="button" className="btn btn-xs btn-primary-outline">Discussions</button>
-            <button type="button" className="btn btn-xs btn-primary-outline">Files</button>
-            <button type="button" className="btn btn-xs btn-primary-outline">Calendar</button>
-          </div>
-        </div>
+        <ul className="nav nav-pills">
+          <li>
+            <a className="nav-link active" href="#">Tasks</a>
+          </li>
+          <li>
+            <a className="nav-link" href="#">Discussions</a>
+          </li>
+          <li>
+            <a className="nav-link" href="#">Calendar</a>
+          </li>
+          <li>
+            <a className="nav-link" href="#">Files</a>
+          </li>
+        </ul>
         {children}
       </Page>
     );

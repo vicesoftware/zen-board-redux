@@ -7,7 +7,7 @@ const TaskColumn = ({tasks, state}) => {
       {tasks && tasks.map(task => (
         <div className="panel panel-default">
           <div className="panel-body">
-            <h4 class="card-title">
+            <h4 className="card-title">
               <a key={task.id} href="#">{task.title}</a>
             </h4>
             <p>{task.description.substring(1, 20)

@@ -23,6 +23,10 @@ export default (
 			<IndexRoute
 				component={taskList.components.TaskList}
         onEnter={taskList.actions.getTasksForRoute}/>
+      <Route
+        path="tasks"
+        component={taskList.components.TaskList}
+        onEnter={taskList.actions.getTasksForRoute}/>
     </Route>
 	</Route>
 );

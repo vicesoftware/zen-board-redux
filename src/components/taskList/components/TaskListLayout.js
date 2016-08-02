@@ -6,7 +6,7 @@ const TaskListLayout = ({tasks}) => {
     <div className="row">
       {tasks && <TaskColumn tasks={tasks["To do"]} state="To do"/>}
       {tasks && <TaskColumn tasks={tasks["In progress"]} state="In progress"/>}
-      {tasks && <TaskColumn tasks={tasks["done"]} state="done"/>}
+      {tasks && <TaskColumn tasks={tasks["done"]} state="Done"/>}
     </div>
   );
 };
