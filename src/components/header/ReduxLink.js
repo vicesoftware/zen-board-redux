@@ -1,16 +1,16 @@
-import React, {PropTypes} from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import React, {PropTypes} from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router";
 
 const ReduxLink = ({ className = "", activeClassName, to, path, children }) => {
-  let finalClassName = className.split(' ');
+  let finalClassName = className.split(" ");
 
   if (activeClassName && path === to) {
     finalClassName.push(activeClassName);
   }
 
   return (
-    <Link to={to} className={finalClassName.join(' ')}>
+    <Link to={to} className={finalClassName.join(" ")}>
       {children}
     </Link>
   );

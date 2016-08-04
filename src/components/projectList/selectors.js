@@ -1,5 +1,5 @@
-import { createSelector } from 'reselect';
-import { NAME } from './constants';
+import { createSelector } from "reselect";
+import { NAME } from "./constants";
 
 export const getById = createSelector(
   [getAll, getId],
@@ -11,7 +11,7 @@ function getAll (state) {
 }
 
 function getId(state, id) {
-  return id; 
+  return id;
 }
 
 function getByIdQuery(projects, idToGet) {

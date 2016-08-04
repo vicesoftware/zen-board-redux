@@ -1,6 +1,6 @@
 import userApi from "../../api/stubUserApi";
 import app from "../app";
-import * as types from './actionTypes';
+import * as types from "./actionTypes";
 
 export function getUsersResponse(users) {
   return {

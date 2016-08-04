@@ -14,7 +14,7 @@ const MemberSelect = ({users, onChange, members}) => {
     membersAsDelimetedString = users
       .filter(user => members.find(member => member.id === user.id))
       .map(user => user.id)
-      .join(',');
+      .join(",");
   }
 
 	return (

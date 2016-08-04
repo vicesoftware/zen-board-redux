@@ -1,4 +1,4 @@
-import * as types from './actionTypes';
+import * as types from "./actionTypes";
 
 export function incrementBusyCount() {
   return {type: types.INCREMENT_BUSY_COUNT};

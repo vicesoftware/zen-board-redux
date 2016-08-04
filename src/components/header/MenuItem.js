@@ -1,16 +1,16 @@
 import React, {PropTypes} from "react";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import ReduxLink from "./ReduxLink";
 
 const MenuItem = ({className = "", text, linkTo, path}) => {
-	let finalClassName = className.split(' ');
+	let finalClassName = className.split(" ");
 
   if (path === linkTo) {
     finalClassName.push("active");
   }
 
 	return (
-		<li className={finalClassName.join(' ')}>
+		<li className={finalClassName.join(" ")}>
 			<ReduxLink to={linkTo} activeClassName="active">{text}</ReduxLink>
 		</li>
 	);

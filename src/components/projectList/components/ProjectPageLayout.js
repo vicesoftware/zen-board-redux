@@ -1,5 +1,5 @@
 import React, {PropTypes} from "react";
-import ProjectList from './ProjectList';
+import ProjectList from "./ProjectList";
 import Page from "../../common/Page";
 
 const ProjectPageLayout = ({isBusy, projectRows, onDeleteProject, onAddProject}) => {

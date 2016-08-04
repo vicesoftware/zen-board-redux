@@ -1,6 +1,6 @@
-import React, {PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {Link} from 'react-router';
+import React, {PropTypes} from "react";
+import {connect} from "react-redux";
+import {Link} from "react-router";
 
 class Header extends React.Component {
   constructor(props, context) {

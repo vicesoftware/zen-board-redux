@@ -1,14 +1,13 @@
 import taskApi from "../../api/stubTaskApi";
 import app from "../app";
-import * as types from "./actionTypes";
+import {GET} from "./actionTypes";
 import {dispatch} from "../../store";
-
 
 const {incrementBusyCount, decrementBusyCount} = app.actions;
 
 function getTaskResponse(tasks) {
 	return {
-		type: types.GET,
+		type: GET,
 		payload: {
 			tasks
 		}
@@ -29,6 +28,6 @@ export function getTasks(by) {
 	};
 }
 
-export function getTasksForRoute(nextState) {
+export function getTasksFromRoute(nextState) {
   dispatch(getTasks({projectId: nextState.params.id}));
 }

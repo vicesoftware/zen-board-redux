@@ -1,13 +1,13 @@
 import projectApi from "../../api/stubProjectApi";
 import app from "../app";
-import * as types from "./actionTypes";
+import {GET, DELETE, SAVE} from "./actionTypes";
 import {dispatch} from "../../store";
 
 const {incrementBusyCount, decrementBusyCount} = app.actions;
 
 function getProjectsResponse(projectList) {
   return {
-    type: types.GET,
+    type: GET,
     payload: {
       projectList
     }
@@ -35,7 +35,7 @@ export function getProjectsForRoute() {
 
 function deleteProjectsResponse(projectId) {
   return {
-    type: types.DELETE,
+    type: DELETE,
     payload: {
       projectId
     }
@@ -58,7 +58,7 @@ export function deleteProject(projectId) {
 
 function saveProjectsResponse(project) {
   return {
-    type: types.SAVE,
+    type: SAVE,
     payload: {
       savedProject: project
     }

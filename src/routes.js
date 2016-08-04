@@ -1,10 +1,10 @@
-import React from 'react';
-import {Route, IndexRoute} from 'react-router';
-import App from './components/app/components/App';
-import projectList from './components/projectList';
-import addEditProject from './components/addEditProject';
-import currentProject from './components/currentProject';
-import taskList from './components/taskList';
+import React from "react";
+import {Route, IndexRoute} from "react-router";
+import App from "./components/app/components/App";
+import projectList from "./components/projectList";
+import addEditProject from "./components/addEditProject";
+import currentProject from "./components/currentProject";
+import taskList from "./components/taskList";
 
 export default (
 	<Route path="/" component={App}>
@@ -22,11 +22,11 @@ export default (
       component={currentProject.components.ProjectPage}>
 			<IndexRoute
 				component={taskList.components.TaskList}
-        onEnter={taskList.actions.getTasksForRoute}/>
+        onEnter={taskList.actions.getTasksFromRoute}/>
       <Route
         path="tasks"
         component={taskList.components.TaskList}
-        onEnter={taskList.actions.getTasksForRoute}/>
+        onEnter={taskList.actions.getTasksFromRoute}/>
     </Route>
 	</Route>
 );
