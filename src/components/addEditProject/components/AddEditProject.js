@@ -1,7 +1,6 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import _ from "lodash";
 import currentProject from "../../currentProject";
 import projectList from "../../projectList";
 import users from "../../users";
@@ -22,20 +21,8 @@ class ManageProjectPage extends React.Component {
     this.saveProject = this.saveProject.bind(this);
   }
 
-  componentWillMount() {
-    this.props.actions.getUsers();
-
-    if (this.props.params.id) {
-      this.props.actions.openCurrentProject(this.props.params.id);
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (_.isEmpty(this.state.project)
-        && nextProps.project
-        && !_.isEmpty(nextProps.project)) {
-      this.setState({project: Object.assign({}, nextProps.project)});
-    }
+  componentDidMount() {
+      this.setState({project: Object.assign({}, this.props.project)});
   }
 
   updateProjectState(event) {
@@ -44,11 +31,12 @@ class ManageProjectPage extends React.Component {
     // Handle member list changed event
     if (!event.target) {
       const members = this.props.users
-            .filter(user => event.includes(user.id));
+        .filter(user => event.includes(user.id));
       if (members) {
         return this.setState({
-            project: Object.assign(
-              {}, project, {members: members})});
+          project: Object.assign(
+            {}, project, {members: members})
+        });
       }
     }
 
@@ -96,11 +84,8 @@ ManageProjectPage.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
-  const currentProject = state.currentProject
-    || projectList.selectors.getById(state, ownProps.params.id);
-
   return {
-    project: currentProject,
+    project: projectList.selectors.getById(state, ownProps.params.id),
     users: state.users,
     isBusy: state.busyCount > 0
   };

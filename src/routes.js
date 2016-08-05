@@ -16,7 +16,8 @@ export default (
       component={addEditProject.components.ManageProjectsPage}/>
 		<Route
       path="projects/edit/:id"
-      component={addEditProject.components.ManageProjectsPage}/>
+      component={addEditProject.components.ManageProjectsPage}
+      onEnter={addEditProject.actions.loadAddEditProjectsFromRoute}/>
 		<Route
       path="projects/:id"
       component={currentProject.components.ProjectPage}>

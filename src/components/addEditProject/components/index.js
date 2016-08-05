@@ -1,3 +1,3 @@
-import ManageProjectsPage from "./ManageProjectPage";
+import ManageProjectsPage from "./AddEditProject";
 
 export { ManageProjectsPage };

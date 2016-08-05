@@ -9,6 +9,10 @@ export function dispatch(action) {
   store.dispatch(action);
 }
 
+export function getState() {
+  return store.getState();
+}
+
 export default function configureStore(initialState) {
   if (!store) {
     store = createStore(
