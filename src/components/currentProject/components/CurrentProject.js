@@ -1,20 +1,12 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import * as actions from "../actions";
 import Page from "../../common/Page";
+import projectList from "../../projectList";
 
 class ProjectPage extends React.Component {
   constructor(props, context) {
     super(props, context);
-  }
-
-  componentWillMount() {
-    this.props.actions.openCurrentProject(this.props.params.id);
-  }
-
-  componentWillUnmount() {
-    this.props.actions.closeProject();
   }
 
   render() {
@@ -53,17 +45,11 @@ ProjectPage.contextTypes = {
   router: React.PropTypes.object.isRequired
 };
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   return {
-    project: state.currentProject,
+    project: projectList.selectors.getById(state, ownProps.params.id),
     isBusy: state.busyCount > 0
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectPage);
+export default connect(mapStateToProps)(ProjectPage);

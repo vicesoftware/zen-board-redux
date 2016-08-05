@@ -1,3 +1,3 @@
-import ProjectPage from "./ProjectPage";
+import ProjectPage from "./CurrentProject";
 
 export { ProjectPage };

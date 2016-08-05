@@ -1,17 +1,9 @@
 import React, {PropTypes} from "react";
-import {connect} from "react-redux";
 import {Link} from "react-router";
 
-class Header extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-
-  }
-
-  render() {
-    // const {currentProject} = this.props.currentProject;
-    const pageTitle = (this.props.project && this.props.project.name) ?
-      this.props.project.name :
+const Header = ({project}) => {
+    const pageTitle = (project && project.name) ?
+      project.name :
       "Your Projects";
 
     return (
@@ -71,13 +63,6 @@ class Header extends React.Component {
         </div>
       </nav>
     );
-  }
-}
-
-function mapStateToProps(state) {
-  return {
-    project: state.currentProject
-  };
 }
 
 Header.propTypes = {
@@ -85,4 +70,4 @@ Header.propTypes = {
 };
 
 
-export default connect(mapStateToProps)(Header);
+export default Header;
