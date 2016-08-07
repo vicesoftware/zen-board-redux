@@ -22,27 +22,37 @@ class ManageProjectPage extends React.Component {
   }
 
   componentDidMount () {
-    this.setState({project: Object.assign({}, this.props.project)});
+    this.updateState();
     this.getData();
   }
 
   componentDidUpdate (prevProps) {
-    // respond to parameter change in scenario 3
     let oldId = prevProps.params.id;
     let newId = this.props.params.id;
 
-    if (newId !== oldId)
+    if (newId !== oldId) {
       this.getData();
-  }
+    } else if (prevPropsEmpty(prevProps) && currentPropsNotEmpty(this.props)) {
+      this.updateState();
+    }
 
-  componentWillUnmount () {
-    // allows us to ignore an inflight request in scenario 4
-    this.ignoreLastFetch = true;
+    function prevPropsEmpty(props) {
+      return !props.project || !props.project.name;
+    }
+
+    function currentPropsNotEmpty(props) {
+      return props.project && props.project.name;
+    }
   }
 
   getData() {
     projectList.actions.getProjects();
     users.actions.getUsers();
+  }
+
+  updateState() {
+        this.setState({project: Object.assign({}, this.props.project)});
+
   }
 
   updateProjectState(event) {
