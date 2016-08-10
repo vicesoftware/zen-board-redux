@@ -5,18 +5,22 @@ import projectList from "./components/projectList";
 import addEditProject from "./components/addEditProject";
 import currentProject from "./components/currentProject";
 import taskList from "./components/taskList";
+import signIn from "./components/signIn";
 
-export default (
+// onEnter={projectList.actions.getProjectsForRoute}
+
+export default function createRoutes(requireAccess) {
+  return (
 	<Route path="/" component={App}>
 		<IndexRoute
       component={projectList.components.ProjectsPage}
-      onEnter={projectList.actions.getProjectsForRoute}/>
+      onEnter={requireAccess()}/>
 		<Route
       path="projects/add"
-      component={addEditProject.components.ManageProjectsPage}/>
+      component={addEditProject.components.AddEditProject}/>
 		<Route
       path="projects/edit/:id"
-      component={addEditProject.components.ManageProjectsPage}
+      component={addEditProject.components.AddEditProject}
       onEnter={addEditProject.actions.loadAddEditProjectsFromRoute}/>
 		<Route
       path="projects/:id"
@@ -29,5 +33,9 @@ export default (
         component={taskList.components.TaskList}
         onEnter={taskList.actions.getTasksFromRoute}/>
     </Route>
+    <Route
+      path="sign-in"
+      component={signIn.components.SignIn}/>
 	</Route>
-);
+  );
+}

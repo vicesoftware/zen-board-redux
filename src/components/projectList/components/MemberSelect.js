@@ -1,5 +1,5 @@
 import React, {PropTypes} from "react";
-import FormElement from "../../common/FormElement";
+import FormElement from "../../common/forms/FormElement";
 import Select from "react-select";
 
 const MemberSelect = ({users, onChange, members}) => {

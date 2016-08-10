@@ -61,6 +61,7 @@ This will run the automated build process, start up a webserver, and open the ap
 |Jack Hsu| Standardize and simplify pattern for creating actions, reducers and action creators | http://jaysoo.ca/2016/02/28/organizing-redux-application/ |
 |Flux Standard Actions| Standardize action schema | https://github.com/acdlite/flux-standard-action |
 |Corey House Pluralsight Course| This is a must watch for anyone working in this code base as it was used as the foundation that this was created from | https://app.pluralsight.com/library/courses/react-redux-react-router-es6/table-of-contents |
+|Auth example (react + redux + react-router)| An approach for Auth using Redux and React | https://gist.github.com/iNikNik/1eabfc6bcc132384368c |
 
 ## Debugging
 A key focus of this project is improving developer ergonomics and this section outlines some tools that this develoment approach are optomized for.

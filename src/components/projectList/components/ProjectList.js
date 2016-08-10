@@ -1,6 +1,6 @@
 import React, {PropTypes} from "react";
 import ProjectListRow from "./ProjectListRow";
-import BusyIndicator from "../../common/BusyIndicator";
+import BusyIndicator from "../../common/page/BusyIndicator";
 
 const ProjectList = ({projectRows, isBusy, onDeleteProject}) => {
   return (

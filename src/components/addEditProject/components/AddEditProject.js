@@ -5,7 +5,7 @@ import currentProject from "../../currentProject";
 import projectList from "../../projectList";
 import users from "../../users";
 import ProjectForm from "./ProjectForm";
-import Page from "../../common/Page";
+import Page from "../../common/page/Page";
 
 class ManageProjectPage extends React.Component {
   constructor(props, context) {

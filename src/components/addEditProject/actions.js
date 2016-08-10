@@ -4,7 +4,7 @@ import projectList from "../projectList";
 
 
 export function loadAddEditProjectsFromRoute(nextState) {
-  var state = getState();
+  const state = getState();
 
   if (state.users.length === 0) {
     dispatch(users.actions.getUsers());
