@@ -3,5 +3,6 @@ export default {
 	busyCount: 0,
   users: [],
   currentProject: {},
-  taskList: []
+  taskList: [],
+  userProfile: {}
 };
