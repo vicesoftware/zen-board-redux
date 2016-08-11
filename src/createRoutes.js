@@ -15,6 +15,10 @@ export default function createRoutes(requireAccess) {
 		<IndexRoute
       component={projectList.components.ProjectsPage}
       onEnter={requireAccess()}/>
+    <Route
+      path="projects"
+      component={projectList.components.ProjectsPage}
+      onEnter={requireAccess()}/>
 		<Route
       path="projects/add"
       component={addEditProject.components.AddEditProject}/>

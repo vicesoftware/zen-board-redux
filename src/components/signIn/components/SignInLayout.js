@@ -1,6 +1,6 @@
 import React, {PropTypes} from "react";
 
-const SignInLayout = () => {
+const SignInLayout = ({onSignIn}) => {
   return (
     <div className="row">
       <div className="col-lg-offset-4 col-lg-4">
@@ -33,7 +33,10 @@ const SignInLayout = () => {
                   value="remember-me"/> Remember me
               </label>
             </div>
-            <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <button
+              className="btn btn-lg btn-primary btn-block"
+              type="submit"
+              onClick={onSignIn}>Sign in</button>
           </form>
         </div>
       </div>
