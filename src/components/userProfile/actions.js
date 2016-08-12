@@ -13,10 +13,10 @@ function authentiateResponse(userProfile) {
 	};
 }
 
-export function authenticate() {
+export function authenticate(email, password) {
 	return function (dispatch) {
 		dispatch(app.actions.incrementBusyCount());
-		return userProfileApi.authenticate()
+		return userProfileApi.authenticate(email, password)
 			.then(userProfile => {
 				dispatch(app.actions.decrementBusyCount());
 				dispatch(authentiateResponse(userProfile));

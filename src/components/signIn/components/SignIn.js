@@ -8,12 +8,30 @@ class SignIn extends React.Component {
   constructor(props, context) {
     super(props, context);
 
+    this.state = {
+      credentials: {
+        userName: "",
+        password: ""
+      }
+    };
+
     this.authenticate = this.authenticate.bind(this);
     this.navigateToProjects = this.navigateToProjects.bind(this);
-
+    this.updateState = this.updateState.bind(this);
   }
 
-  authenticate(e, userName, password) {
+  updateState(event) {
+    let credentials = this.state.credentials;
+
+    const field = event.target.name;
+
+    credentials[field] = event.target.value;
+
+    return this.setState({credentials: credentials});
+  }
+
+  authenticate(e) {
+    const {userName, password} = this.state.credentials;
     e.preventDefault();
     this.props.actions.authenticate(userName, password)
       .then(this.navigateToProjects);
@@ -24,8 +42,13 @@ class SignIn extends React.Component {
   }
 
   render() {
+    const {userName, password} = this.state;
     return (
-      <SignInLayout onSignIn={this.authenticate}/>
+      <SignInLayout
+        userName={userName}
+        password={password}
+        onSignIn={this.authenticate}
+        onChange={this.updateState}/>
     );
   }
 }

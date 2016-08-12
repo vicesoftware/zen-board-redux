@@ -1,31 +1,5 @@
 import delay from "./delay";
-
-// This file mocks a web API by working with the hard-coded data below.
-// It uses setTimeout to simulate the delay of an AJAX call.
-// All calls return promises.
-const users = [
-  {
-    id: "01548079-205a-4367-848c-3a4155ad31a6",
-    firstName: "Ashish",
-    lastName: "Bandi",
-    username: "abandi",
-    avatar: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/2/000/1a8/311/251d8f1.jpg"
-  },
-  {
-    id: "10c6b17d-583f-459e-bf2f-b8da7ff2b1b9",
-    firstName: "Ryan",
-    lastName: "Vice",
-    username: "rvice",
-    avatar: "http://adnug.org/Home/wp-content/uploads/2012/03/ryan-vice.jpg"
-  },
-  {
-    id: "42503252-3979-4df1-afef-c5365a3d542e",
-    firstName: "Prashanth",
-    lastName: "Tondapu",
-    username: "prashantht",
-    avatar: "https://s31.postimg.org/80jro0m6j/prashanth.png"
-  }
-];
+const users = require("./usersProfiles.json");
 
 //This would be performed on the server in a real app. Just stubbing in.
 const generateId = (user) => {

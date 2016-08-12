@@ -1,8 +1,8 @@
 import _ from "lodash";
 
 
-export function checkAccess(requiredLevel, currentLevel) {
-  return true;
+export function checkAccess(requiredLevel, userProfile) {
+  return !_.isEmpty(userProfile);
 }
 
 export function accessEquals(requiredLevel, currentLevel) {

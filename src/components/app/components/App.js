@@ -4,25 +4,30 @@ import Header from "../../header/Header";
 import projectList from "../../projectList";
 
 class App extends React.Component {
-	render() {
-		return (
-			<div className="container-fluid">
-				<Header project={this.props.project}/>
-				<div className="client-area container-fluid">
-					{this.props.children}
-				</div>
-			</div>
-		);
-	}
+
+  render() {
+    const {project, userProfile} = this.props;
+
+
+    return (
+      <div className="container-fluid">
+        <Header project={project} userProfile={userProfile}/>
+        <div className="client-area container-fluid">
+          {this.props.children}
+        </div>
+      </div>
+    );
+  }
 }
 
 App.propTypes = {
-	children: PropTypes.object.isRequired
+  children: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
   return {
-    project: projectList.selectors.getById(state, ownProps.params.id)
+    project: projectList.selectors.getById(state, ownProps.params.id),
+    userProfile: state.userProfile
   };
 }
 

@@ -1,7 +1,8 @@
 import React, {PropTypes} from "react";
 import {Link} from "react-router";
+import _ from "lodash";
 
-const Header = ({project}) => {
+const Header = ({project, userProfile}) => {
     const pageTitle = (project && project.name) ?
       project.name :
       "Your Projects";
@@ -38,10 +39,12 @@ const Header = ({project}) => {
                 </a>
               </li>
               <li>
-                <button className="btn btn-default navbar-btn navbar-btn-avitar"
-                        data-toggle="popover" data-original-title="" title="">
-                  <img className="img-circle" src="http://adnug.org/Home/wp-content/uploads/2013/04/image002.png"/>
-                </button>
+                { !_.isEmpty(userProfile) &&
+                    <button className="btn btn-default navbar-btn navbar-btn-avitar"
+                            data-toggle="popover" data-original-title="" title="">
+                      <img className="img-circle" src={!_.isEmpty(userProfile) && userProfile.avatar}/>
+                    </button>
+                }
               </li>
             </ul>
 
@@ -66,7 +69,8 @@ const Header = ({project}) => {
 }
 
 Header.propTypes = {
-  project: PropTypes.object
+  project: PropTypes.object,
+  userProfile: PropTypes.object
 };
 
 

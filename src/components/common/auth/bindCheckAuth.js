@@ -12,15 +12,15 @@ import { checkAccess } from './authHelpers';
  */
 export default function bindCheckAuth(redux, notAuthorizedHandler, accessDeniedHandler) {
   return (accessLevel, checkAccessHandler = checkAccess) => (nextState, transition) => {
-    const state = redux.getState().auth;
+    const userProfile = redux.getState().userProfile;
     let currentAccessLvl; //= state.accessLvl;
 
-    if (checkAccessHandler(accessLevel, currentAccessLvl)) {
+    if (checkAccessHandler(accessLevel, userProfile)) {
       // Access granted
       return;
     }
 
-    if (!isAuthorized(state)) {
+    if (!isAuthorized(userProfile)) {
       notAuthorizedHandler(nextState, transition);
       return;
     }

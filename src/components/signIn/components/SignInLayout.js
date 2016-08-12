@@ -1,6 +1,6 @@
 import React, {PropTypes} from "react";
 
-const SignInLayout = ({onSignIn}) => {
+const SignInLayout = ({onSignIn, userName, password, onChange}) => {
   return (
     <div className="row">
       <div className="col-lg-offset-4 col-lg-4">
@@ -13,19 +13,26 @@ const SignInLayout = ({onSignIn}) => {
             <label
               for="inputEmail"
               className="sr-only">Email address</label>
-            <input type="email"
-                   id="inputEmail"
-                   className="form-control"
-                   placeholder="Email address"
-                   required=""
-                   autofocus=""/>
+            <input
+              name="userName"
+              type="email"
+              id="inputEmail"
+              className="form-control"
+              placeholder="Email address"
+              required=""
+              autofocus=""
+              value={userName}
+              onChange={onChange}/>
             <label for="inputPassword" className="sr-only">Password</label>
             <input
+              name="password"
               type="password"
               id="inputPassword"
               className="form-control"
               placeholder="Password"
-              required=""/>
+              required=""
+              value={password}
+              onChange={onChange}/>
             <div className="checkbox">
               <label>
                 <input
@@ -36,7 +43,8 @@ const SignInLayout = ({onSignIn}) => {
             <button
               className="btn btn-lg btn-primary btn-block"
               type="submit"
-              onClick={onSignIn}>Sign in</button>
+              onClick={onSignIn}>Sign in
+            </button>
           </form>
         </div>
       </div>

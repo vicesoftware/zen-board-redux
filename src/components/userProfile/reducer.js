@@ -4,7 +4,7 @@ import * as types from "./actionTypes";
 export default function reducer(state = initialState.userProfile, action) {
 	switch (action.type) {
 		case types.AUTHENTICATED:
-			return state;
+			return action.payload.userProfile;
 
 		default:
 			return state;
