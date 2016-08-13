@@ -5,7 +5,7 @@ const TaskColumn = ({tasks, state}) => {
     <div className="col-lg-4">
       <h5 className="text-muted">{state}</h5>
       {tasks && tasks.map(task => (
-        <div className="panel panel-default">
+        <div key={task.id} className="panel panel-default">
           <div className="panel-body">
             <h4 className="card-title">
               <a key={task.id} href="#">{task.title}</a>
@@ -20,7 +20,8 @@ const TaskColumn = ({tasks, state}) => {
 };
 
 TaskColumn.propTypes = {
-  // name: PropTypes.string.isRequired
+  tasks: PropTypes.array,
+  state: PropTypes.string
 };
 
 export default TaskColumn;

@@ -2,8 +2,10 @@ import delay from "./delay";
 const users = require("./usersProfiles.json");
 const userPasswords = require("./userPasswords.json");
 
+const USER_PROFILE = "USER_PROFILE";
+
 class UserProfileApi {
-  static authenticate(email, password) {
+  static authenticate(email, password, remember) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const profile = users.find(user => user.email === email);
@@ -17,9 +19,17 @@ class UserProfileApi {
           reject("Password was not correct.");
         }
 
+        if (remember) {
+          localStorage.setItem(USER_PROFILE, profile);
+        }
+
         resolve(Object.assign({}, profile));
       }, delay);
     });
+  }
+
+  static load() {
+    return localStorage.get(USER_PROFILE);
   }
 }
 

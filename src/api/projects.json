@@ -1,0 +1,83 @@
+[
+  {
+    "id": "04d1a05f-d511-45a6-8fe1-544224ea5657",
+    "createdBy": "10c6b17d-583f-459e-bf2f-b8da7ff2b1b9",
+    "name": "Bar Stool",
+    "members": [
+      {
+        "id": "01548079-205a-4367-848c-3a4155ad31a6"
+      },
+      {
+        "id": "42503252-3979-4df1-afef-c5365a3d542e"
+      }
+    ]
+  },
+  {
+    "id": "8736fa7d-9563-41f9-982e-603e7fedd94b",
+    "createdBy": "10c6b17d-583f-459e-bf2f-b8da7ff2b1b9",
+    "name": "Bottle Opener",
+    "members": [
+      {
+        "id": "10c6b17d-583f-459e-bf2f-b8da7ff2b1b9"
+      },
+      {
+        "id": "42503252-3979-4df1-afef-c5365a3d542e"
+      }
+    ]
+  },
+  {
+    "id": "a6f7edaa-e0ba-4457-b5ca-a50f5dfc881a",
+    "createdBy": "10c6b17d-583f-459e-bf2f-b8da7ff2b1b9",
+    "name": "Beach Chair",
+    "members": [
+      {
+        "id": "01548079-205a-4367-848c-3a4155ad31a6"
+      },
+      {
+        "id": "10c6b17d-583f-459e-bf2f-b8da7ff2b1b9"
+      },
+      {
+        "id": "42503252-3979-4df1-afef-c5365a3d542e"
+      }
+    ]
+  },
+  {
+    "id": "f260cd33-dd02-4082-bf2a-91ab42e72476",
+    "createdBy": "10c6b17d-583f-459e-bf2f-b8da7ff2b1b9",
+    "name": "Mirror",
+    "members": [
+      {
+        "id": "01548079-205a-4367-848c-3a4155ad31a6"
+      },
+      {
+        "id": "42503252-3979-4df1-afef-c5365a3d542e"
+      }
+    ]
+  },
+  {
+    "id": "957990c8-e6db-4ffc-a9c7-346fcadf9368",
+    "createdBy": "2503252-3979-4df1-afef-c5365a3d542e",
+    "name": "Water Bottle",
+    "members": [
+      {
+        "id": "10c6b17d-583f-459e-bf2f-b8da7ff2b1b9"
+      },
+      {
+        "id": "01548079-205a-4367-848c-3a4155ad31a6"
+      }
+    ]
+  },
+  {
+    "id": "a6f7edaa-e0ba-4457-b5ca-a50f5dfc881a",
+    "createdBy": "2503252-3979-4df1-afef-c5365a3d542e",
+    "name": "Cabinet",
+    "members": [
+      {
+        "id": "01548079-205a-4367-848c-3a4155ad31a6"
+      },
+      {
+        "id": "10c6b17d-583f-459e-bf2f-b8da7ff2b1b9"
+      }
+    ]
+  }
+]

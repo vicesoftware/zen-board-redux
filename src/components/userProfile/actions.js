@@ -4,7 +4,7 @@ import * as types from './actionTypes';
 
 const {incrementBusyCount, decrementBusyCount} = app.actions;
 
-function authentiateResponse(userProfile) {
+function authenticateResponse(userProfile) {
 	return {
 		type: types.AUTHENTICATED,
 		payload: {
@@ -19,10 +19,17 @@ export function authenticate(email, password) {
 		return userProfileApi.authenticate(email, password)
 			.then(userProfile => {
 				dispatch(app.actions.decrementBusyCount());
-				dispatch(authentiateResponse(userProfile));
+				dispatch(authenticateResponse(userProfile));
 			})
 			.catch(error => {
 				throw(error);
 			}); // real error handling coming soon :)
 	};
 }
+//
+// export function loadUserProfile() {
+//   return {
+//     type: types.AUTHENTICATED,
+//     payload: userProfileApi.load()
+//   };
+// }

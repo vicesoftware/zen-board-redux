@@ -1,48 +1,7 @@
 import delay from "./delay";
 import UUID from "uuid-js";
 import userApi from "./stubUserApi";
-
-const projects = [
-  {
-    id: "04d1a05f-d511-45a6-8fe1-544224ea5657",
-    name: "Bar Stool",
-    members: [
-      {
-        id: "01548079-205a-4367-848c-3a4155ad31a6"
-      },
-      {
-        id: "42503252-3979-4df1-afef-c5365a3d542e"
-      }
-    ]
-  },
-  {
-    id: "8736fa7d-9563-41f9-982e-603e7fedd94b",
-    name: "Bottle Opener",
-    members: [
-      {
-        id: "10c6b17d-583f-459e-bf2f-b8da7ff2b1b9"
-      },
-      {
-        id: "42503252-3979-4df1-afef-c5365a3d542e"
-      }
-    ]
-  },
-  {
-    id: "a6f7edaa-e0ba-4457-b5ca-a50f5dfc881a",
-    name: "Beach Chair",
-    members: [
-      {
-        id: "01548079-205a-4367-848c-3a4155ad31a6"
-      },
-      {
-        id: "10c6b17d-583f-459e-bf2f-b8da7ff2b1b9"
-      },
-      {
-        id: "42503252-3979-4df1-afef-c5365a3d542e"
-      }
-    ]
-  }
-];
+const projects = require("./projects.json");
 
 //This would be performed on the server in a real app. Just stubbing in.
 const generateId = () => {

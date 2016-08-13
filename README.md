@@ -66,6 +66,19 @@ This will run the automated build process, start up a webserver, and open the ap
 ## Debugging
 A key focus of this project is improving developer ergonomics and this section outlines some tools that this develoment approach are optomized for.
 
+### Errors
+Below are some confusing errors that can happen and likely causes.
+
+#### actions.js:5 Uncaught TypeError: Cannot read property 'actions' of undefined
+When this occurs it usually means there is a problem with your bundle. The image below shows what this looks like. It's easy to loose time on this one. Some things to try:
+
+1. Kill your npm start (watch) that is running using ctrl+c (or close the terminal\command prompt) and then rerun npm start and fix all the errors and warnings.
+2. If doing 1) above doesn't fix it then review a diff of your changes and looking for module resolution problems. Sometimes if you rename files this can happen as it will change what needs to be specfied in your import statements.
+3. Shelf your changes and then start resetting files until your build works again to isolate what file is causing the problem.
+
+![image](https://cloud.githubusercontent.com/assets/10080111/17644444/7e62d5d6-614c-11e6-8a79-26e16517e8bd.png)
+
+
 ### Web Storm
 I've tried a few editors and I'm finding that Web Storm has a great React\Redux experience. I find that it requires less configuration than Atom or Sublime as it will auto-detect things for you and ask if you'd like to enable different plugins. For example, it will detect that your Javascript files contain JSX and ask you if you'd like to enable JSX harmony which will give you syntax highlighting and beautification.
 

@@ -1,6 +1,6 @@
 import React, {PropTypes} from "react";
 
-const SignInLayout = ({onSignIn, userName, password, onChange}) => {
+const SignInLayout = ({onSignIn, email, password, onChange}) => {
   return (
     <div className="row">
       <div className="col-lg-offset-4 col-lg-4">
@@ -11,19 +11,19 @@ const SignInLayout = ({onSignIn, userName, password, onChange}) => {
               Please Sign In
             </h4>
             <label
-              for="inputEmail"
+              htmlFor="inputEmail"
               className="sr-only">Email address</label>
             <input
-              name="userName"
+              name="email"
               type="email"
               id="inputEmail"
               className="form-control"
               placeholder="Email address"
               required=""
-              autofocus=""
-              value={userName}
+              autoFocus=""
+              value={email}
               onChange={onChange}/>
-            <label for="inputPassword" className="sr-only">Password</label>
+            <label htmlFor="inputPassword" className="sr-only">Password</label>
             <input
               name="password"
               type="password"
@@ -53,7 +53,10 @@ const SignInLayout = ({onSignIn, userName, password, onChange}) => {
 };
 
 SignInLayout.propTypes = {
-  // name: PropTypes.string.isRequired
+  onSignIn: PropTypes.func,
+  email: PropTypes.string,
+  password: PropTypes.string,
+  onChange: PropTypes.func
 };
 
 export default SignInLayout;

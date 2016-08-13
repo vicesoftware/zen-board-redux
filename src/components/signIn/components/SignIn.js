@@ -31,9 +31,9 @@ class SignIn extends React.Component {
   }
 
   authenticate(e) {
-    const {userName, password} = this.state.credentials;
+    const {email, password} = this.state.credentials;
     e.preventDefault();
-    this.props.actions.authenticate(userName, password)
+    this.props.actions.authenticate(email, password)
       .then(this.navigateToProjects);
   }
 

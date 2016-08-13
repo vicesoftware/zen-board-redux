@@ -4,7 +4,7 @@ const MemberList = ({members}) => {
   return (
     <ul className="avatar-list">
       {members.map(member => (
-          <li key={member.userName} className="avatar-list-item">
+          <li key={member.email} className="avatar-list-item">
             <img className="img-circle" src={member.avatar}/>
           </li>
         )

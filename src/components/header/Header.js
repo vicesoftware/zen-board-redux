@@ -39,7 +39,7 @@ const Header = ({project, userProfile}) => {
                 </a>
               </li>
               <li>
-                { !_.isEmpty(userProfile) &&
+                {!_.isEmpty(userProfile) &&
                     <button className="btn btn-default navbar-btn navbar-btn-avitar"
                             data-toggle="popover" data-original-title="" title="">
                       <img className="img-circle" src={!_.isEmpty(userProfile) && userProfile.avatar}/>
@@ -66,7 +66,7 @@ const Header = ({project, userProfile}) => {
         </div>
       </nav>
     );
-}
+};
 
 Header.propTypes = {
   project: PropTypes.object,

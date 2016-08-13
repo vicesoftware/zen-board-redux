@@ -3,7 +3,6 @@
     "id": "01548079-205a-4367-848c-3a4155ad31a6",
     "firstName": "Ashish",
     "lastName": "Bandi",
-    "userName": "abandi",
     "email": "ashish@vicesoftware.com",
     "avatar": "https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/2/000/1a8/311/251d8f1.jpg"
   },
@@ -11,7 +10,6 @@
     "id": "10c6b17d-583f-459e-bf2f-b8da7ff2b1b9",
     "firstName": "Ryan",
     "lastName": "Vice",
-    "userName": "rvice",
     "email": "ryan@vicesoftware.com",
     "avatar": "http://adnug.org/Home/wp-content/uploads/2012/03/ryan-vice.jpg"
   },
@@ -19,7 +17,6 @@
     "id": "42503252-3979-4df1-afef-c5365a3d542e",
     "firstName": "Prashanth",
     "lastName": "Tondapu",
-    "userName": "prashantht",
     "email": "prashanth@vicesofteare.com",
     "avatar": "https://s31.postimg.org/80jro0m6j/prashanth.png"
   }

@@ -1,6 +1,9 @@
 export default {
-	projectList: [],
-	busyCount: 0,
+  projectList: [],
+  app: {
+    busyCount: 0,
+    error: {}
+  },
   users: [],
   currentProject: {},
   taskList: [],
