@@ -1,7 +1,8 @@
 import "babel-polyfill"; // can be optomized by only pulling in what you need
 import React from "react";
 import {render} from "react-dom";
-import configureStore from "./store";
+import configureStore from "./configureStore";
+import {setStore} from "./store";
 import {Provider} from "react-redux";
 import {Router, browserHistory} from "react-router";
 import {syncHistoryWithStore} from "react-router-redux";
@@ -14,6 +15,7 @@ import "react-select/dist/react-select.css";
 import auth from "./components/common/auth";
 
 const store = configureStore();
+setStore(store);
 
 const requireAccess = auth.bindCheckAuth(
   store,

@@ -2,7 +2,7 @@ import {combineReducers} from "redux";
 import projectList from "../components/projectList";
 import users from "../components/users";
 import taskList from "../components/taskList";
-import app from "../components/app";
+import * as app from "../components/app";
 import userProfile from "../components/userProfile";
 import {routerReducer} from "react-router-redux";
 

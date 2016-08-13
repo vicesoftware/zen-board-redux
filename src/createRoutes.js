@@ -6,12 +6,12 @@ import addEditProject from "./components/addEditProject";
 import currentProject from "./components/currentProject";
 import taskList from "./components/taskList";
 import signIn from "./components/signIn";
-
-// onEnter={projectList.actions.getProjectsForRoute}
+import userProfile from "./components/userProfile";
 
 export default function createRoutes(requireAccess) {
   return (
-	<Route path="/" component={App}>
+	<Route path="/" component={App}
+    onEnter={userProfile.actions.loadUserProfileFromRoute}>
 		<IndexRoute
       component={projectList.components.ProjectsPage}
       onEnter={requireAccess()}/>

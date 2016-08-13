@@ -1,9 +1,9 @@
 import taskApi from "../../api/stubTaskApi";
-import app from "../app";
+import * as appActions from "../app/actions";
 import {GET} from "./actionTypes";
 import {dispatch} from "../../store";
 
-const {incrementBusyCount, decrementBusyCount} = app.actions;
+const {incrementBusyCount, decrementBusyCount} = appActions;
 
 function getTaskResponse(tasks) {
 	return {

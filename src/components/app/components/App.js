@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import Header from "../../header/Header";
-import projectList from "../../projectList";
+import * as projectListSelectors from "../../projectList/selectors";
 
 class App extends React.Component {
 
@@ -26,7 +26,7 @@ App.propTypes = {
 
 function mapStateToProps(state, ownProps) {
   return {
-    project: projectList.selectors.getById(state, ownProps.params.id),
+    project: projectListSelectors.getById(state, ownProps.params.id),
     userProfile: state.userProfile
   };
 }

@@ -1,7 +1,6 @@
 import initialState from "../../reducers/initialState";
 import _ from "lodash";
 import * as types from "./actionTypes";
-import addEditProject from "../addEditProject";
 
 export default function reducer(state = initialState.projectList, action) {
   switch (action.type) {
@@ -29,8 +28,8 @@ export default function reducer(state = initialState.projectList, action) {
       }
 
       return [
-        ...state.slice(0, index), 
-        action.payload.savedProject, 
+        ...state.slice(0, index),
+        action.payload.savedProject,
         ...state.slice(index + 1)];
     }
 

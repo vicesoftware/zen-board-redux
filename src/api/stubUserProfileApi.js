@@ -20,7 +20,7 @@ class UserProfileApi {
         }
 
         if (remember) {
-          localStorage.setItem(USER_PROFILE, profile);
+          localStorage.setItem(USER_PROFILE, JSON.stringify(profile));
         }
 
         resolve(Object.assign({}, profile));
@@ -29,7 +29,7 @@ class UserProfileApi {
   }
 
   static load() {
-    return localStorage.get(USER_PROFILE);
+    return JSON.parse(localStorage.getItem(USER_PROFILE));
   }
 }
 
