@@ -8,3 +8,12 @@ export function decrementBusyCount() {
   return {type: types.DECREMENT_BUSY_COUNT};
 }
 
+export function showError(displayMessage) {
+  return {
+    type: types.SHOW_ERROR,
+    payload: {
+      displayMessage
+    }
+  };
+}
+

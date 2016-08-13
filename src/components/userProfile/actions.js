@@ -13,10 +13,10 @@ function authenticateResponse(userProfile) {
 	};
 }
 
-export function authenticate(email, password) {
+export function authenticate(email, password, rememberMe) {
 	return function (dispatch) {
 		dispatch(app.actions.incrementBusyCount());
-		return userProfileApi.authenticate(email, password)
+		return userProfileApi.authenticate(email, password, rememberMe)
 			.then(userProfile => {
 				dispatch(app.actions.decrementBusyCount());
 				dispatch(authenticateResponse(userProfile));
@@ -26,10 +26,10 @@ export function authenticate(email, password) {
 			}); // real error handling coming soon :)
 	};
 }
-//
-// export function loadUserProfile() {
-//   return {
-//     type: types.AUTHENTICATED,
-//     payload: userProfileApi.load()
-//   };
-// }
+
+export function loadUserProfile() {
+  return {
+    type: types.AUTHENTICATED,
+    payload: userProfileApi.load()
+  };
+}

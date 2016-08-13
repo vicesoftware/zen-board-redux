@@ -1,6 +1,6 @@
 import React, {PropTypes} from "react";
 
-const SignInLayout = ({onSignIn, email, password, onChange}) => {
+const SignInLayout = ({onSignIn, email, password, rememberMe, onChange}) => {
   return (
     <div className="row">
       <div className="col-lg-offset-4 col-lg-4">
@@ -37,7 +37,9 @@ const SignInLayout = ({onSignIn, email, password, onChange}) => {
               <label>
                 <input
                   type="checkbox"
-                  value="remember-me"/> Remember me
+                  name="rememberMe"
+                  value={rememberMe}
+                  onChange={onChange}/> Remember me
               </label>
             </div>
             <button

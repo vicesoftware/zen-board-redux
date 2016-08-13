@@ -11,7 +11,8 @@ class SignIn extends React.Component {
     this.state = {
       credentials: {
         userName: "",
-        password: ""
+        password: "",
+        rememberMe: false
       }
     };
 
@@ -25,15 +26,19 @@ class SignIn extends React.Component {
 
     const field = event.target.name;
 
-    credentials[field] = event.target.value;
+    if (field === "rememberMe") {
+      credentials[field] = (event.target.value === "on");
+    } else {
+      credentials[field] = event.target.value;
+    }
 
     return this.setState({credentials: credentials});
   }
 
   authenticate(e) {
-    const {email, password} = this.state.credentials;
+    const {email, password, rememberMe} = this.state.credentials;
     e.preventDefault();
-    this.props.actions.authenticate(email, password)
+    this.props.actions.authenticate(email, password, rememberMe)
       .then(this.navigateToProjects);
   }
 
@@ -42,11 +47,12 @@ class SignIn extends React.Component {
   }
 
   render() {
-    const {userName, password} = this.state;
+    const {userName, password, rememberMe} = this.state;
     return (
       <SignInLayout
         userName={userName}
         password={password}
+        rememberMe={rememberMe}
         onSignIn={this.authenticate}
         onChange={this.updateState}/>
     );

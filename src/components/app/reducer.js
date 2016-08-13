@@ -11,6 +11,13 @@ export default function reducer(state = initialState.app, action) {
       return Object.assign(
         {}, state, { busyCount: state.busyCount + 1});
 
+    case types.SHOW_ERROR:
+      return Object.assign({},
+        state,
+        {
+          error: action.payload
+        });
+
     default:
       return state;
   }
