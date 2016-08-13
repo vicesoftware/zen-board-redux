@@ -13,27 +13,51 @@ import "../node_modules/font-awesome/css/font-awesome.min.css";
 import "./styles/styles.css";
 import "react-select/dist/react-select.css";
 import auth from "./components/common/auth";
+import userProfileApi from "./api/stubUserProfileApi";
+import userProfile from "./components/userProfile";
+import _ from "lodash";
+
+const {loadUserProfile} = userProfile.actions;
 
 const store = configureStore();
 setStore(store);
 
 const requireAccess = auth.bindCheckAuth(
-  store,
-  (nextState, replace) => {
-      replace('/sign-in');
-    },
-  (nextState, replace) => {
-      replace('/403');
-    }
-  );
+  tryGetUserProfile,
+  onNotAuthenticated,
+  onNotAuthorized
+);
 
 const routes = createRoutes(requireAccess);
 // Create an enhanced history that syncs navigation events with the store
 const history = syncHistoryWithStore(browserHistory, store);
 
 render(
-	<Provider store={store}>
-		<Router history={history} routes={routes}/>
-	</Provider>,
-	document.getElementById("app")
+  <Provider store={store}>
+    <Router history={history} routes={routes}/>
+  </Provider>,
+  document.getElementById("app")
 );
+
+function tryGetUserProfile() {
+  let userProfile = store.getState().userProfile;
+
+  if (_.isEmpty(userProfile)) {
+    userProfile = userProfileApi.load();
+
+    if (!_.isEmpty(userProfile)) {
+      store.dispatch(loadUserProfile(userProfile));
+    }
+  }
+
+  return userProfile;
+}
+
+function onNotAuthenticated(nextState, replace) {
+  replace('/sign-in');
+}
+
+function onNotAuthorized(nextState, replace) {
+  replace('/403');
+}
+

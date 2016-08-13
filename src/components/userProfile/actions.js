@@ -28,15 +28,11 @@ export function authenticate(email, password, rememberMe) {
   };
 }
 
-function loadUserProfile() {
+export function loadUserProfile(profile) {
   return {
     type: types.AUTHENTICATED,
     payload: {
-      userProfile: userProfileApi.load() || {}
+      userProfile: profile
     }
   };
-}
-
-export function loadUserProfileFromRoute() {
-  dispatch(loadUserProfile());
 }
