@@ -1,141 +1,47 @@
 import React, {PropTypes} from "react";
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
-import currentProject from "../../currentProject";
-import projectList from "../../projectList";
-import users from "../../users";
-import ProjectForm from "./ProjectForm";
+import TextInput from "../../common/forms/TextInput";
+import MemberSelect from "../../projectList/components/MemberSelect";
 import Page from "../../common/page/Page";
 
-class ManageProjectPage extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+const AddEditProject = ({project, onSave, onChange, errors, users, isBusy}) => {
+  const name = (project) ? project.name : "";
+  const members = (project) ? project.members : [];
 
-    this.state = {
-      project: {},
-      errors: undefined,
-      members: undefined
-    };
-
-    this.updateProjectState = this.updateProjectState.bind(this);
-    this.saveProject = this.saveProject.bind(this);
-  }
-
-  componentDidMount() {
-    this.updateState();
-    this.getData();
-  }
-
-  componentDidUpdate(prevProps) {
-    let oldId = prevProps.params.id;
-    let newId = this.props.params.id;
-
-    if (newId !== oldId) {
-      this.getData();
-    } else if (prevPropsEmpty(prevProps) && currentPropsNotEmpty(this.props)) {
-      this.updateState();
-    }
-
-    function prevPropsEmpty(props) {
-      return !props.project || !props.project.name;
-    }
-
-    function currentPropsNotEmpty(props) {
-      return props.project && props.project.name;
-    }
-  }
-
-  getData() {
-    projectList.actions.getProjects();
-    users.actions.getUsers();
-  }
-
-  updateState() {
-    this.setState({project: Object.assign({}, this.props.project)});
-
-  }
-
-  updateProjectState(event) {
-    let project = this.state.project;
-
-    // Handle member list changed event
-    if (!event.target) {
-      const members = this.props.users
-        .filter(user => event.includes(user.id));
-      if (members) {
-        return this.setState({
-          project: Object.assign(
-            {}, project, {members: members})
-        });
-      }
-    }
-
-    const field = event.target.name;
-
-    project[field] = event.target.value;
-
-    return this.setState({project: project});
-  }
-
-  saveProject(e) {
-    e.preventDefault();
-    this.props.actions.saveProject(this.state.project)
-      .then(() => this.props.actions.closeProject())
-      .then(() => this.context.router.push("/"));
-  }
-
-  render() {
-    const {project, errors} = this.state;
-    const {users, isBusy} = this.props;
-
-    return (
-      <Page isBusy={isBusy}>
-        <div className="row">
-          <div className="col-lg-6 col-lg-offset-3">
-            <h4 className="text-muted">Add Project</h4>
-            <div className="card card-block">
-              <ProjectForm
-                project={project}
-                errors={errors}
+  return (
+    <Page isBusy={isBusy}>
+      <div className="row">
+        <div className="col-lg-6 col-lg-offset-3">
+          <h4 className="text-muted">Add Project</h4>
+          <div className="card card-block">
+            <form>
+              <TextInput
+                name="name"
+                label="Name"
+                value={name}
+                onChange={onChange}
+                error={errors}/>
+              <MemberSelect
                 users={users}
-                onChange={this.updateProjectState}
-                onSave={this.saveProject}
-              />
-            </div>
+                onChange={onChange}
+                members={members}/>
+              <br/>
+              <br/>
+              <button className="btn btn-primary" onClick={onSave}>Save</button>
+            </form>
           </div>
         </div>
-      </Page>
-    );
-  }
-}
+      </div>
+    </Page>
+  );
+};
 
-ManageProjectPage.propTypes = {
+AddEditProject.propTypes = {
   project: PropTypes.object.isRequired,
+  onSave: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  errors: PropTypes.object,
   users: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired,
-  isBusy: PropTypes.bool,
-  params: PropTypes.object
+  isBusy: PropTypes.bool
 };
 
-function mapStateToProps(state, ownProps) {
-  return {
-    project: projectList.selectors.getById(state, ownProps.params.id),
-    users: state.users,
-    isBusy: state.busyCount > 0
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  const actions = Object.assign(
-    {}, currentProject.actions, projectList.actions, users.actions);
-
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  };
-}
-
-ManageProjectPage.contextTypes = {
-  router: React.PropTypes.object.isRequired
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ManageProjectPage);
+export default AddEditProject;

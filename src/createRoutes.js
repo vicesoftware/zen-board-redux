@@ -19,7 +19,7 @@ export default function createRoutes(requireAccess) {
       onEnter={requireAccess()}/>
 		<Route
       path="projects/add"
-      component={addEditProject.components.AddEditProject}/>
+      component={addEditProject.components.AddEditProjectContainer}/>
 		<Route
       path="projects/edit/:id"
       component={addEditProject.components.AddEditProject}
