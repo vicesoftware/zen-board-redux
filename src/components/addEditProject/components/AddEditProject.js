@@ -21,12 +21,12 @@ class ManageProjectPage extends React.Component {
     this.saveProject = this.saveProject.bind(this);
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.updateState();
     this.getData();
   }
 
-  componentDidUpdate (prevProps) {
+  componentDidUpdate(prevProps) {
     let oldId = prevProps.params.id;
     let newId = this.props.params.id;
 
@@ -51,7 +51,7 @@ class ManageProjectPage extends React.Component {
   }
 
   updateState() {
-        this.setState({project: Object.assign({}, this.props.project)});
+    this.setState({project: Object.assign({}, this.props.project)});
 
   }
 
@@ -90,15 +90,19 @@ class ManageProjectPage extends React.Component {
 
     return (
       <Page isBusy={isBusy}>
-        <h4 className="text-muted">Add Project</h4>
-        <div className="card card-block">
-          <ProjectForm
-            project={project}
-            errors={errors}
-            users={users}
-            onChange={this.updateProjectState}
-            onSave={this.saveProject}
-          />
+        <div className="row">
+          <div className="col-lg-6 col-lg-offset-3">
+            <h4 className="text-muted">Add Project</h4>
+            <div className="card card-block">
+              <ProjectForm
+                project={project}
+                errors={errors}
+                users={users}
+                onChange={this.updateProjectState}
+                onSave={this.saveProject}
+              />
+            </div>
+          </div>
         </div>
       </Page>
     );

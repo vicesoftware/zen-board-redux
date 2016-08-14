@@ -7,6 +7,7 @@ const ProjectForm = ({project, onSave, onChange, errors, users}) => {
   const members = (project) ? project.members : [];
 
   return (
+
     <form>
       <TextInput
         name="name"
