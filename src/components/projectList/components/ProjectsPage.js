@@ -15,7 +15,9 @@ class ProjectsPage extends React.Component {
 
   componentWillMount() {
     if (this.props.projectList.length === 0) {
-      this.props.actions.getProjects();
+      this.props.actions.getProjects({
+        userId: this.props.userProfile.id
+      });
     }
   }
 
@@ -71,7 +73,8 @@ ProjectsPage.propTypes = {
 function mapStateToProps(state) {
   return {
     projectList: state.projectList,
-    isBusy: state.busyCount > 0
+    isBusy: state.busyCount > 0,
+    userProfile: state.userProfile
   };
 }
 

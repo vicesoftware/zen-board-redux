@@ -16,8 +16,12 @@ class CourseApi {
 
         if (!by) {
           filteredResult = projects;
-        } else {
-          filteredResult = projects.filter(project => project.id === by.id);
+        } else if (by.id) {
+          filteredResult
+            = projects.filter(project => project.id === by.id);
+        } else if (by.userId) {
+          filteredResult
+            = projects.filter(project => project.createdBy === by.userId);
         }
 
         userApi.getUsers()

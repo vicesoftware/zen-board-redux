@@ -14,10 +14,10 @@ function getProjectsResponse(projectList) {
   };
 }
 
-export function getProjects() {
+export function getProjects(by) {
   return function (dispatch) {
     dispatch(incrementBusyCount());
-    return projectApi.getProjects()
+    return projectApi.getProjects(by)
       .then(projects => {
         dispatch(decrementBusyCount());
         dispatch(getProjectsResponse(projects));
