@@ -45,8 +45,10 @@ class ManageProjectPage extends React.Component {
   }
 
   getData() {
-    projectList.actions.getProjects();
-    users.actions.getUsers();
+    this.props.actions.getProjects({
+      userId: this.props.userProfile.id
+      });
+    this.props.actions.getUsers();
   }
 
   updateState() {
@@ -79,7 +81,6 @@ class ManageProjectPage extends React.Component {
   saveProject(e) {
     e.preventDefault();
     this.props.actions.saveProject(this.state.project)
-      .then(() => this.props.actions.closeProject())
       .then(() => this.context.router.push("/"));
   }
 
@@ -111,7 +112,8 @@ function mapStateToProps(state, ownProps) {
   return {
     project: projectList.selectors.getById(state, ownProps.params.id),
     users: state.users,
-    isBusy: state.busyCount > 0
+    isBusy: state.app.busyCount > 0,
+    userProfile: state.userProfile
   };
 }
 

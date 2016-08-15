@@ -9,7 +9,7 @@ export default function reducer(state = initialState.app, action) {
 
     case types.DECREMENT_BUSY_COUNT:
       return Object.assign(
-        {}, state, { busyCount: state.busyCount + 1});
+        {}, state, { busyCount: state.busyCount - 1});
 
     case types.SHOW_ERROR:
       return Object.assign({},

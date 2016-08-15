@@ -2,6 +2,7 @@ import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import * as actions from "../actions";
+import * as selectors from "../selectors";
 import ProjectPageLayout from "./ProjectPageLayout";
 
 
@@ -13,12 +14,10 @@ class ProjectsPage extends React.Component {
     this.deleteProject = this.deleteProject.bind(this);
   }
 
-  componentWillMount() {
-    if (this.props.projectList.length === 0) {
+  componentDidMount() {
       this.props.actions.getProjects({
         userId: this.props.userProfile.id
       });
-    }
   }
 
   addProject(e) {
@@ -31,6 +30,10 @@ class ProjectsPage extends React.Component {
   }
 
   getProjectRows(projectList) {
+    if (!projectList || projectList.length === 0) {
+      return [];
+    }
+
     return chunkArray(projectList, 3);
 
     function chunkArray(array, chunk) {
@@ -72,8 +75,10 @@ ProjectsPage.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    projectList: state.projectList,
-    isBusy: state.busyCount > 0,
+    projectList: selectors.getByUserId(
+      state,
+      state.userProfile.id),
+    isBusy: state.app.busyCount > 0,
     userProfile: state.userProfile
   };
 }

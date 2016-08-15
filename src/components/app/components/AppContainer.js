@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import Header from "../../header/Header";
 import * as projectListSelectors from "../../projectList/selectors";
 
-class App extends React.Component {
+class AppContainer extends React.Component {
 
   render() {
     const {project, userProfile} = this.props;
@@ -20,7 +20,7 @@ class App extends React.Component {
   }
 }
 
-App.propTypes = {
+AppContainer.propTypes = {
   children: PropTypes.object.isRequired
 };
 
@@ -31,4 +31,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(AppContainer);

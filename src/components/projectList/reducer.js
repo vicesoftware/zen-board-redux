@@ -10,7 +10,7 @@ export default function reducer(state = initialState.projectList, action) {
       ];
 
     case types.GET:
-      return action.payload.projectList;
+      return [...action.payload.projectList];
 
     case types.DELETE:
       return [...state.filter(project => project.id != action.payload.projectId)];
