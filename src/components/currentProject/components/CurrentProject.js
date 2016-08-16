@@ -48,7 +48,7 @@ ProjectPage.contextTypes = {
 function mapStateToProps(state, ownProps) {
   return {
     project: projectList.selectors.getById(state, ownProps.params.id),
-    isBusy: state.app.busyCount > 0
+    isBusy: state.busySpinner.count > 0
   };
 }
 

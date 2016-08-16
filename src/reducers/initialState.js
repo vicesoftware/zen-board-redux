@@ -1,8 +1,10 @@
 export default {
   projectList: [],
   app: {
-    busyCount: 0,
     error: {}
+  },
+  busySpinner: {
+    count: 0
   },
   users: [],
   currentProject: {},

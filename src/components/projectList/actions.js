@@ -1,9 +1,9 @@
 import projectApi from "../../api/stubProjectApi";
-import {actions as appActions} from "../app";
+import busySpinner from "../common/busySpinner";
 import {GET, DELETE, SAVE} from "./actionTypes";
 import {dispatch} from "../../store";
 
-const {incrementBusyCount, decrementBusyCount} = appActions;
+const {incrementBusyCount, decrementBusyCount} = busySpinner.actions;
 
 function getProjectsResponse(projectList) {
   return {

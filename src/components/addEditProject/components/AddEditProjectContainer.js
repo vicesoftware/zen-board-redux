@@ -80,7 +80,14 @@ class ManageProjectPage extends React.Component {
 
   saveProject(e) {
     e.preventDefault();
-    this.props.actions.saveProject(this.state.project)
+
+    const project = Object.assign(
+      {},
+      this.state.project,
+      {createdBy: this.props.userProfile.id}
+      );
+
+    this.props.actions.saveProject(project)
       .then(() => this.context.router.push("/"));
   }
 
@@ -112,7 +119,7 @@ function mapStateToProps(state, ownProps) {
   return {
     project: projectList.selectors.getById(state, ownProps.params.id),
     users: state.users,
-    isBusy: state.app.busyCount > 0,
+    isBusy: state.busySpinner.count > 0,
     userProfile: state.userProfile
   };
 }

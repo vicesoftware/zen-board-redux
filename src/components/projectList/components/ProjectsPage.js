@@ -15,9 +15,9 @@ class ProjectsPage extends React.Component {
   }
 
   componentDidMount() {
-      this.props.actions.getProjects({
-        userId: this.props.userProfile.id
-      });
+    this.props.actions.getProjects({
+      userId: this.props.userProfile.id
+    });
   }
 
   addProject(e) {
@@ -58,7 +58,7 @@ class ProjectsPage extends React.Component {
         projectRows={projectRows}
         onDeleteProject={this.deleteProject}
         onAddProject={this.addProject}
-        />
+      />
     );
   }
 }
@@ -77,8 +77,9 @@ function mapStateToProps(state) {
   return {
     projectList: selectors.getByUserId(
       state,
-      state.userProfile.id),
-    isBusy: state.app.busyCount > 0,
+      state.userProfile.id
+    ),
+    isBusy: state.busySpinner.count > 0,
     userProfile: state.userProfile
   };
 }

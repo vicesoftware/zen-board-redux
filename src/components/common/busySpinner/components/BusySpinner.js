@@ -1,6 +1,6 @@
 import React from "react";
 
-const BusyIndicator = () => {
+const BusySpinner = () => {
   return (
     <div>
       <i className="fa fa-spinner fa-pulse fa-3x fa-fw text-muted"></i>
@@ -9,4 +9,4 @@ const BusyIndicator = () => {
   );
 };
 
-export default BusyIndicator;
+export default BusySpinner;

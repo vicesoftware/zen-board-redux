@@ -1,5 +1,5 @@
 import React, {PropTypes} from "react";
-import BusyIndicator from "./BusyIndicator";
+import BusyIndicator from "../busySpinner/components/BusySpinner";
 
 const Page = ({title, isBusy, children}) => {
 	return (

@@ -1,9 +1,9 @@
 import taskApi from "../../api/stubTaskApi";
-import * as appActions from "../app/actions";
+import busySpinner from "../common/busySpinner";
 import {GET} from "./actionTypes";
 import {dispatch} from "../../store";
 
-const {incrementBusyCount, decrementBusyCount} = appActions;
+const {incrementBusyCount, decrementBusyCount} = busySpinner.actions;
 
 function getTaskResponse(tasks) {
 	return {

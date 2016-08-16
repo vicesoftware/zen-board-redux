@@ -2,13 +2,15 @@ import {combineReducers} from "redux";
 import projectList from "../components/projectList";
 import users from "../components/users";
 import taskList from "../components/taskList";
-import * as app from "../components/app";
+import app from "../components/app";
 import userProfile from "../components/userProfile";
+import busySpinner from "../components/common/busySpinner";
 import {routerReducer} from "react-router-redux";
 
 const rootReducer = combineReducers({
   [projectList.constants.NAME]: projectList.reducer,
   [app.constants.NAME]: app.reducer,
+  [busySpinner.constants.NAME]: busySpinner.reducer,
   [users.constants.NAME]: users.reducer,
   [taskList.constants.NAME]: taskList.reducer,
   [userProfile.constants.NAME]: userProfile.reducer,

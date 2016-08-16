@@ -1,6 +1,8 @@
 import userApi from "../../api/stubUserApi";
-import * as app from "../app";
+import busySpinner from "../common/busySpinner"
 import * as types from "./actionTypes";
+
+const {incrementBusyCount, decrementBusyCount} = busySpinner.actions;
 
 export function getUsersResponse(users) {
   return {
@@ -13,10 +15,10 @@ export function getUsersResponse(users) {
 
 export function getUsers() {
   return function(dispatch) {
-    dispatch(app.actions.incrementBusyCount());
+    dispatch(incrementBusyCount());
     return userApi.getUsers()
       .then(user => {
-        dispatch(app.actions.decrementBusyCount());
+        dispatch(decrementBusyCount());
         dispatch(getUsersResponse(user));
       })
       .catch(error => { throw(error); }); // real error handling coming soon :)
