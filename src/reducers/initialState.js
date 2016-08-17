@@ -6,6 +6,7 @@ export default {
   busySpinner: {
     count: 0
   },
+  errors: {},
   users: [],
   currentProject: {},
   taskList: [],

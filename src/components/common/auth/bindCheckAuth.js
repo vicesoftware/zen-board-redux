@@ -10,21 +10,25 @@ import { checkAccess } from './authHelpers';
  * @returns {Function} Return function with signature requireAuth(accessLevel, [checkAccessHandler]).
  *  checkAccessHandler is optional, by default checkAccessHandler = checkAccess (from access-helpers.js)
  */
-export default function bindCheckAuth(getUserProfile, notAuthorizedHandler, accessDeniedHandler) {
-  return (accessLevel, checkAccessHandler = checkAccess) => (nextState, transition) => {
-    const userProfile = getUserProfile();
-    let currentAccessLvl; //= state.accessLvl;
+export default function bindCheckAuth(
+  getUserProfile,
+  notAuthorizedHandler,
+  accessDeniedHandler) {
+  return (accessLevel, callback, checkAccessHandler = checkAccess) =>
+    (nextState, replace) => {
+      const userProfile = getUserProfile();
+      let currentAccessLvl; //= state.accessLvl;
 
-    if (checkAccessHandler(accessLevel, userProfile)) {
-      // Access granted
-      return;
-    }
+      if (checkAccessHandler(accessLevel, userProfile)) {
+        // Access granted
+        return;
+      }
 
-    if (!isAuthorized(userProfile)) {
-      notAuthorizedHandler(nextState, transition);
-      return;
-    }
+      if (!isAuthorized(userProfile)) {
+        notAuthorizedHandler(nextState, replace);
+        return;
+      }
 
-    accessDeniedHandler(nextState, transition);
-  };
+      accessDeniedHandler(nextState, replace);
+    };
 }

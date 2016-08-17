@@ -1,10 +1,14 @@
 import React, {PropTypes} from "react";
 import BusyIndicator from "../busySpinner/components/BusySpinner";
+import ErrorPanel from "../errors/components/ErrorPanel";
+
+//const {ErrorPanel} = errors.components;
 
 const Page = ({title, isBusy, children}) => {
 	return (
     <div className="container-fluid">
       <h3>{title}</h3>
+      <ErrorPanel/>
       {isBusy ? <BusyIndicator/> : children}
     </div>
 	);

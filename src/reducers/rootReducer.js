@@ -5,12 +5,14 @@ import taskList from "../components/taskList";
 import app from "../components/app";
 import userProfile from "../components/userProfile";
 import busySpinner from "../components/common/busySpinner";
+import errors from "../components/common/errors";
 import {routerReducer} from "react-router-redux";
 
 const rootReducer = combineReducers({
   [projectList.constants.NAME]: projectList.reducer,
   [app.constants.NAME]: app.reducer,
   [busySpinner.constants.NAME]: busySpinner.reducer,
+  [errors.constants.NAME]: errors.reducer,
   [users.constants.NAME]: users.reducer,
   [taskList.constants.NAME]: taskList.reducer,
   [userProfile.constants.NAME]: userProfile.reducer,

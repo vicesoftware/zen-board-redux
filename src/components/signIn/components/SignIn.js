@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import SignInLayout from "./SignInLayout";
 import userProfile from "../../userProfile";
+import errors from "../../common/errors";
 
 class SignIn extends React.Component {
   constructor(props, context) {
@@ -39,7 +40,8 @@ class SignIn extends React.Component {
     const {email, password, rememberMe} = this.state.credentials;
     e.preventDefault();
     this.props.actions.authenticate(email, password, rememberMe)
-      .then(this.navigateToProjects);
+      .then(this.navigateToProjects)
+      .catch(this.props.actions.showError);
   }
 
   navigateToProjects() {
@@ -68,8 +70,9 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
+  const actions = Object.assign({}, userProfile.actions, errors.actions);
   return {
-    actions: bindActionCreators(userProfile.actions, dispatch)
+    actions: bindActionCreators(actions, dispatch)
   };
 }
 
