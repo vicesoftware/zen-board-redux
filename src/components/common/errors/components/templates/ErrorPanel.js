@@ -1,9 +1,9 @@
 import React, {PropTypes} from "react";
 
 const ErrorPanel = ({error}) => {
-  return (
-    <div id="error-container">
-      {error &&
+  let view = "";
+  if (error) {
+      view = (
       <div className="row">
         <div className="col-lg-offset-4 col-lg-4">
           <div className="alert alert-danger" role="alert">
@@ -13,7 +13,12 @@ const ErrorPanel = ({error}) => {
           </div>
         </div>
       </div>
-      }
+      );
+  }
+  
+  return (
+    <div id="error-container">
+      {view}
     </div>
   );
 };

@@ -1,9 +1,9 @@
 import React, {PropTypes} from "react";
 import Page from "../../common/page/Page";
 
-const SignInLayout = ({onSignIn, email, password, rememberMe, onChange}) => {
+const SignInLayout = ({onSignIn, email, password, rememberMe, onChange, isBusy}) => {
   return (
-    <Page>
+    <Page isBusy={isBusy}>
       <div className="row">
         <div className="col-lg-offset-4 col-lg-4">
 

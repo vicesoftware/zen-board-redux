@@ -22,6 +22,12 @@ class SignIn extends React.Component {
     this.updateState = this.updateState.bind(this);
   }
 
+  componentWillUnmount() {
+    if (this.props.error) {
+      this.props.actions.hideError();
+    }
+  }
+
   updateState(event) {
     let credentials = this.state.credentials;
 
@@ -49,6 +55,7 @@ class SignIn extends React.Component {
   }
 
   render() {
+    const {isBusy} = this.props;
     const {userName, password, rememberMe} = this.state;
     return (
       <SignInLayout
@@ -56,7 +63,8 @@ class SignIn extends React.Component {
         password={password}
         rememberMe={rememberMe}
         onSignIn={this.authenticate}
-        onChange={this.updateState}/>
+        onChange={this.updateState}
+        isBusy={isBusy}/>
     );
   }
 }
@@ -66,7 +74,10 @@ SignIn.propTypes = {
 };
 
 function mapStateToProps(state) {
-  return {};
+  return {
+    error: state.errors.userError,
+    isBusy: state.busySpinner.count > 0
+  };
 }
 
 function mapDispatchToProps(dispatch) {

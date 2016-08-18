@@ -22,8 +22,9 @@ export function authenticate(email, password, rememberMe) {
         dispatch(authenticateResponse(userProfile));
       })
       .catch(error => {
+        dispatch(decrementBusyCount())
         throw(error);
-      }); // real error handling coming soon :)
+      });
   };
 }
 

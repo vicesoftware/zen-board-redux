@@ -1,8 +1,8 @@
 import React, {PropTypes} from "react";
 import BusyIndicator from "../busySpinner/components/BusySpinner";
-import ErrorPanel from "../errors/components/ErrorPanel";
+import errors from "../errors";
 
-//const {ErrorPanel} = errors.components;
+const {ErrorPanel} = errors.components;
 
 const Page = ({title, isBusy, children}) => {
 	return (
