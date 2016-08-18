@@ -1,5 +1,5 @@
 import userApi from "../../api/stubUserApi";
-import busySpinner from "../common/busySpinner"
+import busySpinner from "../common/busySpinner";
 import * as types from "./actionTypes";
 
 const {incrementBusyCount, decrementBusyCount} = busySpinner.actions;

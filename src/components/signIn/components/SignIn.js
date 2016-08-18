@@ -70,7 +70,9 @@ class SignIn extends React.Component {
 }
 
 SignIn.propTypes = {
-  // actions: PropTypes.string.isRequired
+  actions: PropTypes.object.isRequired,
+  isBusy: PropTypes.bool.isRequired,
+  error: PropTypes.object
 };
 
 function mapStateToProps(state) {

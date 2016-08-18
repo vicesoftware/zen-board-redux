@@ -21,7 +21,9 @@ class AppContainer extends React.Component {
 }
 
 AppContainer.propTypes = {
-  children: PropTypes.object.isRequired
+  children: PropTypes.object.isRequired,
+  project: PropTypes.object,
+  userProfile: PropTypes.object
 };
 
 function mapStateToProps(state, ownProps) {

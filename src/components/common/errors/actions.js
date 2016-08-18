@@ -21,5 +21,5 @@ export function hideError() {
   return {
     type: types.HIDE,
     payload: {}
-  }
+  };
 }

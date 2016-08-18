@@ -17,7 +17,8 @@ class ErrorPanel extends React.Component {
 }
 
 ErrorPanel.propTypes = {
-  error: PropTypes.object
+  error: PropTypes.object,
+  userError: PropTypes.object
 };
 
 function mapStateToProps(state) {

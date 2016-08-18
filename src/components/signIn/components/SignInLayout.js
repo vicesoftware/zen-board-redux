@@ -61,7 +61,9 @@ SignInLayout.propTypes = {
   onSignIn: PropTypes.func,
   email: PropTypes.string,
   password: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  rememberMe: PropTypes.bool,
+  isBusy: PropTypes.bool
 };
 
 export default SignInLayout;

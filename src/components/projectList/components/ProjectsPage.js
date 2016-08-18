@@ -70,7 +70,8 @@ ProjectsPage.contextTypes = {
 ProjectsPage.propTypes = {
   isBusy: PropTypes.bool,
   actions: PropTypes.object.isRequired,
-  projectList: PropTypes.array.isRequired
+  projectList: PropTypes.array.isRequired,
+  userProfile: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {

@@ -112,7 +112,8 @@ ManageProjectPage.propTypes = {
   users: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
   isBusy: PropTypes.bool,
-  params: PropTypes.object
+  params: PropTypes.object,
+  userProfile: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
