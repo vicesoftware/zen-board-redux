@@ -7,6 +7,7 @@ import userProfile from "../components/userProfile";
 import busySpinner from "../components/common/busySpinner";
 import errors from "../components/common/errors";
 import {routerReducer} from "react-router-redux";
+import {reducer as formReducer} from 'redux-form';
 
 const rootReducer = combineReducers({
   [projectList.constants.NAME]: projectList.reducer,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   [users.constants.NAME]: users.reducer,
   [taskList.constants.NAME]: taskList.reducer,
   [userProfile.constants.NAME]: userProfile.reducer,
-  routing: routerReducer
+  routing: routerReducer,
+  form: formReducer
 });
 
 export default rootReducer;

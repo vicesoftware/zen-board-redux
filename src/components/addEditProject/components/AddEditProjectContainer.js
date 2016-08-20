@@ -78,12 +78,15 @@ class ManageProjectPage extends React.Component {
     return this.setState({project: project});
   }
 
-  saveProject(e) {
-    e.preventDefault();
+  saveProject(formData) {
+    formData.members = formData.members
+      .split(",")
+      .map(member => this.props.users
+        .find(user => user.id === member));
 
     const project = Object.assign(
       {},
-      this.state.project,
+      formData,
       {createdBy: this.props.userProfile.id}
       );
 

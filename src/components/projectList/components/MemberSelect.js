@@ -2,22 +2,14 @@ import React, {PropTypes} from "react";
 import FormElement from "../../common/forms/FormElement";
 import Select from "react-select";
 
-const MemberSelect = ({users, onChange, members}) => {
+const MemberSelect = ({users, onChange, members, value}) => {
   const usersOptions = users.map(
     user => ({
       label: user.firstName + " " + user.lastName,
       value: user.id
     }));
 
-  let membersAsDelimetedString = "";
-  if (members) {
-    membersAsDelimetedString = users
-      .filter(user => members.find(member => member.id === user.id))
-      .map(user => user.id)
-      .join(",");
-  }
-
-	return (
+  return (
     <FormElement name="members" label="Members">
       <Select
         name="members"
@@ -26,15 +18,15 @@ const MemberSelect = ({users, onChange, members}) => {
         simpleValue
         disabled={false}
         onChange={onChange}
-        value={membersAsDelimetedString}/>
+        value={value}/>
     </FormElement>
-	);
+  );
 };
 
 MemberSelect.propTypes = {
-	users: PropTypes.array.isRequired,
-	onChange: PropTypes.func.isRequired,
-	members: PropTypes.array
+  users: PropTypes.array.isRequired,
+  onChange: PropTypes.func.isRequired,
+  members: PropTypes.array
 };
 
 export default MemberSelect;
