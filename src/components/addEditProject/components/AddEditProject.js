@@ -3,7 +3,6 @@ import MemberSelect from "../../projectList/components/MemberSelect";
 import Page from "../../common/page/Page";
 import TextInput from "../../common/forms/TextInput";
 import {reduxForm} from 'redux-form';
-import * as constants from "./constants";
 
 class AddEditProject extends React.Component {
   constructor(props, context) {
@@ -18,7 +17,6 @@ class AddEditProject extends React.Component {
       handleSubmit,
       isBusy,
       users,
-      onChange,
       onSave,
       selectedMembers
     } = this.props;
@@ -37,7 +35,6 @@ class AddEditProject extends React.Component {
                   {...name}/>
                 <MemberSelect
                   users={users}
-                  onChange={onChange}
                   placeholder="Select project members"
                   selectedMembers={selectedMembers}
                   {...members}/>
@@ -64,8 +61,24 @@ AddEditProject.propTypes = {
 
 export const fields = ["name", "members"];
 
+const validate = values => {
+  const errors = {}
+
+  if (!values.name) {
+    errors.name = 'Required';
+  } else if (values.name.length > 30) {
+    errors.name = 'Must be 30 characters or less';
+  }
+  if (!values.members) {
+    errors.members = 'Required';
+  }
+
+  return errors;
+}
+
 export default reduxForm({
     form: "addEditProjectForm",
-    fields
+    fields,
+    validate
   }
 )(AddEditProject);

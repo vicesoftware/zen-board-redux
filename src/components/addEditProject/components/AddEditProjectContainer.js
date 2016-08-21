@@ -17,7 +17,6 @@ class ManageProjectPage extends React.Component {
       members: undefined
     };
 
-    this.updateProjectState = this.updateProjectState.bind(this);
     this.saveProject = this.saveProject.bind(this);
   }
 
@@ -55,28 +54,6 @@ class ManageProjectPage extends React.Component {
   updateState() {
     this.setState({project: Object.assign({}, this.props.project)});
 
-  }
-
-  updateProjectState(event) {
-    let project = this.state.project;
-
-    // Handle member list changed event
-    if (!event.target) {
-      const members = this.props.users
-        .filter(user => event.includes(user.id));
-      if (members) {
-        return this.setState({
-          project: Object.assign(
-            {}, project, {members: members})
-        });
-      }
-    }
-
-    const field = event.target.name;
-
-    project[field] = event.target.value;
-
-    return this.setState({project: project});
   }
 
   saveProject(formData) {
@@ -121,7 +98,6 @@ class ManageProjectPage extends React.Component {
         errors={errors}
         users={users}
         isBusy={isBusy}
-        onChange={this.updateProjectState}
         onSave={this.saveProject} />
     );
   }

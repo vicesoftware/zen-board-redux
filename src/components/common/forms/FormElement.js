@@ -1,12 +1,15 @@
 import React, {PropTypes} from "react";
 
-const FormElement = ({name, label, error, children}) => {
-  const formGroupClass = "form-group" + (error & "has-error");
+const FormElement = ({name, label, error, touched, children}) => {
+  const showError = touched && error;
+  const formGroupClass = "form-group" + (showError && " has-danger");
 
 	return (
     <div className={formGroupClass}>
-      <label htmlFor={name}>{label}</label>
+      <label className="col-form-label" htmlFor={name}>{label}</label>
       {children}
+      {showError
+        && <div className="form-control-feedback">{error}</div>}
     </div>
 	);
 };
