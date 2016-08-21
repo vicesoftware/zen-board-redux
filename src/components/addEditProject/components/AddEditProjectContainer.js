@@ -85,6 +85,10 @@ class ManageProjectPage extends React.Component {
       .map(member => this.props.users
         .find(user => user.id === member));
 
+    if (!_.isEmpty(this.state.project)) {
+      formData.id = this.state.project.id;
+    }
+
     const project = Object.assign(
       {},
       formData,
