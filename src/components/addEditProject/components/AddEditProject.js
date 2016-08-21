@@ -65,7 +65,7 @@ AddEditProject.propTypes = {
 export const fields = ["name", "members"];
 
 export default reduxForm({
-    form: constants.ADD_EDIT_PROJECT_FORM_NAME,
+    form: "addEditProjectForm",
     fields
   }
 )(AddEditProject);
