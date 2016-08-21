@@ -3,6 +3,7 @@ import MemberSelect from "../../projectList/components/MemberSelect";
 import Page from "../../common/page/Page";
 import TextInput from "../../common/forms/TextInput";
 import {reduxForm} from 'redux-form';
+import * as constants from "./constants";
 
 class AddEditProject extends React.Component {
   constructor(props, context) {
@@ -24,29 +25,29 @@ class AddEditProject extends React.Component {
 
     return (
       <Page isBusy={isBusy}>
-          <div className="row">
-            <div className="col-lg-6 col-lg-offset-3">
-              <h4 className="text-muted">Add Project</h4>
-              <div className="card card-block">
-                <form onSubmit={handleSubmit(onSave)}>
-                  <TextInput
-                    type="text"
-                    label="Name"
-                    placeholder="Enter a project name"
-                    {...name}/>
-                  <MemberSelect
-                    users={users}
-                    onChange={onChange}
-                    placeholder="Select project members"
-                    selectedMembers={selectedMembers}
-                    {...members}/>
-                  <br/>
-                  <br/>
-                  <button className="btn btn-primary" type="submit">Save</button>
-                </form>
-              </div>
+        <div className="row">
+          <div className="col-lg-6 col-lg-offset-3">
+            <h4 className="text-muted">Add Project</h4>
+            <div className="card card-block">
+              <form onSubmit={handleSubmit(onSave)}>
+                <TextInput
+                  type="text"
+                  label="Name"
+                  placeholder="Enter a project name"
+                  {...name}/>
+                <MemberSelect
+                  users={users}
+                  onChange={onChange}
+                  placeholder="Select project members"
+                  selectedMembers={selectedMembers}
+                  {...members}/>
+                <br/>
+                <br/>
+                <button className="btn btn-primary" type="submit">Save</button>
+              </form>
             </div>
           </div>
+        </div>
       </Page>
     );
   }
@@ -61,9 +62,10 @@ AddEditProject.propTypes = {
   isBusy: PropTypes.bool
 };
 
-export const fields = [ "name", "members"];
+export const fields = ["name", "members"];
 
 export default reduxForm({
-  form: "addEditProject",
-  fields
-})(AddEditProject);
+    form: constants.ADD_EDIT_PROJECT_FORM_NAME,
+    fields
+  }
+)(AddEditProject);

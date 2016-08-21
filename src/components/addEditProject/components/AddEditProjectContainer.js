@@ -5,6 +5,7 @@ import currentProject from "../../currentProject";
 import projectList from "../../projectList";
 import users from "../../users";
 import AddEditProject from "./AddEditProject";
+import _ from "lodash";
 
 class ManageProjectPage extends React.Component {
   constructor(props, context) {
@@ -94,13 +95,25 @@ class ManageProjectPage extends React.Component {
       .then(() => this.context.router.push("/"));
   }
 
+  mapProjectToFormData(project) {
+    return {
+      name: project.name,
+      members: project.members.map(member => member.id).join(",")
+    }
+  }
+
   render() {
     const {project, errors} = this.state;
     const {users, isBusy} = this.props;
+    let initialValues = {};
+
+    if (!_.isEmpty(project)) {
+      initialValues = this.mapProjectToFormData(project);
+    }
 
     return (
       <AddEditProject
-        project={project}
+        initialValues={initialValues}
         errors={errors}
         users={users}
         isBusy={isBusy}
