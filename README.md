@@ -62,6 +62,8 @@ This will run the automated build process, start up a webserver, and open the ap
 |Flux Standard Actions| Standardize action schema | https://github.com/acdlite/flux-standard-action |
 |Corey House Pluralsight Course| This is a must watch for anyone working in this code base as it was used as the foundation that this was created from | https://app.pluralsight.com/library/courses/react-redux-react-router-es6/table-of-contents |
 |Auth example (react + redux + react-router)| An approach for Auth using Redux and React | https://gist.github.com/iNikNik/1eabfc6bcc132384368c |
+|Redux Forms| A lib for forms in Redux | http://redux-form.com/ |
+|Initializing data in a Redux Form| How to load initial data when using redux forms | http://siawyoung.com/coding/javascript/initial-form-values-with-redux-form.html|
 
 ## Debugging
 A key focus of this project is improving developer ergonomics and this section outlines some tools that this develoment approach are optomized for.
@@ -191,6 +193,7 @@ export default {
 |react-router-redux|Keep React Router in sync with Redux application state|
 |redux|Library for unidirectional data flows |
 |redux-thunk|Async redux library|
+|redux-forms|Lib for implementing forms in Redux|
 |toastr|Display messages to the user|
 
 ##Development Dependencies
