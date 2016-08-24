@@ -9,15 +9,15 @@ This project has three purposes:
          - [ ] Promise based
             - [ ] Pass data between dependent calls
             - [ ] Parallel calls with busy wait
-            - [ ] Good error handling experience
+            - [x] Good error handling experience
             - [ ] Explore reducing boiler plate using https://github.com/agraboso/redux-api-middleware
          - [x] RxJs based, is this worth it?
          - [x] Generator based, not worth it. Not ready for prime time due to performance of transpiled generators and learning curve
     - [ ] Forms
-        - [ ] Establish good pattern for forms with bootstrap
-        - [ ] Establish good pattern for validations with bootstrap
-          - [ ] Field level
-          - [ ] Form level
+        - [x] Establish good pattern for forms with bootstrap
+        - [x] Establish good pattern for validations with bootstrap
+          - [x] Field level
+          - [x] Form level
         - [ ] Explore all inputs
           - [ ] Text
             - [ ] Masked input with placeholder
