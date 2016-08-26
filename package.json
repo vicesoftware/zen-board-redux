@@ -8,7 +8,7 @@
     "open:src": "babel-node tools/srcServer.js",
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
     "lint:watch": "npm run lint -- --watch",
-    "test": "mocha --reporter progress tools/testSetup.js \"src/**/*.test.js\"",
+    "test": "mocha --reporter progress tools/testSetup.js \"src/**/*.test.js\" && ava",
     "test:watch": "npm run test -- --watch"
   },
   "author": "Cory House",
@@ -30,6 +30,7 @@
     "toastr": "2.1.2"
   },
   "devDependencies": {
+    "ava": "^0.16.0",
     "babel-cli": "6.8.0",
     "babel-core": "6.8.0",
     "babel-loader": "6.2.4",
