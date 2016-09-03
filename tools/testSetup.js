@@ -48,4 +48,6 @@ global.navigator = {
   userAgent: 'node.js'
 };
 
-documentRef = document;  //eslint-disable-line no-undef
+// Commented this out because I was getting the error below
+// ReferenceError: documentRef is not defined
+//documentRef = document;  //eslint-disable-line no-undef

@@ -6,16 +6,17 @@ export default {
   debug: true,
   devtool: "inline-source-map",
   noInfo: false,
-  entry: [
+  entry: {
+    app: [
     "eventsource-polyfill", // necessary for hot reloading with IE
     "webpack-hot-middleware/client?reload=true", //note that it reloads the page if hot module reloading fails.
     "./src/index"
-  ],
+  ]},
   target: "web",
   output: {
     path: path.join(__dirname, "dist"), // Note: Physical files are only output by the production build task `npm run build`.
     publicPath: "/",
-    filename: "bundle.js"
+    filename: "[name]_bundle.js"
   },
   devServer: {
     contentBase: "./src"
