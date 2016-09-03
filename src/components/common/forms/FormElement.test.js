@@ -1,5 +1,5 @@
-import assert from 'assert';
 import React from 'react';
+import {expect} from 'chai';
 import {shallow} from "enzyme";
 import FormElement from "./FormElement";
 
@@ -8,7 +8,7 @@ describe("Given FormElement ", () => {
     const expectedChildren = <span>Foo</span>;
     const wrapper = shallow(<FormElement>{expectedChildren}</FormElement>);
 
-    assert.equal(wrapper.contains(expectedChildren), true);
+    expect(wrapper.contains(expectedChildren)).to.be.true;
   });
 
   it("is declared with name and label when rendered then it has label with htmlFor set to name", () => {
@@ -16,6 +16,6 @@ describe("Given FormElement ", () => {
     const expectedLabel = "expectedLabel";
     const wrapper = shallow(<FormElement name={expectedName} label={expectedLabel} />);
 
-    assert.equal(wrapper.contains(<label className="col-form-label" htmlFor={expectedName}>{expectedLabel}</label>), true);
+    expect(wrapper.contains(<label className="col-form-label" htmlFor={expectedName}>{expectedLabel}</label>)).to.be.true;
   });
 });
