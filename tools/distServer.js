@@ -9,8 +9,6 @@ const app = express();
 
 console.log("Setting up routes");
 
-console.log("app.use: ", app.use);
-
 app.use(express.static("dist"));
 
 app.get("*", function(req, res) {

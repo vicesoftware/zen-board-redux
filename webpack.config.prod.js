@@ -29,7 +29,12 @@ export default {
     new webpack.DefinePlugin(GLOBALS),
     new ExtractTextPlugin("styles.css"),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.ProvidePlugin({
+      jQuery: "jquery", // Add window.JQuery
+      $: "jquery", // Add window.$
+      jquery: "jquery" // Add window.jquery
+    })
   ],
   module: {
     loaders: [
@@ -39,7 +44,8 @@ export default {
       {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file"},
       {test: /\.(woff|woff2)(\?.*$|$)$/, loader: "url?prefix=font/&limit=5000"},
       {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream"},
-      {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml"}
+      {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml"},
+      {test: /tether\.js$/, loader: "expose?Tether"} // Add window.Tether
     ]
   }
 };
