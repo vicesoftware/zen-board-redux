@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import currentProject from "../../currentProject";
+import project from "../../project";
 import projectList from "../../projectList";
 import users from "../../users";
 import AddEditProject from "./AddEditProject";
@@ -80,7 +80,7 @@ class ManageProjectPage extends React.Component {
     return {
       name: project.name,
       members: project.members.map(member => member.id).join(",")
-    }
+    };
   }
 
   render() {
@@ -123,7 +123,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   const actions = Object.assign(
-    {}, currentProject.actions, projectList.actions, users.actions);
+    {}, project.actions, projectList.actions, users.actions);
 
   return {
     actions: bindActionCreators(actions, dispatch)

@@ -3,13 +3,13 @@ import {Route, IndexRoute} from "react-router";
 import app from "./components/app";
 import projectList from "./components/projectList";
 import addEditProject from "./components/addEditProject";
-import currentProject from "./components/currentProject";
+import currentProject from "./components/project";
 import taskList from "./components/taskList";
 import signIn from "./components/signIn";
 
 export default function createRoutes(requireAccess) {
   return (
-	<Route path="/" component={app.components.AppContainer}>
+	<Route path="/" component={app.components.App}>
 		<IndexRoute
       component={projectList.components.ProjectsPage}
       onEnter={requireAccess()}/>
@@ -19,14 +19,14 @@ export default function createRoutes(requireAccess) {
       onEnter={requireAccess()}/>
 		<Route
       path="projects/add"
-      component={addEditProject.components.AddEditProjectContainer}/>
+      component={addEditProject.components.AddEditProject}/>
 		<Route
       path="projects/edit/:id"
-      component={addEditProject.components.AddEditProjectContainer}
+      component={addEditProject.components.AddEditProject}
       onEnter={addEditProject.actions.loadAddEditProjectsFromRoute}/>
 		<Route
       path="projects/:id"
-      component={currentProject.components.ProjectPage}>
+      component={currentProject.components.Project}>
 			<IndexRoute
 				component={taskList.components.TaskList}
         onEnter={taskList.actions.getTasksFromRoute}/>

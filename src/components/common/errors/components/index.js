@@ -1,3 +1,3 @@
-import ErrorPanel from "./ErrorPanel";
+import ErrorPanel from "./ErrorPanelContainer";
 
 export { ErrorPanel };

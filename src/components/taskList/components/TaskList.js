@@ -1,38 +1,18 @@
 import React, {PropTypes} from "react";
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
-import * as actions from "../actions";
-import TaskListLayout from "./TaskListLayout";
-import * as selectors from "../selector";
+import TaskColumn from "./TaskColumn";
 
-class TaskList extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-  }
-
-  render() {
-    const {tasks} = this.props;
-    return (
-      <TaskListLayout tasks={tasks}/>
-    );
-  }
-}
-
-TaskList.propTypes = {
-  tasks: PropTypes.array.isRequired
+const TaskList = ({tasks}) => {
+  return (
+    <div className="row">
+      {tasks && <TaskColumn key="todo" tasks={tasks["To do"]} state="To do"/>}
+      {tasks && <TaskColumn key="inprogress" tasks={tasks["In progress"]} state="In progress"/>}
+      {tasks && <TaskColumn key="done" tasks={tasks["done"]} state="Done"/>}
+    </div>
+  );
 };
 
-function mapStateToProps(state) {
-  return {
-    tasks: selectors.getGroupedByStatus(state),
-    currentProject: state.currentProject
-  };
-}
+TaskList.propTypes = {
+  tasks: PropTypes.object
+};
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(TaskList);
+export default TaskList;

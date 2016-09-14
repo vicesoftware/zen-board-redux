@@ -1,30 +1,30 @@
 import React, {PropTypes} from "react";
-import {connect} from "react-redux";
-import ErrorPanelTemplate from "./templates/ErrorPanel";
 
-class ErrorPanel extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+const ErrorPanel = ({error}) => {
+  let view = "";
+  if (error) {
+      view = (
+      <div className="row">
+        <div className="col-lg-offset-4 col-lg-4">
+          <div className="alert alert-danger" role="alert">
+            <strong>{error.title}</strong>
+            <br/>
+            {error.message}
+          </div>
+        </div>
+      </div>
+      );
   }
-
-  render() {
-    const {userError} = this.props;
-
-    return (
-      <ErrorPanelTemplate error={userError}/>
-    );
-  }
-}
-
-ErrorPanel.propTypes = {
-  error: PropTypes.object,
-  userError: PropTypes.object
+  
+  return (
+    <div id="error-container">
+      {view}
+    </div>
+  );
 };
 
-function mapStateToProps(state) {
-  return {
-    userError: state.errors && state.errors.userError
-  };
-}
+ErrorPanel.propTypes = {
+  error: PropTypes.object
+};
 
-export default connect(mapStateToProps)(ErrorPanel);
+export default ErrorPanel;

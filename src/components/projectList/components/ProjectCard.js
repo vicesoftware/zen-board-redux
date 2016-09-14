@@ -1,6 +1,7 @@
 import React, {PropTypes} from "react";
 import {Link} from "react-router";
 import MemberList from "./MemberList";
+import ConfirmationModal from "../../common/modal/ConfirmationModal";
 
 const ProjectCard = (props) => {
   const {project} = props;
@@ -21,34 +22,18 @@ const ProjectCard = (props) => {
             <Link to={"/projects/edit/" + project.id}>
               <span className="icon icon-pencil" title="Edit"></span>
             </Link>
-            <a href="#" data-toggle="modal" data-target="#myModal">
-              <span className="icon icon-trash" title="Delete"></span>
-            </a>
-          </div>
-        </div>
-
-        <div className="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-             aria-hidden="true">
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 className="modal-title" id="myModalLabel">Delete Project</h4>
-              </div>
-              <div className="modal-body">
-                Are you sure you want to delete this project?
-              </div>
-              <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-dismiss="modal">No</button>
-                <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={onDeleteProject}>Yes</button>
-              </div>
-            </div>
+            <ConfirmationModal
+              id="myModal"
+              message="Are you sure you want to delete this project?"
+              title="Delete Project"
+              onYes={onDeleteProject}>
+              <a href="#">
+                <span className="icon icon-trash" title="Delete"></span>
+              </a>
+            </ConfirmationModal>
           </div>
         </div>
       </div>
-
     </div>
   );
 };
