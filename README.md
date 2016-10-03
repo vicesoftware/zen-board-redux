@@ -64,6 +64,7 @@ This will run the automated build process, start up a webserver, and open the ap
 |Auth example (react + redux + react-router)| An approach for Auth using Redux and React | https://gist.github.com/iNikNik/1eabfc6bcc132384368c |
 |Redux Forms| A lib for forms in Redux | http://redux-form.com/ |
 |Initializing data in a Redux Form| How to load initial data when using redux forms | http://siawyoung.com/coding/javascript/initial-form-values-with-redux-form.html|
+|Loading data with React Router| How to cover all scenarios for loading data for a new route| https://github.com/ReactTraining/react-router/blob/master/docs/guides/ComponentLifecycle.md|
 
 ## Debugging
 A key focus of this project is improving developer ergonomics and this section outlines some tools that this develoment approach are optomized for.
