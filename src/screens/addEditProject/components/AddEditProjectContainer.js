@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import project from "../../project";
 import projectList from "../../projectList";
-import users from "../../users";
+import users from "../../../components/users";
 import AddEditProject from "./AddEditProject";
 import _ from "lodash";
 

@@ -1,5 +1,5 @@
 import React, {PropTypes} from "react";
-import Page from "../../common/page/Page";
+import Page from "../../../components/common/page/Page";
 
 const SignIn = ({onSignIn, email, password, rememberMe, onChange, isBusy}) => {
   return (

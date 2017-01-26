@@ -1,5 +1,5 @@
 import taskApi from "../../api/stubTaskApi";
-import busySpinner from "../common/busySpinner";
+import busySpinner from "../../components/common/busySpinner";
 import {GET} from "./actionTypes";
 import {dispatch} from "../../store";
 

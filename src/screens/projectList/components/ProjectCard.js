@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 import {Link} from "react-router";
 import MemberList from "./MemberList";
-import ConfirmationModal from "../../common/modal/ConfirmationModal";
+import ConfirmationModal from "../../../components/common/modal/ConfirmationModal";
 
 const ProjectCard = (props) => {
   const {project} = props;

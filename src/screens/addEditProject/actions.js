@@ -1,5 +1,5 @@
 import {dispatch, getState} from "../../store";
-import users from "../users";
+import users from "../../components/users";
 import projectList from "../projectList";
 
 

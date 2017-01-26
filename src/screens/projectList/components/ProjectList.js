@@ -1,6 +1,6 @@
 import React, {PropTypes} from "react";
 import ProjectListRow from "./ProjectListRow";
-import BusyIndicator from "../../common/busySpinner/components/BusySpinner";
+import BusyIndicator from "../../../components/common/busySpinner/components/BusySpinner";
 
 const ProjectList = ({projectRows, isBusy, onDeleteProject}) => {
   return (

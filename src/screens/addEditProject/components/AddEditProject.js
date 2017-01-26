@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 import MemberSelect from "../../projectList/components/MemberSelect";
-import Page from "../../common/page/Page";
-import TextInput from "../../common/forms/TextInput";
+import Page from "../../../components/common/page/Page";
+import TextInput from "../../../components/common/forms/TextInput";
 import {reduxForm} from 'redux-form';
 
 class AddEditProject extends React.Component {

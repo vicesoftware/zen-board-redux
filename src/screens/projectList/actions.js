@@ -1,5 +1,5 @@
 import projectApi from "../../api/stubProjectApi";
-import busySpinner from "../common/busySpinner";
+import busySpinner from "../../components/common/busySpinner";
 import {GET, DELETE, SAVE} from "./actionTypes";
 import {dispatch} from "../../store";
 

@@ -1,11 +1,11 @@
 import React from "react";
 import {Route, IndexRoute} from "react-router";
 import app from "./components/app";
-import projectList from "./components/projectList";
-import addEditProject from "./components/addEditProject";
-import currentProject from "./components/project";
-import taskList from "./components/taskList";
-import signIn from "./components/signIn";
+import projectList from "./screens/projectList";
+import addEditProject from "./screens/addEditProject";
+import currentProject from "./screens/project";
+import taskList from "./screens/taskList";
+import signIn from "./screens/signIn";
 
 export default function createRoutes(requireAccess) {
   return (

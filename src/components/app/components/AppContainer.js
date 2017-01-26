@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import Header from "../../header/Header";
-import * as projectListSelectors from "../../projectList/selectors";
+import * as projectListSelectors from "../../../screens/projectList/selectors";
 
 class AppContainer extends React.Component {
 

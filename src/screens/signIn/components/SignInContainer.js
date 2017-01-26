@@ -2,8 +2,8 @@ import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import SignIn from "./SignIn";
-import userProfile from "../../userProfile";
-import errors from "../../common/errors";
+import userProfile from "../../../components/userProfile";
+import errors from "../../../components/common/errors";
 
 class SignInContainer extends React.Component {
   constructor(props, context) {

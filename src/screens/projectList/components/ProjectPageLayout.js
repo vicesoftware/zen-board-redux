@@ -1,6 +1,6 @@
 import React, {PropTypes} from "react";
 import ProjectList from "./ProjectList";
-import Page from "../../common/page/Page";
+import Page from "../../../components/common/page/Page";
 
 const ProjectPageLayout = ({isBusy, projectRows, onDeleteProject, onAddProject}) => {
   return (
