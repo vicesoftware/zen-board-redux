@@ -49,7 +49,7 @@ class ProjectsPage extends React.Component {
   }
 
   render() {
-    const {isBusy, actions} = this.props;
+    const {isBusy} = this.props;
     const projectRows = this.getProjectRows(this.props.projectList);
 
     return (

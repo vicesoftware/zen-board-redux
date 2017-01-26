@@ -1,8 +1,8 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import Page from "../../../components/common/page/Page";
 import projectList from "../../projectList";
+import ProjectScreen from "./ProjectScreen"
 
 class ProjectPage extends React.Component {
   constructor(props, context) {
@@ -10,26 +10,8 @@ class ProjectPage extends React.Component {
   }
 
   render() {
-    const {isBusy, children} = this.props;
-
     return (
-      <Page isBusy={isBusy}>
-        <ul className="nav nav-pills">
-          <li>
-            <a className="nav-link active" href="#">Tasks</a>
-          </li>
-          <li>
-            <a className="nav-link" href="#">Discussions</a>
-          </li>
-          <li>
-            <a className="nav-link" href="#">Calendar</a>
-          </li>
-          <li>
-            <a className="nav-link" href="#">Files</a>
-          </li>
-        </ul>
-        {children}
-      </Page>
+      <ProjectScreen {...this.props}/>
     );
   }
 }

@@ -1,3 +1,3 @@
-import AddEditProject from "./AddEditProjectContainer";
+import AddEditProjectScreen from "./AddEditProjectScreenContainer";
 
-export { AddEditProject };
+export { AddEditProjectScreen };

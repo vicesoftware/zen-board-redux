@@ -1,3 +1,3 @@
-import SignIn from "./SignInContainer";
+import SignInScreen from "./SignInScreenContainer";
 
-export {SignIn};
+export {SignInScreen};

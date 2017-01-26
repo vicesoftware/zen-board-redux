@@ -1,3 +1,3 @@
-import ProjectsPage from "./ProjectsPage";
+import ProjectsListScreen from "./ProjectListScreenContainer";
 
-export { ProjectsPage };
+export { ProjectsListScreen };

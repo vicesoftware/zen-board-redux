@@ -11,22 +11,22 @@ export default function createRoutes(requireAccess) {
   return (
 	<Route path="/" component={app.components.App}>
 		<IndexRoute
-      component={projectList.components.ProjectsPage}
+      component={projectList.components.ProjectsListScreen}
       onEnter={requireAccess()}/>
     <Route
       path="projects"
-      component={projectList.components.ProjectsPage}
+      component={projectList.components.ProjectsListScreen}
       onEnter={requireAccess()}/>
 		<Route
       path="projects/add"
-      component={addEditProject.components.AddEditProject}/>
+      component={addEditProject.components.AddEditProjectScreen}/>
 		<Route
       path="projects/edit/:id"
-      component={addEditProject.components.AddEditProject}
+      component={addEditProject.components.AddEditProjectScreen}
       onEnter={addEditProject.actions.loadAddEditProjectsFromRoute}/>
 		<Route
       path="projects/:id"
-      component={currentProject.components.Project}>
+      component={currentProject.components.ProjectScreen}>
 			<IndexRoute
 				component={taskList.components.TaskList}
         onEnter={taskList.actions.getTasksFromRoute}/>
